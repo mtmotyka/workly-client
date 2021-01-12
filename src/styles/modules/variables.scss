@@ -1,0 +1,41 @@
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1600px
+);
+
+/**
+Typography
+**/
+
+$thin: 100;
+$light: 300;
+$regular: 400;
+$medium: 500;
+$semi-bold: 600;
+$bold: 700;
+$black: 900;
+
+/**
+Colors
+**/
+
+$text-color: #000;
+$color-green: #CEF9C6;
+$color-green-text: #1D201C;
+$color-yellow: #FFF8DD;
+$color-yellow-text: #FFC200;
+$color-red: #FFE2E2;
+$color-red-text: #FF1000;
+$color-blue: #D7F6FF;
+$color-blue-text: #1975D0;
+$color-gray: #EAEAEA;
+$color-gray-text: #131313;
+$color-orange: #FFF1E2;
+$color-orage-text: #ED6400;
+$color-purple: #F5F0FF;
+$color-purple-text: #764CED;
+

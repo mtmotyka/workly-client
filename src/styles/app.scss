@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Heebo:wght@100;300;400;500;600;700;900&display=swap");
+
+@import "modules/bootstrap/bootstrap";
+@import "/modules/variables";
+
+body {
+  font-family: "Heebo", sans-serif;
+  font-style: normal;
+  background-color: #fff;
+  color: $text-color;
+  font-size: 17px;
+  font-weight: 400;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+}
+a,
+p,
+ul,
+ol {
+  margin: 0px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: $bold
+}
+
+@import "modules/_helpers";
+@import "modules/_mixins";
+
+@import "partials/_elements";
+@import "partials/_layout";
+@import "partials/_items";
+
+@import "modules/_media";

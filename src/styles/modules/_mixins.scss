@@ -1,0 +1,42 @@
+@import './variables';
+
+@mixin smScreen {
+  @media only screen and (min-width: map-get($grid-breakpoints, 'sm')) {
+    @content;
+  }
+}
+
+@mixin mdScreen {
+  @media only screen and (min-width: map-get($grid-breakpoints, 'md')) {
+    @content;
+  }
+}
+
+@mixin lgScreen {
+  @media only screen and (min-width: map-get($grid-breakpoints, 'lg')) {
+    @content;
+  }
+}
+
+@mixin xlScreen {
+  @media only screen and (min-width: map-get($grid-breakpoints, 'xl')) {
+    @content;
+  }
+}
+
+@mixin xxlScreen {
+  @media only screen and (min-width: map-get($grid-breakpoints, 'xxl')) {
+    @content;
+  }
+}
+
+@mixin resetList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+@mixin pseudo {
+  content: '';
+  position: absolute;
+}
