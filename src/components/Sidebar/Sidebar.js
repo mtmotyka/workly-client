@@ -12,7 +12,7 @@ const Sidebar = () => {
         <IcoSearch className="search-container__search-icon" />
       </div>
       <div className="user-container">
-        <img src={`data:image/png;base64,${ExampleAvatar}`} alt="" />
+        <img src={ExampleAvatar} alt="najs kretyn" />
       </div>
     </div>
   );
