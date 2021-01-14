@@ -6,12 +6,27 @@
     background-color: #000;
     height: 100vh;
     width: 270px;
-    padding: 30px;
+    padding: 30px 0;
+
+    .single-container {
+        padding: 0 20px 0 30px;
+        margin: 30px 0;
+
+        &__title {
+            text-transform: uppercase;
+            font-size: 12px;
+            font-weight: $black;
+            color: #fff;
+            opacity: 0.5;
+            margin-bottom: 20px;
+        }
+    }
 
     &__search-container {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        margin: 0!important;
 
         .search-container {
 
@@ -40,6 +55,99 @@
 
             &__search-icon {
                 cursor: pointer;
+            }
+        }
+    }
+
+    &__user-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #202020;
+        padding: 15px 20px 15px 30px!important;
+        margin: 30px 0 0!important;
+
+        .user-info {
+            &__name {
+                color: #fff;
+                font-size: 14px;
+                font-weight: $bold;
+            }
+
+            &__role {
+                font-weight: $bold;
+                font-size: 12px;
+                color: #9B9B9B;
+            }
+        }
+    }
+
+    &__tasks-info {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        .single-item {
+
+            &:first-of-type {
+                margin-right: 30px;
+            }
+
+            &__number {
+                color: #fff;
+                font-size: 20px;
+                font-weight: $bold;
+            }
+
+            &__desc {
+                color: #fff;
+                opacity: 0.5;
+                font-weight: $black;
+                font-size: 12px;
+            }
+        }
+    }
+
+    &__menu {
+
+        .menu {
+            &__list {
+                @include reset-list;
+                
+                .list {
+                    &__item {
+                        margin-bottom: 18px;
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: center;
+
+                        &:last-of-type {
+                            margin-bottom: 0;
+                        }
+
+                        a {
+                            color: #fff;
+                            font-size: 14px;
+                            font-weight: $bold;
+                        }
+
+                        .item {
+                            &__notification {
+                                font-size: 13px;
+                                font-weight: $bold;
+                                color: #000;
+                                background-color: $color-yellow-text;
+                                width: 22px;
+                                height: 22px;
+                                line-height: 22px;
+                                border-radius: 50%;
+                                text-align: center;
+                                margin-left: 8px;
+                            }
+                        }
+                    }
+                }
+
             }
         }
     }
