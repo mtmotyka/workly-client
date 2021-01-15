@@ -1,0 +1,12 @@
+<svg id="Icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Mask" width="20" height="20" rx="4" fill="#ffc200"/>
+    </clipPath>
+  </defs>
+  <rect id="Mask-2" data-name="Mask" width="20" height="20" rx="4" fill="#ffc200"/>
+  <g id="Icon-2" data-name="Icon" clip-path="url(#clip-path)">
+    <path id="Rectangle_2_Copy_2" data-name="Rectangle 2 Copy 2" d="M25.2,0V20H0Q3.219,9.7,12.335,8.066T25.2,0Z" transform="translate(-5.102 4.281)" fill="red"/>
+    <path id="Rectangle_2" data-name="Rectangle 2" d="M15.992,11.315C24.705,8.9,25.2,0,25.2,0V19.9H0s4.864-5.626,7.926-7.086S13.065,12.126,15.992,11.315Z" transform="translate(-5.102 4.38)" fill="#753ad7"/>
+  </g>
+</svg>

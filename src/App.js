@@ -1,11 +1,11 @@
 import React from "react";
 import { BrowseRouter, Route } from "react-router-dom";
-import Sidebar from "./components/Sidebar/Sidebar";
+import Layout from "./components/Layout/Layout";
 
 const App = () => {
   return (
     <div>
-      <Sidebar />
+      <Layout />
     </div>
   );
 };
