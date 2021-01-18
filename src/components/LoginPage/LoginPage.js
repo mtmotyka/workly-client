@@ -3,28 +3,26 @@ import "./login-page.scss";
 import axios from "axios";
 
 const LoginPage = () => {
-  const [accesToken, setAccesToken] = useState(null);
+  const [accessToken, setAccessToken] = useState("");
+  const [refreshToken, setRefreshToken] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const loginSubmit = async (e) => {
     e.preventDefault();
 
-    let formData = new FormData();
-
-    formData.set("email", email);
-    formData.set("password", password);
-
     const response = await axios.post(
       "https://cors-anywhere.herokuapp.com/https://workly-api.herokuapp.com/auth/login",
       {
-        data: {
-          email: email,
-          password: password,
-        },
+        email: email,
+        password: password,
       }
     );
-    console.log(response);
+
+    const data = response.data;
+
+    setAccessToken(data.accessToken);
+    setRefreshToken(data.refreshToken);
   };
 
   return (
@@ -60,6 +58,8 @@ const LoginPage = () => {
             Log in
           </button>
         </form>
+        <p>Access Token: {accessToken}</p>
+        <p>Refresh Token: {refreshToken}</p>
       </div>
     </main>
   );
