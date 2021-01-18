@@ -1,15 +1,39 @@
-import React from "react";
-
+import React, { useState } from "react";
 import "./login-page.scss";
+import axios from "axios";
 
 const LoginPage = () => {
+  const [accesToken, setAccesToken] = useState(null);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const loginSubmit = async (e) => {
+    e.preventDefault();
+
+    let formData = new FormData();
+
+    formData.set("email", email);
+    formData.set("password", password);
+
+    const response = await axios.post(
+      "https://cors-anywhere.herokuapp.com/https://workly-api.herokuapp.com/auth/login",
+      {
+        data: {
+          email: email,
+          password: password,
+        },
+      }
+    );
+    console.log(response);
+  };
+
   return (
     <main className="login-page">
       <div className="login-page__login-container login-container">
         <h1 className="login-container__title">Log in</h1>
         <button className="btn--green">Use Google Account</button>
         <span className="login-container__divider"></span>
-        <form>
+        <form onSubmit={loginSubmit}>
           <div className="input-wrapper">
             <label htmlFor="email">Email</label>
             <input
@@ -17,6 +41,8 @@ const LoginPage = () => {
               name="email"
               id="email"
               placeholder="example@mail.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="input-wrapper">
@@ -26,6 +52,8 @@ const LoginPage = () => {
               name="password"
               id="password"
               placeholder="*********"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
           <button type="submit" className="btn--green">

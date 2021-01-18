@@ -1,5 +1,7 @@
+@import "../../assets/styles/modules/variables";
+
 .layout {
-    background-color: #EEEBE5;
+    background-color: $color-background;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
