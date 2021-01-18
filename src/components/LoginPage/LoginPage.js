@@ -19,8 +19,8 @@ const LoginPage = () => {
       "https://cors-anywhere.herokuapp.com/https://workly-api.herokuapp.com/auth/login",
       {
         data: {
-          email: email,
-          password: password,
+          email: "adminAccount@workly.io",
+          password: "worklyPassword123",
         },
       }
     );
