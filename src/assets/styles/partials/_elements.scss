@@ -1,0 +1,49 @@
+.btn {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: $bold;
+  color: #1d201c;
+  text-align: center;
+  border-radius: 50px;
+  padding: 13px 70px;
+  appearance: none !important;
+  transition: all 0.25s;
+  cursor: pointer;
+
+  &--green {
+    @extend .btn;
+    background-color: $color-green;
+    border: 2px solid $color-green;
+
+    &:hover {
+      background-color: transparent;
+    }
+  }
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: 25px;
+
+  input {
+    width: 100%;
+    border-radius: 10px;
+    background-color: #eaeaea;
+    padding: 0 15px;
+    font-weight: $bold;
+    font-size: 16px;
+    height: 50px;
+    appearance: none;
+    border: none;
+  }
+
+  label {
+    font-size: 14px;
+    font-weight: $bold;
+    margin: 0 0 3px 0;
+  }
+}
