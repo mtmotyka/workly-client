@@ -87,56 +87,46 @@ const Sidebar = () => {
             <div className="single-team">
               <p className="single-team__team-name">Designers</p>
               <div className="single-team__avatar-container avatar-container">
-                <img
-                  src={ExampleTeamAvatarOne}
-                  alt=""
-                  className="avatar-container__avatar"
-                />
-                <img
-                  src={ExampleTeamAvatarTwo}
-                  alt=""
-                  className="avatar-container__avatar"
-                />
-                <img
-                  src={ExampleTeamAvatarThree}
-                  alt=""
-                  className="avatar-container__avatar"
-                />
+                {Array(4)
+                  .fill(null)
+                  .map((index) => (
+                    <img
+                      key={index}
+                      src={ExampleTeamAvatarOne}
+                      alt=""
+                      className="avatar-container__avatar"
+                    />
+                  ))}
               </div>
             </div>
             <div className="single-team">
               <p className="single-team__team-name">Backend</p>
               <div className="single-team__avatar-container avatar-container">
-                <img
-                  src={ExampleTeamAvatarOne}
-                  alt=""
-                  className="avatar-container__avatar"
-                />
-                <img
-                  src={ExampleTeamAvatarTwo}
-                  alt=""
-                  className="avatar-container__avatar"
-                />
+                {Array(2)
+                  .fill(null)
+                  .map((index) => (
+                    <img
+                      key={index}
+                      src={ExampleTeamAvatarTwo}
+                      alt=""
+                      className="avatar-container__avatar"
+                    />
+                  ))}
               </div>
             </div>
             <div className="single-team">
               <p className="single-team__team-name">Frontend</p>
               <div className="single-team__avatar-container avatar-container">
-                <img
-                  src={ExampleTeamAvatarOne}
-                  alt=""
-                  className="avatar-container__avatar"
-                />
-                <img
-                  src={ExampleTeamAvatarTwo}
-                  alt=""
-                  className="avatar-container__avatar"
-                />
-                <img
-                  src={ExampleTeamAvatarThree}
-                  alt=""
-                  className="avatar-container__avatar"
-                />
+                {Array(3)
+                  .fill(null)
+                  .map((index) => (
+                    <img
+                      key={index}
+                      src={ExampleTeamAvatarThree}
+                      alt=""
+                      className="avatar-container__avatar"
+                    />
+                  ))}
               </div>
             </div>
             <a href="/" className="teams__add-project">
