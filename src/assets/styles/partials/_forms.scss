@@ -1,0 +1,46 @@
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 25px;
+  
+    input {
+      width: 100%;
+      border-radius: 10px;
+      background-color: #eaeaea;
+      padding: 0 15px;
+      font-weight: $bold;
+      font-size: 16px;
+      height: 50px;
+      appearance: none;
+      border: none;
+
+      &.error {
+          border: 1px solid $color-red-text;
+      }
+    }
+  
+    label {
+      font-size: 14px;
+      font-weight: $bold;
+      margin: 0 0 3px 0;
+    }
+  }
+
+.error-message {
+    font-size: 12px;
+    color: $color-red-text;
+
+    &--passwords {
+        margin-top: 5px;
+    }
+}
+
+.success-message {
+    font-size: 14px;
+    color: rgb(0, 116, 6);
+    margin-top: 10px;
+}
