@@ -3,8 +3,6 @@ import "./login-page.scss";
 import axios from "axios";
 
 const LoginPage = () => {
-  const [accessToken, setAccessToken] = useState("");
-  const [refreshToken, setRefreshToken] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -20,9 +18,7 @@ const LoginPage = () => {
     );
 
     const data = response.data;
-
-    setAccessToken(data.accessToken);
-    setRefreshToken(data.refreshToken);
+    localStorage.setItem("accesToken", data.accessToken);
   };
 
   return (
@@ -32,7 +28,7 @@ const LoginPage = () => {
         <button className="btn--green">Use Google Account</button>
         <span className="login-container__divider"></span>
         <form onSubmit={loginSubmit}>
-          <div className="input-wrapper">
+          <div className="input-group">
             <label htmlFor="email">Email</label>
             <input
               type="email"
@@ -43,7 +39,7 @@ const LoginPage = () => {
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
-          <div className="input-wrapper">
+          <div className="input-group">
             <label htmlFor="email">Password</label>
             <input
               type="password"
@@ -58,8 +54,6 @@ const LoginPage = () => {
             Log in
           </button>
         </form>
-        <p>Access Token: {accessToken}</p>
-        <p>Refresh Token: {refreshToken}</p>
       </div>
     </main>
   );
