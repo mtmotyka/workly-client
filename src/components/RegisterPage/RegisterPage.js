@@ -8,28 +8,47 @@ const RegisterPage = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [succesMessage, setSuccesMessage] = useState("");
+  const [emailErrorMessage, setEmailErrorMessage] = useState("");
+  const [isSubmit, setIsSubmit] = useState(false);
 
   const registerSubmit = async (e) => {
     e.preventDefault();
 
-    //TODO: Empty email validation
-    if (password !== "" && confirmPassword !== "") {
-      if (password !== confirmPassword) {
-        setErrorMessage("Passwords don't match");
+    const passwordValidation = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)\S{8,64}$/; //8-64 signs, at least one number, one lowercase, one uppercase, no spaces
+    const emailValidation = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    setIsSubmit(true);
+
+    if (email.match(emailValidation)) {
+      if (password.match(passwordValidation)) {
+        if (password !== confirmPassword) {
+          setSuccesMessage("");
+          setErrorMessage("Passwords don't match");
+          setIsSubmit(false);
+        } else {
+          const response = await axios.post(
+            "https://cors-anywhere.herokuapp.com/https://workly-api.herokuapp.com/auth/register",
+            {
+              email: email,
+              password: password,
+            }
+          );
+          const data = response.data;
+          console.log(data);
+          setSuccesMessage("Your account has been created successfully");
+          setErrorMessage("");
+          setEmailErrorMessage("");
+          setIsSubmit(false);
+        }
       } else {
-        const response = await axios.post(
-          "https://cors-anywhere.herokuapp.com/https://workly-api.herokuapp.com/auth/register",
-          {
-            email: email,
-            password: password,
-          }
-        );
-        const data = response.data;
-        console.log(data);
-        setSuccesMessage("Your account has been created successfully");
+        setSuccesMessage("");
+        setErrorMessage("Password doesn't meet the requirements");
+        setIsSubmit(false);
       }
     } else {
-      setErrorMessage("Password cannot be empty");
+      setSuccesMessage("");
+      setEmailErrorMessage("Email is invalid");
+      setIsSubmit(false);
     }
   };
 
@@ -45,9 +64,12 @@ const RegisterPage = () => {
               name="email"
               id="email"
               placeholder="example@mail.com"
+              className={`${emailErrorMessage !== "" ? "error" : ""}`}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              required
             />
+            <p className="error-message">{emailErrorMessage}</p>
           </div>
           <div className="input-group">
             <label htmlFor="email">Password</label>
@@ -56,10 +78,16 @@ const RegisterPage = () => {
               name="password"
               id="password"
               placeholder="*********"
-              className={`${errorMessage === true ? "error" : ""}`}
+              className={`${errorMessage !== "" ? "error" : ""}`}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              required
             />
+            <p className="small-info">
+              Password must be between 8 to 64 characters which contain at least
+              one number, one uppercase and one lowercase letter. Also can't
+              contain spaces.
+            </p>
           </div>
           <div className="input-group">
             <label htmlFor="email">Confirm password</label>
@@ -67,15 +95,16 @@ const RegisterPage = () => {
               type="password"
               name="confirm-password"
               id="confirm-password"
-              className={`${errorMessage === true ? "error" : ""}`}
+              className={`${errorMessage !== "" ? "error" : ""}`}
               placeholder="*********"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
+              required
             />
             <p className="error-message">{errorMessage}</p>
           </div>
           <button type="submit" className="btn--green">
-            Register
+            {isSubmit === false ? "Register" : "Submiting..."}
           </button>
           <p className="success-message">{succesMessage}</p>
         </form>
