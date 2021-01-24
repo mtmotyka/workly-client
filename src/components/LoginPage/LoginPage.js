@@ -37,6 +37,7 @@ const LoginPage = () => {
               placeholder="example@mail.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              required
             />
           </div>
           <div className="input-group">
@@ -48,6 +49,7 @@ const LoginPage = () => {
               placeholder="*********"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              required
             />
           </div>
           <button type="submit" className="btn--green">
