@@ -1,0 +1,104 @@
+@import "../../assets/styles/modules/variables";
+@import "../../assets/styles/modules/helpers";
+@import "../../assets/styles/modules/mixins";
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: calc(100% - 270px);
+    margin-left: 270px;
+    background-color: #fff;
+    padding: 30px 30px 45px;
+    -webkit-box-shadow: 0px 4px 19px -5px rgba(0,0,0,0.05);
+    -moz-box-shadow: 0px 4px 19px -5px rgba(0, 0, 0, 0.05);
+    box-shadow: 0px 4px 19px -5px rgba(0,0,0,0.05);
+    
+    &__main-belt {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .title-container {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+
+            &__more-btn {
+                outline: none;
+                appearance: none!important;
+                background: transparent;
+                border: 0;
+                cursor: pointer;
+                margin: -5px 0 0 5px;
+            }
+        }
+        
+        .team-info {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+
+            &__person {
+                margin-right: 4px;
+                cursor: pointer;
+
+                &:last-of-type {
+                    margin-right: 20px;
+                }
+            }
+
+            &__button {
+                margin-right: 15px;
+
+                &:last-of-type {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+
+    &__navigation {
+        position: absolute;
+        bottom: 0;
+        left: 30px;
+
+        .navigation {
+            &__menu {
+                @include reset-list;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+
+                li {
+                    padding-bottom: 6px;
+                    border-bottom: 2px solid transparent;
+                    transition: all .2s;
+                    margin-right: 20px;
+
+                    &:last-of-type {
+                        margin-right: 0;
+                    }
+
+                    &:hover,
+                    &.active {
+                        border-bottom: 2px solid $color-yellow-text;
+
+                        a {
+                            opacity: 1;
+                        }
+                    }
+
+                    a {
+                        color: $color-gray-text;
+                        opacity: 0.7;
+                        font-size: 16px;
+                        font-weight: $bold;
+                        text-decoration: none;
+
+                    }
+                }
+            }
+        }
+    }
+}

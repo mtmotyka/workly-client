@@ -2,7 +2,10 @@
 
 .layout {
     background-color: $color-background;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
+
+    &__content {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
 }

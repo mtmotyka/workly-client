@@ -8,7 +8,14 @@
   padding: 13px 70px;
   appearance: none !important;
   transition: all 0.25s;
+  border: 2px solid transparent;
   cursor: pointer;
+  text-decoration: none!important;
+
+  &--small {
+    @extend .btn;
+    padding: 5px 18px;
+  }
 
   &--green {
     @extend .btn;
@@ -17,6 +24,29 @@
 
     &:hover {
       background-color: transparent;
+    }
+  }
+
+  &--gray {
+    @extend .btn;
+    background-color: #EAEAEA;
+    color: #000;
+
+    &:hover {
+      background-color: transparent;
+      border: 2px solid #EAEAEA;
+      color: #000;
+    }
+  }
+
+  &--yellow {
+    background-color: $color-yellow;
+    color: $color-yellow-text;
+
+    &:hover {
+      border: 2px solid $color-yellow;
+      background-color: transparent;
+      color: $color-yellow-text;
     }
   }
 }
