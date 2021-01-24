@@ -10,6 +10,7 @@ const RegisterPage = () => {
   const [succesMessage, setSuccesMessage] = useState("");
   const [emailErrorMessage, setEmailErrorMessage] = useState("");
   const [isSubmit, setIsSubmit] = useState(false);
+  const [undefinedError, setUndefinedError] = useState("");
 
   const registerSubmit = async (e) => {
     e.preventDefault();
@@ -19,36 +20,45 @@ const RegisterPage = () => {
 
     setIsSubmit(true);
 
-    if (email.match(emailValidation)) {
-      if (password.match(passwordValidation)) {
-        if (password !== confirmPassword) {
-          setSuccesMessage("");
-          setErrorMessage("Passwords don't match");
-          setIsSubmit(false);
-        } else {
-          const response = await axios.post(
-            "https://cors-anywhere.herokuapp.com/https://workly-api.herokuapp.com/auth/register",
-            {
-              email: email,
-              password: password,
-            }
-          );
-          const data = response.data;
-          console.log(data);
-          setSuccesMessage("Your account has been created successfully");
-          setErrorMessage("");
-          setEmailErrorMessage("");
-          setIsSubmit(false);
-        }
-      } else {
-        setSuccesMessage("");
-        setErrorMessage("Password doesn't meet the requirements");
-        setIsSubmit(false);
-      }
-    } else {
+    let isFormValid = true;
+
+    if (!email.match(emailValidation)) {
       setSuccesMessage("");
       setEmailErrorMessage("Email is invalid");
       setIsSubmit(false);
+      isFormValid = false;
+    }
+
+    if (!password.match(passwordValidation)) {
+      setSuccesMessage("");
+      setErrorMessage("Password doesn't meet the requirements");
+      setIsSubmit(false);
+      isFormValid = false;
+    }
+
+    if (password !== confirmPassword) {
+      setSuccesMessage("");
+      setErrorMessage("Passwords don't match");
+      setIsSubmit(false);
+      isFormValid = false;
+    }
+
+    if (isFormValid) {
+      const response = await axios.post(
+        "https://cors-anywhere.herokuapp.com/https://workly-api.herokuapp.com/auth/register",
+        {
+          email: email,
+          password: password,
+        }
+      );
+      if (response.status === 201) {
+        setSuccesMessage("Your account has been created successfully");
+        setErrorMessage("");
+        setEmailErrorMessage("");
+        setIsSubmit(false);
+      } else {
+        setUndefinedError("An unexpected error has occurred. Try again later.");
+      }
     }
   };
 
@@ -107,6 +117,7 @@ const RegisterPage = () => {
             {isSubmit === false ? "Register" : "Submiting..."}
           </button>
           <p className="success-message">{succesMessage}</p>
+          <p className="error-message">{undefinedError}</p>
         </form>
       </div>
     </main>

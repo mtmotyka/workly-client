@@ -19,7 +19,6 @@ const LoginPage = () => {
 
     const data = response.data;
     localStorage.setItem("accesToken", data.accessToken);
-    console.log(data.accessToken);
   };
 
   return (
