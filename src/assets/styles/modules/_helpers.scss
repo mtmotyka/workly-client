@@ -1,3 +1,5 @@
+@import "./variables";
+
 $spaceamounts: (5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 110, 120, 130, 140, 150);
 $sides: (top, bottom, left, right);
 
@@ -11,4 +13,32 @@ $sides: (top, bottom, left, right);
       padding-#{$side}: #{$space}px !important;
     }
   }
+}
+
+.color-green {
+  color: $color-green-text;
+}
+
+.color-yellow {
+  color: $color-yellow-text;
+}
+
+.color-red {
+  color: $color-red-text;
+}
+
+.color-blue {
+  color: $color-blue-text;
+}
+
+.color-gray {
+  color: $color-gray-text;
+}
+
+.color-orange {
+  color: $color-orange-text;
+}
+
+.color-purple {
+  color: $color-purple-text;
 }

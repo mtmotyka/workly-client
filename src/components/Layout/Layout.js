@@ -8,10 +8,8 @@ const Layout = ({ children }) => {
   return (
     <main className="layout">
       <Header />
-      <section className="layout__content">
-        <Sidebar />
-        {children}
-      </section>
+      <Sidebar />
+      <div className="main-content">{children}</div>
     </main>
   );
 };

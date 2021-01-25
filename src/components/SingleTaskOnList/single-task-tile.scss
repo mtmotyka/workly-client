@@ -1,0 +1,63 @@
+@import "../../assets/styles/modules/variables";
+@import "../../assets/styles/modules/helpers";
+@import "../../assets/styles/modules/mixins";
+
+.single-task-tile {
+    background-color: #F7F6F3;
+    padding: 22px 20px 20px 60px;
+    border-radius: 10px;
+    position: relative;
+    margin-bottom: 20px;
+
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+
+    &__complete-btn {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        cursor: pointer;
+
+        svg {
+            transition: all .25s;
+        }
+
+        &:hover {
+            svg {
+                rect {
+                    fill: $color-green;
+                }
+                path {
+                    fill: $color-green-text;
+                }
+            }
+        }
+    }
+
+    &__title {
+        font-size: 18px;
+        font-weight: $bold;
+        cursor: pointer;
+
+    }
+
+    .task-info {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-top: 10px;
+
+        &__project {
+            margin-left: 10px;
+            background-color: $color-orange;
+            color: $color-orange-text;
+            border-radius: 50px;
+            padding: 4px 20px;
+            font-weight: $bold;
+            font-size: 12px;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+    }
+}
