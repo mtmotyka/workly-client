@@ -1,4 +1,24 @@
-# Getting Started with Create React App
+# About Workly
+
+Workly is a project that I create together with a fellow back-end developer. It's project management app like Asana or Trello.
+We rely on free PSD from web, but I try to improve design on the fly while codding.
+
+This is repo with front-end code. Backend repo is here: https://github.com/mikovsky/workly-server
+
+### Live preview
+You can see our progress here: https://worklypl.netlify.app/
+
+## Used technologies
+
+**Front-end:**
+- React.js
+- Tailwind CSS (first approach with this framework... Let's try)
+
+**Back-end:**
+- Golang
+
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
