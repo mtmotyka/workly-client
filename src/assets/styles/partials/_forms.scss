@@ -5,22 +5,29 @@
     justify-content: flex-start;
     align-items: flex-start;
     width: 100%;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
+    position: relative;
   
     input {
       width: 100%;
-      border-radius: 10px;
+      border-radius: 5px;
       background-color: #eaeaea;
       padding: 0 15px;
-      font-weight: $bold;
+      font-weight: $regular;
       font-size: 16px;
-      height: 50px;
+      height: 60px;
       appearance: none;
       border: none;
 
       &.error {
           border: 1px solid $color-red-text;
       }
+
+    }
+
+    input[type=password] {
+      @extend input;
+      padding: 0 60px 0 15px;
     }
   
     label {
@@ -31,11 +38,28 @@
   }
 
 .error-message {
-    font-size: 12px;
-    color: $color-red-text;
+    font-size: 16px;
+    background-color: transparent;
+    text-align: center;
+    border: 1px solid transparent;
+    padding: 15px;
+    border-radius: 5px;
+    display: none;
 
-    &--passwords {
-        margin-top: 5px;
+    &--red {
+      background-color: $color-red;
+      border: 1px solid $color-red-text;
+      color: $color-red-text;
+      margin-top: 15px;
+      display: block;
+    }
+
+    &--green {
+      background-color: $color-green;
+      border: 1px solid $color-green-text;
+      color: $color-gray-text;
+      margin-top: 15px;
+      display: block;
     }
 }
 
@@ -48,5 +72,27 @@
 .small-info {
   color: #333;
   font-size: 12px;
-  margin-top: 10px;
+  margin: -5px 0 15px;
+}
+
+.show-password {
+  background-image: url(../../icons/ico-eye.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  background-color: $color-gray;
+  padding: 0 0 0 15px;
+  width: 40px;
+  height: 25px;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  display: block;
+  transform: translate(0, -5%);
+  cursor: pointer;
+  opacity: 0.3;
+
+  &.active {
+    opacity: 1;
+  }
 }
