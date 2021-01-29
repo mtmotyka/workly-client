@@ -88,6 +88,7 @@ const RegisterPage = () => {
               <div className="input-group">
                 <label htmlFor="email">Name</label>
                 <input
+                  type="email"
                   name="text"
                   id="name"
                   placeholder="John"
