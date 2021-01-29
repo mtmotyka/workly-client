@@ -12,6 +12,17 @@
   cursor: pointer;
   text-decoration: none!important;
 
+  &--link {
+    font-size: 18px;
+    font-weight: $semi-bold;
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
   &--small {
     @extend .btn;
     padding: 5px 18px;

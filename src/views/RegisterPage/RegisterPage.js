@@ -1,16 +1,21 @@
 import React, { useState } from "react";
 import "./register-page.scss";
 import axios from "axios";
+import { Link } from "react-router-dom";
+
+import { ReactComponent as WorklySygnet } from "../../assets/images/workly-sygnet-yellow.svg";
 
 const RegisterPage = () => {
+  const [name, setName] = useState("");
+  const [surname, setSurname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [succesMessage, setSuccesMessage] = useState("");
-  const [emailErrorMessage, setEmailErrorMessage] = useState("");
   const [isSubmit, setIsSubmit] = useState(false);
   const [undefinedError, setUndefinedError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const registerSubmit = async (e) => {
     e.preventDefault();
@@ -24,7 +29,7 @@ const RegisterPage = () => {
 
     if (!email.match(emailValidation)) {
       setSuccesMessage("");
-      setEmailErrorMessage("Email is invalid");
+      setErrorMessage("Email is invalid");
       setIsSubmit(false);
       isFormValid = false;
     }
@@ -47,6 +52,8 @@ const RegisterPage = () => {
       const response = await axios.post(
         "https://cors-anywhere.herokuapp.com/https://workly-api.herokuapp.com/auth/register",
         {
+          name: name,
+          surname: surname,
           email: email,
           password: password,
         }
@@ -54,7 +61,6 @@ const RegisterPage = () => {
       if (response.status === 201) {
         setSuccesMessage("Your account has been created successfully");
         setErrorMessage("");
-        setEmailErrorMessage("");
         setIsSubmit(false);
       } else {
         setUndefinedError("An unexpected error has occurred. Try again later.");
@@ -65,59 +71,109 @@ const RegisterPage = () => {
   return (
     <main className="register-page">
       <div className="register-page__register-container register-container">
-        <h1 className="register-container__title">Register</h1>
+        <WorklySygnet className="register-container__logo" />
+        <div className="switch register-container__switch">
+          <Link to="/register" className="switch__link btn--link active">
+            Register
+          </Link>
+          <span className="switch__divider" />
+          <Link to="/login" className="switch__link btn--link">
+            Login
+          </Link>
+        </div>
         <form onSubmit={registerSubmit}>
+          <div className="row">
+            <div className="col-md-6">
+              {" "}
+              <div className="input-group">
+                <label htmlFor="email">Name</label>
+                <input
+                  name="text"
+                  id="name"
+                  placeholder="John"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                />
+              </div>
+            </div>
+            <div className="col-md-6">
+              {" "}
+              <div className="input-group">
+                <label htmlFor="email">Name</label>
+                <input
+                  name="text"
+                  id="surname"
+                  placeholder="Kowalsky"
+                  value={surname}
+                  onChange={(e) => setSurname(e.target.value)}
+                  required
+                />
+              </div>
+            </div>
+          </div>
           <div className="input-group">
             <label htmlFor="email">Email</label>
             <input
-              type="email"
               name="email"
               id="email"
               placeholder="example@mail.com"
-              className={`${emailErrorMessage !== "" ? "error" : ""}`}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
             />
-            <p className="error-message">{emailErrorMessage}</p>
           </div>
           <div className="input-group">
             <label htmlFor="email">Password</label>
             <input
-              type="password"
+              type={`${showPassword === true ? "text" : "password"}`}
               name="password"
               id="password"
               placeholder="*********"
-              className={`${errorMessage !== "" ? "error" : ""}`}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-            <p className="small-info">
-              Password must be between 8 to 64 characters which contain at least
-              one number, one uppercase and one lowercase letter. Also can't
-              contain spaces.
-            </p>
+            <span
+              onClick={(e) => setShowPassword(!showPassword)}
+              className={`show-password ${
+                showPassword === true ? "active" : ""
+              }`}
+            />
           </div>
+          <p className="small-info">
+            Password must be between 8 to 64 characters which contain at least
+            one number, one uppercase and one lowercase letter. Also can't
+            contain spaces.
+          </p>
           <div className="input-group">
             <label htmlFor="email">Confirm password</label>
             <input
-              type="password"
+              type={`${showPassword === true ? "text" : "password"}`}
               name="confirm-password"
               id="confirm-password"
-              className={`${errorMessage !== "" ? "error" : ""}`}
               placeholder="*********"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
             />
-            <p className="error-message">{errorMessage}</p>
           </div>
           <button type="submit" className="btn--green">
             {isSubmit === false ? "Register" : "Submiting..."}
           </button>
-          <p className="success-message">{succesMessage}</p>
-          <p className="error-message">{undefinedError}</p>
+          <div
+            className={`error-message ${
+              succesMessage !== "" ? "error-message--green" : ""
+            } ${
+              errorMessage !== "" || undefinedError !== ""
+                ? "error-message--red"
+                : ""
+            } `}
+          >
+            {succesMessage}
+            {undefinedError}
+            {errorMessage}
+          </div>
         </form>
       </div>
     </main>
