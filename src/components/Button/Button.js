@@ -1,11 +1,12 @@
 import React from "react";
+import { ButtonType, ButtonSize } from "../../theme/theme";
 
 const Button = (props) => {
-  const { type, textColor, bgColor, className, children } = props;
+  const { type, color, size, children, className } = props;
   return (
     <button
       type={type}
-      className={`bg-${bgColor} text-${textColor} ${className} `}
+      className={`${ButtonType[color]} ${ButtonSize[size]} ${className}`}
     >
       {children}
     </button>

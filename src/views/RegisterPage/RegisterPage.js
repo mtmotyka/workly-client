@@ -177,17 +177,13 @@ const RegisterPage = () => {
                 required="required"
               />
             </div>
-            <Button
-              type="submit"
-              bgColor="green-200"
-              className="text-center rounded-md py-3 px-10 text-lg hover:bg-transparent hover:bg-green-300"
-            >
+            <Button type="submit" size="sm" color="green">
               {isSubmit === false ? "Register" : "Submiting..."}
             </Button>
             <div
               className={`text-center rounder-md ${
                 succesMessage !== ""
-                  ? "py-4 px-2 mt-5 border border-solid bg-green-100 text-green-800 border-green-400"
+                  ? "py-4 px-2 mt-5 bg-green-100 text-green-800 border-green-400"
                   : ""
               } ${
                 errorMessage !== "" || undefinedError !== ""
