@@ -1,72 +1,69 @@
-
 .input-group {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: 20px;
+  position: relative;
+
+  input {
     width: 100%;
-    margin-bottom: 20px;
-    position: relative;
-  
-    input {
-      width: 100%;
-      border-radius: 5px;
-      background-color: #eaeaea;
-      padding: 0 15px;
-      font-weight: $regular;
-      font-size: 16px;
-      height: 60px;
-      appearance: none;
-      border: none;
+    border-radius: 5px;
+    background-color: #eaeaea;
+    padding: 0 15px;
+    font-weight: $regular;
+    font-size: 16px;
+    height: 60px;
+    appearance: none;
+    border: none;
 
-      &.error {
-          border: 1px solid $color-red-text;
-      }
-
-    }
-
-    input[type=password] {
-      @extend input;
-      padding: 0 60px 0 15px;
-    }
-  
-    label {
-      font-size: 14px;
-      font-weight: $bold;
-      margin: 0 0 3px 0;
+    &.error {
+      border: 1px solid $color-red-text;
     }
   }
 
+  input[type="password"] {
+    @extend input;
+    padding: 0 60px 0 15px;
+  }
+
+  label {
+    font-size: 14px;
+    font-weight: $bold;
+    margin: 0 0 3px 0;
+  }
+}
+
 .error-message {
-    font-size: 16px;
-    background-color: transparent;
-    text-align: center;
-    border: 1px solid transparent;
-    padding: 15px;
-    border-radius: 5px;
-    display: none;
+  font-size: 16px;
+  background-color: transparent;
+  text-align: center;
+  border: 1px solid transparent;
+  padding: 15px;
+  border-radius: 5px;
 
-    &--red {
-      background-color: $color-red;
-      border: 1px solid $color-red-text;
-      color: $color-red-text;
-      margin-top: 15px;
-      display: block;
-    }
+  &--red {
+    background-color: $color-red;
+    border: 1px solid $color-red-text;
+    color: $color-red-text;
+    margin-top: 15px;
+    display: block;
+  }
 
-    &--green {
-      background-color: $color-green;
-      border: 1px solid $color-green-text;
-      color: $color-gray-text;
-      margin-top: 15px;
-      display: block;
-    }
+  &--green {
+    background-color: $color-green;
+    border: 1px solid $color-green-text;
+    color: $color-gray-text;
+    margin-top: 15px;
+    display: block;
+  }
 }
 
 .success-message {
-    font-size: 14px;
-    color: rgb(0, 116, 6);
-    margin-top: 10px;
+  font-size: 14px;
+  color: rgb(0, 116, 6);
+  margin-top: 10px;
 }
 
 .small-info {
