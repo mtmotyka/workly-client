@@ -12,7 +12,7 @@ You can see our progress here: https://worklypl.netlify.app/
 
 **Front-end:**
 - React.js
-- Tailwind CSS (first approach with this framework... Let's try)
+- Tailwind CSS (first approach with this framework... Let's try). **Currently refactoring app for Tailwind because I started without this.**
 
 **Back-end:**
 - Golang
