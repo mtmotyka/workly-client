@@ -156,6 +156,7 @@ module.exports = {
     divideWidth: (theme) => theme("borderWidth"),
     fill: { current: "currentColor" },
     flex: {
+      0: "0 0 auto",
       1: "1 1 0%",
       auto: "1 1 auto",
       initial: "0 1 auto",
@@ -206,6 +207,7 @@ module.exports = {
       ],
     },
     fontSize: {
+      xxs: ["0.65rem", { lineHeight: "0.9rem" }],
       xs: ["0.75rem", { lineHeight: "1rem" }],
       sm: ["0.875rem", { lineHeight: "1.25rem" }],
       base: ["1rem", { lineHeight: "1.5rem" }],
@@ -724,6 +726,15 @@ module.exports = {
     zIndex: {
       auto: "auto",
       0: "0",
+      1: "1",
+      2: "2",
+      3: "3",
+      4: "4",
+      5: "5",
+      6: "6",
+      7: "7",
+      8: "8",
+      9: "9",
       10: "10",
       20: "20",
       30: "30",

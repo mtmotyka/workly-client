@@ -3,320 +3,148 @@
 @import "../../assets/styles/modules/mixins";
 
 .sidebar-container {
-    display: flex;
-    flex: 0 0 auto;
-    flex-direction: column;
-    width: 270px;
-    max-height: 100vh;
-    height: 100vh;
-    overflow-y: auto;
-    background-color: #000;
+  width: 270px;
 }
 
 .main-sidebar {
-    background-color: #000;
+  width: 270px;
+
+  .single-container {
+    margin: 30px 0;
+
+    &__title {
+    }
+  }
+
+  &__main-info {
+    width: 270px;
+  }
+
+  &__scroll-content {
+    padding-top: 400px;
+  }
+
+  &__search-container {
     width: 270px;
 
-    .single-container {
-        margin: 30px 0;
-
-        &__title {
-            text-transform: uppercase;
-            font-size: 12px;
-            font-weight: $black;
-            color: #fff;
-            opacity: 0.5;
-            margin-bottom: 10px;
-        }
-    }
-
-    &__main-info {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 270px;
-        background-color: #000;
-        z-index: 1;
-    }
-
-    &__scroll-content {
-        padding-top: 400px;
-    }
-
-    &__search-container {
-        display: flex;
-        justify-content: space-between;
-        width: 270px;
-        align-items: center;
-        margin: 0!important;
-        padding: 30px 20px 0 30px;
-
-        .search-container {
-
-            &__brand {
-                color: #fff;
-                overflow: hidden;
-                background: linear-gradient(to right, $color-yellow-text, $color-yellow-text 50%, #fff 50%);;
-                background-clip: text;
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-size: 200% 100%;
-                background-position: 100%;
-                transition: background-position 275ms ease;
-                text-decoration: none;
-                text-transform: uppercase;
-                font-weight: $black;
-                font-size: 16px;
-                letter-spacing: 2px;
-                position: relative;
-                padding-left: 35px;
-                cursor: pointer;
-
-                &:hover {
-                    background-position: 0 100%;
-                }
-
-                &:before {
-                    @include pseudo;
-                    width: 21px;
-                    height: 19px;
-                    background-size: contain;
-                    background-position: center center;
-                    background-repeat: no-repeat;
-                    background-image: url(../../assets/icons/ico-tasks.svg);
-                    left: 0;
-                    top: 48%;
-                    transform: translate(0, -50%);
-                }
-            }
-
-            &__search-icon {
-                cursor: pointer;
-            }
-        }
-    }
-
-    &__user-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: #202020;
-        padding: 15px 20px 15px 30px!important;
-        margin: 30px 0 0!important;
+    .search-container {
+      &__brand {
+        color: #fff;
+        overflow: hidden;
+        background: linear-gradient(
+          to right,
+          $color-yellow-text,
+          $color-yellow-text 50%,
+          #fff 50%
+        );
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 200% 100%;
+        background-position: 100%;
+        transition: background-position 275ms ease;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-weight: $black;
+        font-size: 16px;
+        letter-spacing: 2px;
         position: relative;
+        padding-left: 35px;
+        cursor: pointer;
 
-        .user-info {
-            &__name {
-                color: #fff;
-                font-size: 14px;
-                font-weight: $bold;
-            }
-
-            &__role {
-                font-weight: $bold;
-                font-size: 12px;
-                color: #9B9B9B;
-            }
+        &:hover {
+          background-position: 0 100%;
         }
+
+        &:before {
+          @include pseudo;
+          width: 21px;
+          height: 19px;
+          background-size: contain;
+          background-position: center center;
+          background-repeat: no-repeat;
+          background-image: url(../../assets/icons/ico-tasks.svg);
+          left: 0;
+          top: 48%;
+          transform: translate(0, -50%);
+        }
+      }
+
+      &__search-icon {
+        cursor: pointer;
+      }
+    }
+  }
+  &__teams {
+    .teams {
+      &__title {
+        padding-left: 30px;
+      }
+
+      &__add-project {
+        color: $color-yellow-text;
+        font-weight: $bold;
+        font-size: 14px;
+        padding-left: 30px;
+        margin-top: 10px;
+        display: inline-block;
+      }
     }
 
-    &__tasks-info {
+    .single-team {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 20px 12px 25px;
+      cursor: pointer;
+      background-color: #000;
+      transition: all 0.25s;
+      border-left: 5px solid transparent;
+
+      &:hover {
+        background-color: #202020;
+        border-left: 5px solid $color-yellow-text;
+      }
+
+      &__team-name {
+        font-size: 14px;
+        font-weight: $bold;
+        color: #fff;
+      }
+
+      &__avatar-container {
         display: flex;
-        justify-content: flex-start;
+        justify-content: flex-end;
         align-items: center;
+
+        .avatar-container {
+          &__avatar {
+            margin-right: 6px;
+
+            &:last-of-type {
+              margin-right: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__invite {
+    padding: 40px 0 20px;
+
+    .invite {
+      &__text {
+        color: #fff;
+        font-size: 14px;
+        font-weight: $bold;
         padding: 0 20px 0 30px;
 
-        .single-item {
-
-            &:first-of-type {
-                margin-right: 30px;
-            }
-
-            &__number {
-                color: #fff;
-                font-size: 20px;
-                font-weight: $bold;
-            }
-
-            &__desc {
-                color: #fff;
-                opacity: 0.5;
-                font-weight: $black;
-                font-size: 12px;
-            }
+        a {
+          color: $color-yellow-text;
+          text-decoration: underline;
         }
+      }
     }
-
-    &__menu {
-        padding: 0 20px 0 30px;
-
-        .menu {
-            &__list {
-                @include reset-list;
-                
-                .list {
-                    &__item {
-                        margin-bottom: 18px;
-                        display: flex;
-                        justify-content: flex-start;
-                        align-items: center;
-
-                        &:last-of-type {
-                            margin-bottom: 0;
-                        }
-
-                        a {
-                            color: #fff;
-                            font-size: 14px;
-                            font-weight: $bold;
-                        }
-
-                        .item {
-                            &__notification {
-                                font-size: 13px;
-                                font-weight: $bold;
-                                color: #000;
-                                background-color: $color-yellow-text;
-                                width: 22px;
-                                height: 22px;
-                                line-height: 22px;
-                                border-radius: 50%;
-                                text-align: center;
-                                margin-left: 8px;
-                            }
-                        }
-                    }
-                }
-
-            }
-        }
-    }
-
-    &__projects {
-
-        .projects {
-
-            &__title {
-                padding-left: 30px;
-            }
-
-            &__add-project {
-                color: $color-yellow-text;
-                font-weight: $bold;
-                font-size: 14px;
-                padding-left: 30px;
-                margin-top: 10px;
-                display: inline-block;
-            }
-        }
-
-        .single-project {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            padding: 12px 20px 12px 25px;
-            cursor: pointer;
-            background-color: #000;
-            transition: all .25s;
-            border-left: 5px solid transparent;
-
-            &:hover {
-                background-color: #202020;
-                border-left: 5px solid $color-yellow-text;
-
-                .single-project {
-                    &__more-btn {
-                        display: block;
-                    }
-                }
-            }
-
-            &__name {
-                margin-left: 10px;
-                font-size: 14px;
-                font-weight: $bold;
-                color: #fff;
-            }
-
-            &__more-btn {
-                margin: 0 0 0 auto;
-                display: none;
-            }
-        }
-    }
-
-    &__teams {
-
-        .teams {
-            &__title {
-                padding-left: 30px;
-            }
-
-            &__add-project {
-                color: $color-yellow-text;
-                font-weight: $bold;
-                font-size: 14px;
-                padding-left: 30px;
-                margin-top: 10px;
-                display: inline-block;
-            }
-        }
-
-        .single-team {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 20px 12px 25px;
-            cursor: pointer;
-            background-color: #000;
-            transition: all .25s;
-            border-left: 5px solid transparent;
-
-            &:hover {
-                background-color: #202020;
-                border-left: 5px solid $color-yellow-text;
-            }
-
-            &__team-name {
-                font-size: 14px;
-                font-weight: $bold;
-                color: #fff;
-            }
-
-            &__avatar-container {
-                display: flex;
-                justify-content: flex-end;
-                align-items: center;
-
-                .avatar-container {
-                    &__avatar {
-                        margin-right: 6px;
-
-                        &:last-of-type {
-                            margin-right: 0;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    &__invite {
-        padding: 40px 0 20px;
-
-        .invite {
-            
-            &__text {
-                color: #fff;
-                font-size: 14px;
-                font-weight: $bold;
-                padding: 0 20px 0 30px;
-
-                a {
-                    color: $color-yellow-text;
-                    text-decoration: underline;
-                }
-            }
-        }
-    }
+  }
 }

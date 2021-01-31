@@ -14,71 +14,96 @@ import ExampleTeamAvatarThree from "../../assets/images/example-team-avatar-3.pn
 
 const Sidebar = () => {
   return (
-    <div className="sidebar-container">
-      <div className="main-sidebar">
-        <div className="main-sidebar__main-info">
-          <div className="main-sidebar__search-container search-container single-container">
+    <div className="sidebar-container flex flex-0 flex-col h-screen max-h-screen bg-black overflow-y-auto">
+      <div className="main-sidebar bg-black">
+        <div className="main-sidebar__main-info fixed z-1 left-0 top-0 bg-black">
+          <div className="main-sidebar__search-container flex items-center justify-between m-0 pb-0 pl-7 pr-5 pt-7">
             <p className="search-container__brand">WORKLY</p>
-            <IcoSearch className="search-container__search-icon" />
+            <IcoSearch className="search-container__search-icon cursor-pointer" />
           </div>
-          <div className="main-sidebar__user-container single-container">
+          <div className="relative flex items-center justify-between m-0 mt-8 pb-4 pl-7 pr-5 pt-4 bg-gray-900">
             <img src={ExampleAvatar} alt="Avatar" />
-            <div className="user-info">
-              <p className="user-info__name">Emilee Simchenko</p>
-              <p className="user-info__role">Product Owner</p>
+            <div>
+              <p className="text-white text-sm font-bold">Emilee Simchenko</p>
+              <p className="text-gray-400 text-xs font-bold">Product Owner</p>
             </div>
             <ThreeDots />
           </div>
-          <div className="main-sidebar__tasks-info single-container">
-            <div className="single-item">
-              <p className="single-item__number">372</p>
-              <p className="single-item__desc">Completed Tasks</p>
+          <div className="flex items-center justify-start my-8 pl-7 pr-4">
+            <div className="mr-7">
+              <p className="text-white text-2xl font-bold">372</p>
+              <p className="text-white text-xxs font-black opacity-50">
+                Completed Tasks
+              </p>
             </div>
-            <div className="single-item">
-              <p className="single-item__number">11</p>
-              <p className="single-item__desc">Open Tasks</p>
+            <div>
+              <p className="text-white text-2xl font-bold">11</p>
+              <p className="text-white text-xxs font-black opacity-50">
+                Open Tasks
+              </p>
             </div>
           </div>
-          <div className="main-sidebar__menu menu single-container">
-            <p className="single-container__title">menu</p>
-            <ul className="menu__list list">
-              <li className="list__item item">
-                <a href="/">Home</a>
+          <div className="my-8 pl-7 pr-4">
+            <div className="mb-2 text-white text-xs font-bold opacity-50 uppercase">
+              menu
+            </div>
+            <ul className="list-none">
+              <li className="flex items-center justify-start mb-6">
+                <a href="/" className="text-white text-sm font-bold">
+                  Home
+                </a>
               </li>
-              <li className="list__item item">
-                <a href="/">My Tasks</a>
+              <li className="flex items-center justify-start mb-6">
+                <a href="/" className="text-white text-sm font-bold">
+                  My Tasks
+                </a>
               </li>
-              <li className="list__item item">
-                <a href="/">Notifications</a>
-                <span className="item__notification">3</span>
+              <li className="flex items-center justify-start">
+                <a href="/" className="text-white text-sm font-bold">
+                  Notifications
+                </a>
+                <span className="ml-3 p-1 text-center text-black text-xs font-bold bg-yellow-400 rounded-xl">
+                  3
+                </span>
               </li>
             </ul>
           </div>
         </div>
         <div className="main-sidebar__scroll-content">
-          <div className="main-sidebar__projects projects single-container">
-            <p className="single-container__title projects__title">projects</p>
-            <div className="single-project">
+          <div className="my-8">
+            <div className="mb-2 pl-7 pr-4 text-white text-xs font-bold opacity-50 uppercase">
+              projects
+            </div>
+            <div className="flex items-center justify-start pl-7 pr-5 py-4 bg-black hover:bg-gray-900 border-l-4 border-solid border-transparent hover:border-yellow-400 cursor-pointer transition-all">
               <IcoDashboard />
-              <p className="single-project__name">Dashboard UI KIT</p>
-              <ThreeDots className="single-project__more-btn" />
+              <p className="ml-2 text-white text-sm font-bold">
+                Dashboard UI KIT
+              </p>
+              <ThreeDots className="ml-auto" />
             </div>
-            <div className="single-project">
+            <div className="transition-allt flex items-center justify-start pl-7 pr-5 py-4 bg-black hover:bg-gray-900 border-l-4 border-solid border-transparent hover:border-yellow-400 cursor-pointer">
               <IcoCrm />
-              <p className="single-project__name">CRM System</p>
-              <ThreeDots className="single-project__more-btn" />
+              <p className="ml-2 text-white text-sm font-bold">CRM System</p>
+              <ThreeDots className="ml-auto" />
             </div>
-            <div className="single-project">
+            <div className="flex items-center justify-start pl-7 pr-5 py-4 bg-black hover:bg-gray-900 border-l-4 border-solid border-transparent hover:border-yellow-400 cursor-pointer transition-all">
               <IcoWebsiteRedesign />
-              <p className="single-project__name">Website Redesign</p>
-              <ThreeDots className="single-project__more-btn" />
+              <p className="ml-2 text-white text-sm font-bold">
+                Website Redesign
+              </p>
+              <ThreeDots className="ml-auto" />
             </div>
-            <div className="single-project">
+            <div className="flex items-center justify-start pl-7 pr-5 py-4 bg-black hover:bg-gray-900 border-l-4 border-solid border-transparent hover:border-yellow-400 cursor-pointer transition-all">
               <IcoCommunication />
-              <p className="single-project__name">Communication Tool</p>
-              <ThreeDots className="single-project__more-btn" />
+              <p className="ml-2 text-white text-sm font-bold">
+                Communication Tool
+              </p>
+              <ThreeDots className="ml-auto" />
             </div>
-            <a href="/" className="projects__add-project">
+            <a
+              href="/"
+              className="inline-block mt-3 pl-7 text-yellow-400 hover:underline text-sm font-bold"
+            >
               + Add a Project
             </a>
           </div>
