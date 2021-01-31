@@ -89,67 +89,52 @@ const RegisterPage = () => {
           <form onSubmit={registerSubmit}>
             <div className="grid grid-cols-2 gap-4 w-full">
               <div>
-                <div className="input-group flex flex-col mb-5">
-                  <label htmlFor="first-name" className="text-sm mb-2">
-                    Name
-                  </label>
-                  <Input
-                    type="text"
-                    name="first-name"
-                    id="first-name"
-                    placeholder="John"
-                    value={firstName}
-                    onChange={(e) => setFirstName(e.target.value)}
-                    required="required"
-                  />
-                </div>
+                <Input
+                  type="text"
+                  name="first-name"
+                  id="first-name"
+                  label="First name"
+                  placeholder="John"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                  required="required"
+                />
               </div>
               <div>
-                {" "}
-                <div className="input-group flex flex-col mb-5">
-                  <label htmlFor="last-name" className="text-sm mb-2">
-                    Last Name
-                  </label>
-                  <Input
-                    type="text"
-                    name="last-name"
-                    id="last-name"
-                    placeholder="Kowalsky"
-                    value={lastName}
-                    onChange={(e) => setLastName(e.target.value)}
-                    required="required"
-                  />
-                </div>
+                <Input
+                  type="text"
+                  name="last-name"
+                  id="last-name"
+                  label="Last name"
+                  placeholder="Kowalsky"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                  required="required"
+                />
               </div>
             </div>
-            <div className="input-group flex flex-col mb-5">
-              <label htmlFor="email" className="text-sm mb-2">
-                Email
-              </label>
-              <Input
-                type="email"
-                name="email"
-                id="email"
-                placeholder="example@mail.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required="required"
-              />
-            </div>
-            <div className="input-group flex flex-col mb-1 relative">
-              <label htmlFor="password" className="text-sm mb-2">
-                Password
-              </label>
-              <Input
-                type={`${showPassword === true ? "text" : "password"}`}
-                name="password"
-                id="password"
-                placeholder="*********"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required="required"
-              />
+            <Input
+              type="email"
+              name="email"
+              id="email"
+              label="E-mail"
+              placeholder="example@mail.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required="required"
+            />
+            <Input
+              type={`${showPassword === true ? "text" : "password"}`}
+              name="password"
+              id="password"
+              label="Password"
+              placeholder="*********"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required="required"
+            >
               <button
+                type="button"
                 onClick={(e) => setShowPassword(!showPassword)}
                 className={`show-password absolute top-2/4 right-3 ${
                   showPassword === true ? "active" : ""
@@ -157,26 +142,23 @@ const RegisterPage = () => {
               >
                 <ShowPasswordIcon />
               </button>
-            </div>
-            <p className="text-xs text-gray-500 mb-5">
+            </Input>
+            <p className="text-xs text-gray-500 mb-5 -mt-5">
               Password must be between 8 to 64 characters which contain at least
               one number, one uppercase and one lowercase letter. Also can't
               contain spaces.
             </p>
-            <div className="input-group flex flex-col mb-5">
-              <label htmlFor="confirm-password" className="text-sm mb-2">
-                Confirm password
-              </label>
-              <Input
-                type={`${showPassword === true ? "text" : "password"}`}
-                name="confirm-password"
-                id="confirm-password"
-                placeholder="*********"
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-                required="required"
-              />
-            </div>
+            <Input
+              type={`${showPassword === true ? "text" : "password"}`}
+              name="confirm-password"
+              id="confirm-password"
+              label="Confirm password"
+              placeholder="*********"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required="required"
+            />
+
             <Button type="submit" size="sm" color="green">
               {isSubmit === false ? "Register" : "Submiting..."}
             </Button>
