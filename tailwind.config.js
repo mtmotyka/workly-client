@@ -28,6 +28,12 @@ module.exports = {
     },
     spacing: {
       px: "1px",
+      px100: "100px",
+      px200: "200px",
+      px300: "300px",
+      px400: "400px",
+      px450: "450px",
+      px500: "500px",
       0: "0px",
       0.5: "0.125rem",
       1: "0.25rem",

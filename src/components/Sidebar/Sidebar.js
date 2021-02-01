@@ -14,12 +14,14 @@ import ExampleTeamAvatarThree from "../../assets/images/example-team-avatar-3.pn
 
 const Sidebar = () => {
   return (
-    <div className="sidebar-container flex flex-0 flex-col h-screen max-h-screen bg-black overflow-y-auto">
-      <div className="main-sidebar bg-black">
-        <div className="main-sidebar__main-info fixed z-1 left-0 top-0 bg-black">
-          <div className="main-sidebar__search-container flex items-center justify-between m-0 pb-0 pl-7 pr-5 pt-7">
-            <p className="search-container__brand">WORKLY</p>
-            <IcoSearch className="search-container__search-icon cursor-pointer" />
+    <div className="sidebar-width-main flex flex-0 flex-col h-screen max-h-screen bg-black overflow-y-auto">
+      <div className="sidebar-width-main bg-black">
+        <div className="sidebar-width-main fixed z-1 left-0 top-0 bg-black">
+          <div className="sidebar-width-main flex items-center justify-between m-0 pb-0 pl-7 pr-5 pt-7">
+            <p className="text-white hover:text-yellow-400 text-base font-bold cursor-pointer uppercase">
+              WORKLY
+            </p>
+            <IcoSearch className="cursor-pointer" />
           </div>
           <div className="relative flex items-center justify-between m-0 mt-8 pb-4 pl-7 pr-5 pt-4 bg-gray-900">
             <img src={ExampleAvatar} alt="Avatar" />
@@ -69,31 +71,31 @@ const Sidebar = () => {
             </ul>
           </div>
         </div>
-        <div className="main-sidebar__scroll-content">
-          <div className="my-8">
+        <div className="pt-px450">
+          <div className="mb-8">
             <div className="mb-2 pl-7 pr-4 text-white text-xs font-bold opacity-50 uppercase">
               projects
             </div>
-            <div className="flex items-center justify-start pl-7 pr-5 py-4 bg-black hover:bg-gray-900 border-l-4 border-solid border-transparent hover:border-yellow-400 cursor-pointer transition-all">
+            <div className="flex items-center justify-start pl-6 pr-5 py-3 bg-black hover:bg-gray-900 border-l-4 border-solid border-transparent hover:border-yellow-400 cursor-pointer transition-all">
               <IcoDashboard />
               <p className="ml-2 text-white text-sm font-bold">
                 Dashboard UI KIT
               </p>
               <ThreeDots className="ml-auto" />
             </div>
-            <div className="transition-allt flex items-center justify-start pl-7 pr-5 py-4 bg-black hover:bg-gray-900 border-l-4 border-solid border-transparent hover:border-yellow-400 cursor-pointer">
+            <div className="transition-allt flex items-center justify-start pl-6 pr-5 py-3 bg-black hover:bg-gray-900 border-l-4 border-solid border-transparent hover:border-yellow-400 cursor-pointer">
               <IcoCrm />
               <p className="ml-2 text-white text-sm font-bold">CRM System</p>
               <ThreeDots className="ml-auto" />
             </div>
-            <div className="flex items-center justify-start pl-7 pr-5 py-4 bg-black hover:bg-gray-900 border-l-4 border-solid border-transparent hover:border-yellow-400 cursor-pointer transition-all">
+            <div className="flex items-center justify-start pl-6 pr-5 py-3 bg-black hover:bg-gray-900 border-l-4 border-solid border-transparent hover:border-yellow-400 cursor-pointer transition-all">
               <IcoWebsiteRedesign />
               <p className="ml-2 text-white text-sm font-bold">
                 Website Redesign
               </p>
               <ThreeDots className="ml-auto" />
             </div>
-            <div className="flex items-center justify-start pl-7 pr-5 py-4 bg-black hover:bg-gray-900 border-l-4 border-solid border-transparent hover:border-yellow-400 cursor-pointer transition-all">
+            <div className="flex items-center justify-start pl-6 pr-5 py-3 bg-black hover:bg-gray-900 border-l-4 border-solid border-transparent hover:border-yellow-400 cursor-pointer transition-all">
               <IcoCommunication />
               <p className="ml-2 text-white text-sm font-bold">
                 Communication Tool
@@ -107,11 +109,13 @@ const Sidebar = () => {
               + Add a Project
             </a>
           </div>
-          <div className="main-sidebar__teams teams single-container">
-            <p className="single-container__title teams__title">teams</p>
-            <div className="single-team">
-              <p className="single-team__team-name">Designers</p>
-              <div className="single-team__avatar-container avatar-container">
+          <div className="my-8">
+            <p className="mb-2 pl-7 pr-4 text-white text-xs font-bold opacity-50 uppercase">
+              teams
+            </p>
+            <div className="flex items-center justify-between pl-6 pr-5 py-3 hover:bg-gray-900 border-l-4 border-solid border-transparent hover:border-yellow-400 cursor-pointer transition-all">
+              <p className="text-white text-sm font-bold">Designers</p>
+              <div className="align-center flex justify-end">
                 {Array(4)
                   .fill(null)
                   .map((index) => (
@@ -119,14 +123,14 @@ const Sidebar = () => {
                       key={index}
                       src={ExampleTeamAvatarOne}
                       alt=""
-                      className="avatar-container__avatar"
+                      className="ml-2"
                     />
                   ))}
               </div>
             </div>
-            <div className="single-team">
-              <p className="single-team__team-name">Backend</p>
-              <div className="single-team__avatar-container avatar-container">
+            <div className="flex items-center justify-between pl-6 pr-5 py-3 hover:bg-gray-900 border-l-4 border-solid border-transparent hover:border-yellow-400 cursor-pointer transition-all">
+              <p className="text-white text-sm font-bold">Back-end</p>
+              <div className="align-center flex justify-end">
                 {Array(2)
                   .fill(null)
                   .map((index) => (
@@ -134,14 +138,14 @@ const Sidebar = () => {
                       key={index}
                       src={ExampleTeamAvatarTwo}
                       alt=""
-                      className="avatar-container__avatar"
+                      className="ml-2"
                     />
                   ))}
               </div>
             </div>
-            <div className="single-team">
-              <p className="single-team__team-name">Frontend</p>
-              <div className="single-team__avatar-container avatar-container">
+            <div className="flex items-center justify-between pl-6 pr-5 py-3 hover:bg-gray-900 border-l-4 border-solid border-transparent hover:border-yellow-400 cursor-pointer transition-all">
+              <p className="text-white text-sm font-bold">Front-end</p>
+              <div className="align-center flex justify-end">
                 {Array(3)
                   .fill(null)
                   .map((index) => (
@@ -149,18 +153,24 @@ const Sidebar = () => {
                       key={index}
                       src={ExampleTeamAvatarThree}
                       alt=""
-                      className="avatar-container__avatar"
+                      className="ml-2"
                     />
                   ))}
               </div>
             </div>
-            <a href="/" className="teams__add-project">
+            <a
+              href="/"
+              className="inline-block mt-3 pl-7 text-yellow-400 hover:underline text-sm font-bold"
+            >
               + Add a Team
             </a>
           </div>
-          <div className="main-sidebar__invite invite">
-            <p className="invite__text">
-              <a href="/">Invite your team</a> and start collaborating!
+          <div className="pb-4 pt-8">
+            <p className="pl-6 pr-5 text-white text-sm font-bold">
+              <a href="/" className="text-yellow-400 underline">
+                Invite your team
+              </a>{" "}
+              and start collaborating!
             </p>
           </div>
         </div>
