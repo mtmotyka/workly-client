@@ -1,80 +1,64 @@
-
 @import "../../assets/styles/modules/variables";
 @import "../../assets/styles/modules/helpers";
 @import "../../assets/styles/modules/mixins";
 
-.completed-tasks-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    &__number {
-        font-size: 80px;
-        font-weight: $bold;
-        margin-right: 50px;
-    }
-
-    &__chart {
-        max-height: 126px;
-    }
-}
-
 .progress-circle {
-    position: relative;
-    display: flex;
-    justify-content: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
 
-    &__percentage {
-        position: absolute;
-        top: 52%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 32px;
-        text-align: center;
-        font-weight: $bold;
-    }
+  &__percentage {
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 32px;
+    text-align: center;
+    font-weight: $bold;
+  }
 
-    svg, circle {
-        width: 150px;
-        height: 150px;
-        transform: rotate(273deg);
-    }
-    
-    circle {
-        position: absolute;
-        fill: none;
-        stroke-width: 10;
-        transform: translate(10px, 10px);
-        stroke-dasharray: 440;
-        stroke-linecap: round;
-    }
-    
-    circle:nth-child(1) {
-        stroke-dashoffset: 0;
-        stroke: #EAEAEA;
-    }
-    
-    circle:nth-child(2) {
-        animation: percent 1.5s linear;
-        animation-delay: 1s;
-    }
+  svg,
+  circle {
+    width: 150px;
+    height: 150px;
+    transform: rotate(273deg);
+  }
 
-    circle {
-        &.circle-62 {
-            stroke-dashoffset: calc(440 + (440 * 62) / 100);
-            stroke: #7EB973;
-        }
+  circle {
+    position: absolute;
+    fill: none;
+    stroke-width: 10;
+    transform: translate(10px, 10px);
+    stroke-dasharray: 440;
+    stroke-linecap: round;
+  }
 
-        &.circle-47 {
-            stroke-dashoffset: calc(440 + (440 * 47) / 100);
-            stroke: $color-purple-text;
-        }
+  circle:nth-child(1) {
+    stroke-dashoffset: 0;
+    stroke: #eaeaea;
+  }
+
+  circle:nth-child(2) {
+    animation: percent 1.5s linear;
+    animation-delay: 1s;
+  }
+
+  circle {
+    &.circle-62 {
+      stroke-dashoffset: calc(440 + (440 * 62) / 100);
+      stroke: #7eb973;
     }
 
-    @keyframes percent {
-        0% {
-            stroke-dashoffset: 0;
-            stroke-width: 0;
-        }
+    &.circle-47 {
+      stroke-dashoffset: calc(440 + (440 * 47) / 100);
+      stroke: $color-purple-text;
     }
+  }
+
+  @keyframes percent {
+    0% {
+      stroke-dashoffset: 0;
+      stroke-width: 0;
+    }
+  }
 }

@@ -4,10 +4,13 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 import { ReactComponent as WorklySygnet } from "../../assets/images/workly-sygnet-yellow.svg";
+import { ReactComponent as ShowPasswordIcon } from "../../assets/icons/ico-eye.svg";
+import Input from "../../components/Input/Input";
+import Button from "../../components/Button/Button";
 
 const RegisterPage = () => {
-  const [name, setName] = useState("");
-  const [surname, setSurname] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -52,13 +55,14 @@ const RegisterPage = () => {
       const response = await axios.post(
         "https://cors-anywhere.herokuapp.com/https://workly-api.herokuapp.com/auth/register",
         {
-          name: name,
-          surname: surname,
           email: email,
+          first_name: firstName,
+          last_name: lastName,
           password: password,
         }
       );
       if (response.status === 201) {
+        console.log("true");
         setSuccesMessage("Your account has been created successfully");
         setErrorMessage("");
         setIsSubmit(false);
@@ -69,113 +73,112 @@ const RegisterPage = () => {
   };
 
   return (
-    <main className="register-page">
-      <div className="register-page__register-container register-container">
-        <WorklySygnet className="register-container__logo" />
-        <div className="switch register-container__switch">
-          <Link to="/register" className="switch__link btn--link active">
-            Register
-          </Link>
-          <span className="switch__divider" />
-          <Link to="/login" className="switch__link btn--link">
-            Login
-          </Link>
-        </div>
-        <form onSubmit={registerSubmit}>
-          <div className="row">
-            <div className="col-md-6">
-              {" "}
-              <div className="input-group">
-                <label htmlFor="email">Name</label>
-                <input
-                  type="email"
-                  name="text"
-                  id="name"
-                  placeholder="John"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  required
-                />
-              </div>
-            </div>
-            <div className="col-md-6">
-              {" "}
-              <div className="input-group">
-                <label htmlFor="email">Name</label>
-                <input
-                  name="text"
-                  id="surname"
-                  placeholder="Kowalsky"
-                  value={surname}
-                  onChange={(e) => setSurname(e.target.value)}
-                  required
-                />
-              </div>
-            </div>
+    <main className="grid grid-cols-12 items-center min-h-screen py-10 bg-gray-100">
+      <div className="col-start-5 col-span-4">
+        <div className="rounded bg-white dark:bg-gray-700 shadow-2xl py-10 px-5">
+          <WorklySygnet className="mx-auto mb-10 block" />
+          <div className="flex justify-center relative mb-10 mt-4">
+            <Link to="/register" className="text-yellow-400 text-xl mr-10">
+              Register
+            </Link>
+            <span className="h-6 w-px absolute left-1/2 top-2/4 transform -translate-y-2/4 bg-gray-400" />
+            <Link to="/login" className="text-gray-400 text-xl ml-10">
+              Login
+            </Link>
           </div>
-          <div className="input-group">
-            <label htmlFor="email">Email</label>
-            <input
+          <form onSubmit={registerSubmit}>
+            <div className="grid grid-cols-2 gap-4 w-full">
+              <div>
+                <Input
+                  type="text"
+                  name="first-name"
+                  id="first-name"
+                  label="First name"
+                  placeholder="John"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                  required="required"
+                />
+              </div>
+              <div>
+                <Input
+                  type="text"
+                  name="last-name"
+                  id="last-name"
+                  label="Last name"
+                  placeholder="Kowalsky"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                  required="required"
+                />
+              </div>
+            </div>
+            <Input
+              type="email"
               name="email"
               id="email"
+              label="E-mail"
               placeholder="example@mail.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              required
+              required="required"
             />
-          </div>
-          <div className="input-group">
-            <label htmlFor="email">Password</label>
-            <input
+            <Input
               type={`${showPassword === true ? "text" : "password"}`}
               name="password"
               id="password"
+              label="Password"
               placeholder="*********"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-            <span
-              onClick={(e) => setShowPassword(!showPassword)}
-              className={`show-password ${
-                showPassword === true ? "active" : ""
-              }`}
-            />
-          </div>
-          <p className="small-info">
-            Password must be between 8 to 64 characters which contain at least
-            one number, one uppercase and one lowercase letter. Also can't
-            contain spaces.
-          </p>
-          <div className="input-group">
-            <label htmlFor="email">Confirm password</label>
-            <input
+              required="required"
+            >
+              <button
+                type="button"
+                onClick={(e) => setShowPassword(!showPassword)}
+                className={`show-password absolute top-2/4 right-3 ${
+                  showPassword === true ? "active" : ""
+                }`}
+              >
+                <ShowPasswordIcon />
+              </button>
+            </Input>
+            <p className="text-xs text-gray-500 mb-5 -mt-5">
+              Password must be between 8 to 64 characters which contain at least
+              one number, one uppercase and one lowercase letter. Also can't
+              contain spaces.
+            </p>
+            <Input
               type={`${showPassword === true ? "text" : "password"}`}
               name="confirm-password"
               id="confirm-password"
+              label="Confirm password"
               placeholder="*********"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
-              required
+              required="required"
             />
-          </div>
-          <button type="submit" className="btn--green">
-            {isSubmit === false ? "Register" : "Submiting..."}
-          </button>
-          <div
-            className={`error-message ${
-              succesMessage !== "" ? "error-message--green" : ""
-            } ${
-              errorMessage !== "" || undefinedError !== ""
-                ? "error-message--red"
-                : ""
-            } `}
-          >
-            {succesMessage}
-            {undefinedError}
-            {errorMessage}
-          </div>
-        </form>
+
+            <Button type="submit" size="sm" color="green">
+              {isSubmit === false ? "Register" : "Submiting..."}
+            </Button>
+            <div
+              className={`text-center rounder-md ${
+                succesMessage !== ""
+                  ? "py-4 px-2 mt-5 bg-green-100 text-green-800 border-green-400"
+                  : ""
+              } ${
+                errorMessage !== "" || undefinedError !== ""
+                  ? "py-4 px-2 mt-5 border border-solid bg-red-100 text-red-800 border-red-400"
+                  : ""
+              } `}
+            >
+              {succesMessage}
+              {undefinedError}
+              {errorMessage}
+            </div>
+          </form>
+        </div>
       </div>
     </main>
   );
