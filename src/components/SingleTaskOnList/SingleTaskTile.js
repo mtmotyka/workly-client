@@ -7,20 +7,22 @@ import ExampleSmallAvatar from "../../assets/images/example-small-avatar.png";
 
 const SingleTaskTile = () => {
   return (
-    <div className="single-task-tile">
-      <div className="single-task-tile__complete-btn">
+    <div className="relative mb-4 pl-14 pr-4 py-4 bg-gray-100 rounded-md">
+      <div className="complete-btn absolute left-4 top-4 cursor-pointer">
         <TaskComplete />
       </div>
-      <p className="single-task-tile__title">
+      <p className="text-lg font-bold cursor-pointer">
         E-mail after registration so that i Can confirm my address
       </p>
-      <div className="task-info">
+      <div className="flex items-center justify-start mt-4">
         <img
           src={ExampleSmallAvatar}
           alt=""
           className="img-fluid task-info__member"
         />
-        <p className="task-info__project">Developement</p>
+        <p className="ml-4 px-4 py-1 text-yellow-500 text-xs font-bold bg-yellow-100 rounded-full cursor-pointer uppercase">
+          Developement
+        </p>
       </div>
     </div>
   );

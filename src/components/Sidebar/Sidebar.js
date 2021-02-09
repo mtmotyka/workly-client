@@ -51,17 +51,26 @@ const Sidebar = () => {
             </div>
             <ul className="list-none">
               <li className="flex items-center justify-start mb-6">
-                <a href="/" className="text-white text-sm font-bold">
+                <a
+                  href="/"
+                  className="text-white hover:underline text-sm font-bold"
+                >
                   Home
                 </a>
               </li>
               <li className="flex items-center justify-start mb-6">
-                <a href="/" className="text-white text-sm font-bold">
+                <a
+                  href="/"
+                  className="text-white hover:underline text-sm font-bold"
+                >
                   My Tasks
                 </a>
               </li>
               <li className="flex items-center justify-start">
-                <a href="/" className="text-white text-sm font-bold">
+                <a
+                  href="/"
+                  className="text-white hover:underline text-sm font-bold"
+                >
                   Notifications
                 </a>
                 <span className="ml-3 p-1 text-center text-black text-xs font-bold bg-yellow-400 rounded-xl">

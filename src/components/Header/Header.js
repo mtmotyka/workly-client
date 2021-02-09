@@ -3,21 +3,22 @@ import { Link } from "react-router-dom";
 
 import "./header.scss";
 
+import Button from "../Button/Button";
 import ExampleTeamAvatar from "../../assets/images/example-big-avatar.png";
 import { ReactComponent as IcoChat } from "../../assets/icons/ico-chat.svg";
 import { ReactComponent as IcoMore } from "../../assets/icons/ico-more-dots.svg";
 
 const Header = () => {
   return (
-    <header className="header">
-      <div className="header__main-belt main-belt">
-        <div className="title-container">
-          <h2 className="title-container__title">Home</h2>
-          <button className="title-container__more-btn">
+    <header className="header fixed z-50 left-0 top-0 pb-14 pl-7 pr-7 pt-7 bg-white shadow-md">
+      <div className="flex items-center justify-between">
+        <div className="flex items-center justify-start">
+          <h2 className="text-3xl font-bold">Home</h2>
+          <button className="ml-2 mt-1 bg-none border-none outline-none appearance-none cursor-pointer">
             <IcoMore />
           </button>
         </div>
-        <div className="team-info">
+        <div className="flex items-center justify-end">
           {Array(3)
             .fill(null)
             .map((index) => (
@@ -25,32 +26,69 @@ const Header = () => {
                 key={index}
                 src={ExampleTeamAvatar}
                 alt=""
-                className="team-info__person"
+                className="mr-2 cursor-pointer"
               />
             ))}
-          <a href="/" className="team-info__button btn--gray btn--small">
+          <Button
+            type="button"
+            size="xs"
+            color="gray"
+            rounded="full"
+            className="ml-6 font-bold"
+          >
             Share
-          </a>
-          <a href="/" className="team-info__button btn--yellow btn--small">
-            <IcoChat /> Chat
-          </a>
+          </Button>
+          <Button
+            type="button"
+            size="xs"
+            color="yellow"
+            rounded="full"
+            className="flex ml-4 font-bold"
+          >
+            <IcoChat className="mr-2" /> Chat
+          </Button>
         </div>
-        <nav className="header__navigation navigation">
-          <ul className="navigation__menu">
-            <li className="active">
-              <Link to="/">Tasks</Link>
+        <nav className="absolute bottom-0 left-7">
+          <ul className="flex items-center justify-start list-none">
+            <li className="mr-6 pb-2 border-b-2 border-solid border-transparent hover:border-yellow-400 transition-all">
+              <Link
+                to="/"
+                className="hover:text-black text-gray-700 no-underline text-base font-bold opacity-70"
+              >
+                Tasks
+              </Link>
             </li>
-            <li>
-              <Link to="/">Kanban</Link>
+            <li className="mr-6 pb-2 border-b-2 border-solid border-transparent hover:border-yellow-400 transition-all">
+              <Link
+                to="/"
+                className="hover:text-black text-gray-700 no-underline text-base font-bold opacity-70"
+              >
+                Kanban
+              </Link>
             </li>
-            <li>
-              <Link to="/">Activity</Link>
+            <li className="mr-6 pb-2 border-b-2 border-solid border-transparent hover:border-yellow-400 transition-all">
+              <Link
+                to="/"
+                className="hover:text-black text-gray-700 no-underline text-base font-bold opacity-70"
+              >
+                Activity
+              </Link>
             </li>
-            <li>
-              <Link to="/">Calendar</Link>
+            <li className="mr-6 pb-2 border-b-2 border-solid border-transparent hover:border-yellow-400 transition-all">
+              <Link
+                to="/"
+                className="hover:text-black text-gray-700 no-underline text-base font-bold opacity-70"
+              >
+                Calendar
+              </Link>
             </li>
-            <li>
-              <Link to="/">Files</Link>
+            <li className="mr-6 pb-2 border-b-2 border-solid border-transparent hover:border-yellow-400 transition-all">
+              <Link
+                to="/"
+                className="hover:text-black text-gray-700 no-underline text-base font-bold opacity-70"
+              >
+                Files
+              </Link>
             </li>
           </ul>
         </nav>

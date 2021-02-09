@@ -11,13 +11,13 @@ import ActivityFeed from "../../components/ActivityFeed/ActivityFeed";
 const HomePage = () => {
   return (
     <Layout>
-      <div className="row">
-        <div className="col-md-7">
-          <div className="row">
-            <div className="col-12">
+      <div className="grid gap-4 grid-cols-2 items-start">
+        <div className="col-span-1">
+          <div className="grid gap-x-4 gap-y-0 grid-cols-2">
+            <div className="col-span-2">
               <WhiteContainer title="Completed Tasks">
-                <div className="completed-tasks-wrapper">
-                  <p className="completed-tasks-wrapper__number">372</p>
+                <div className="flex items-center justify-between">
+                  <p className="mr-9 text-7xl font-bold">372</p>
                   <img
                     src={TasksChart}
                     alt=""
@@ -26,7 +26,7 @@ const HomePage = () => {
                 </div>
               </WhiteContainer>
             </div>
-            <div className="col-6">
+            <div className="col-span-1">
               <WhiteContainer title="Working Rate" centered={true}>
                 <div className="progress-circle">
                   <svg>
@@ -42,7 +42,7 @@ const HomePage = () => {
                 </div>
               </WhiteContainer>
             </div>
-            <div className="col-6">
+            <div className="col-span-1">
               <WhiteContainer title="Working Rate" centered={true}>
                 <div className="progress-circle">
                   <svg>
@@ -60,12 +60,12 @@ const HomePage = () => {
                 </div>
               </WhiteContainer>
             </div>
-            <div className="col-12">
+            <div className="col-span-2">
               <TodayTasksList />
             </div>
           </div>
         </div>
-        <div className="col-5">
+        <div className="col-span-1">
           <ActivityFeed />
         </div>
       </div>

@@ -1,12 +1,12 @@
 import React from "react";
-import { ButtonType, ButtonSize } from "../../theme/theme";
+import { ButtonType, ButtonSize, ButtonRounded } from "../../theme/theme";
 
 const Button = (props) => {
-  const { type, color, size, children, className } = props;
+  const { type, color, size, rounded, children, className } = props;
   return (
     <button
       type={type}
-      className={`${ButtonType[color]} ${ButtonSize[size]} ${className}`}
+      className={`${ButtonType[color]} ${ButtonSize[size]} ${ButtonRounded[rounded]} ${className}`}
     >
       {children}
     </button>
