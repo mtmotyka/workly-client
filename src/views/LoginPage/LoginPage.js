@@ -16,7 +16,7 @@ const LoginPage = () => {
     e.preventDefault();
 
     const response = await axios.post(
-      "https://cors-anywhere.herokuapp.com/https://workly-api.herokuapp.com/auth/login",
+      "http://workly.mikovsky-cloud.com/api/auth/login",
       {
         email: email,
         password: password,
@@ -24,20 +24,21 @@ const LoginPage = () => {
     );
 
     const data = response.data;
-    localStorage.setItem("accesToken", data.accessToken);
+    console.log(data);
+    localStorage.setItem("accessToken", data.token);
   };
 
   return (
-    <main className="grid grid-cols-12 items-center min-h-screen py-10 bg-gray-100">
-      <div className="col-start-5 col-span-4">
-        <div className="rounded bg-white dark:bg-gray-700 shadow-2xl py-10 px-5">
-          <WorklySygnet className="mx-auto mb-10 block" />
-          <div className="flex justify-center relative mb-10 mt-4">
-            <Link to="/register" className="text-gray-400 text-xl mr-10">
+    <main className="grid grid-cols-12 items-center py-10 min-h-screen bg-gray-100">
+      <div className="col-span-4 col-start-5">
+        <div className="px-5 py-10 dark:bg-gray-700 bg-white rounded shadow-2xl">
+          <WorklySygnet className="block mb-10 mx-auto" />
+          <div className="relative flex justify-center mb-10 mt-4">
+            <Link to="/register" className="mr-10 text-gray-400 text-xl">
               Register
             </Link>
-            <span className="h-6 w-px absolute left-1/2 top-2/4 transform -translate-y-2/4 bg-gray-400" />
-            <Link to="/login" className="text-yellow-400 text-xl ml-10">
+            <span className="absolute left-1/2 top-2/4 w-px h-6 bg-gray-400 transform -translate-y-2/4" />
+            <Link to="/login" className="ml-10 text-yellow-400 text-xl">
               Login
             </Link>
           </div>

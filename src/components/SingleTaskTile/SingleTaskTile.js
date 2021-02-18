@@ -5,15 +5,13 @@ import "./single-task-tile.scss";
 import { ReactComponent as TaskComplete } from "../../assets/icons/ico-task-complete.svg";
 import ExampleSmallAvatar from "../../assets/images/example-small-avatar.png";
 
-const SingleTaskTile = () => {
+const SingleTaskTile = (props) => {
   return (
     <div className="relative mb-4 pl-14 pr-4 py-4 bg-gray-100 rounded-md">
       <div className="complete-btn absolute left-4 top-4 cursor-pointer">
         <TaskComplete />
       </div>
-      <p className="text-lg font-bold cursor-pointer">
-        E-mail after registration so that i Can confirm my address
-      </p>
+      <p className="text-lg font-bold cursor-pointer">{props.title}</p>
       <div className="flex items-center justify-start mt-4">
         <img
           src={ExampleSmallAvatar}

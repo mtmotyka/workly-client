@@ -2,7 +2,7 @@ import React from "react";
 
 import "./today-tasks-list.scss";
 import WhiteContainer from "../WhiteContainer/WhiteContainer";
-import SingleTaskTile from "../SingleTaskOnList/SingleTaskTile";
+import SingleTaskTile from "../SingleTaskTile/SingleTaskTile";
 
 const TasksList = () => {
   return (

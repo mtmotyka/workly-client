@@ -6,10 +6,12 @@ import "./layout.scss";
 
 const Layout = ({ children }) => {
   return (
-    <main className="layout">
+    <main className="flex h-screen max-h-screen bg-gray-100 overflow-hidden">
       <Header />
       <Sidebar />
-      <div className="main-content">{children}</div>
+      <div className="pb-4 pt-36 px-7 w-full max-h-screen overflow-auto">
+        {children}
+      </div>
     </main>
   );
 };
