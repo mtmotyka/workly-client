@@ -1,0 +1,22 @@
+@import "../../assets/styles/modules/variables";
+@import "../../assets/styles/modules/helpers";
+@import "../../assets/styles/modules/mixins";
+
+.timeline-container {
+  &__single-activity {
+    &:before {
+      @include pseudo;
+      height: 100%;
+      width: 1px;
+      background-color: rgb(230, 230, 230);
+      left: 19px;
+      top: 0;
+    }
+
+    &:last-of-type {
+      &:before {
+        display: none;
+      }
+    }
+  }
+}

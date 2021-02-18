@@ -16,7 +16,7 @@ const ActivityFeed = () => {
         <div className="single-day">
           <p className="mb-6 text-sm font-bold opacity-50 uppercase">Today</p>
           <div className="timeline-container">
-            <div className="relative pb-6">
+            <div className="timeline-container__single-activity relative pb-6">
               <div className="relative z-1 flex items-start justify-start">
                 <div>
                   <TaskCompleteRounded />
@@ -28,7 +28,7 @@ const ActivityFeed = () => {
               </div>
               <div className="ml-14 text-sm font-bold opacity-70">8:40 PM</div>
             </div>
-            <div className="relative pb-6">
+            <div className="timeline-container__single-activity relative pb-6">
               <div className="relative z-1 flex items-start justify-start">
                 <div>
                   <MessageRounded />
@@ -42,7 +42,7 @@ const ActivityFeed = () => {
               </div>
               <div className="ml-14 text-sm font-bold opacity-70">7:43 PM</div>
             </div>
-            <div className="relative pb-6">
+            <div className="timeline-container__single-activity relative pb-6">
               <div className="relative z-1 flex items-start justify-start">
                 <div>
                   <UploadRounded />
@@ -77,7 +77,7 @@ const ActivityFeed = () => {
             Yesterday
           </p>
           <div className="timeline-container">
-            <div className="relative pb-6">
+            <div className="timeline-container__single-activity relative pb-6">
               <div className="relative z-1 flex items-start justify-start">
                 <div>
                   <TaskCompleteRounded />
@@ -89,7 +89,7 @@ const ActivityFeed = () => {
               </div>
               <div className="ml-14 text-sm font-bold opacity-70">8:40 PM</div>
             </div>
-            <div className="relative pb-6">
+            <div className="timeline-container__single-activity relative pb-6">
               <div className="relative z-1 flex items-start justify-start">
                 <div>
                   <MessageRounded />
@@ -103,7 +103,7 @@ const ActivityFeed = () => {
               </div>
               <div className="ml-14 text-sm font-bold opacity-70">7:43 PM</div>
             </div>
-            <div className="relative pb-6">
+            <div className="timeline-container__single-activity relative pb-6">
               <div className="relative z-1 flex items-start justify-start">
                 <div>
                   <EditRounded />
