@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "./white-container.scss";
 import Button from "../Button/Button";
@@ -17,7 +17,13 @@ const WhiteContainer = (props) => {
               {props.title}
             </p>
             {props.button && (
-              <Button type="button" size="xs" color="green" rounded="sm">
+              <Button
+                type="button"
+                size="xs"
+                color="green"
+                rounded="sm"
+                onClick={props.onButtonClick}
+              >
                 + Add task
               </Button>
             )}

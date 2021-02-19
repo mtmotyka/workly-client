@@ -7,7 +7,7 @@ import { ReactComponent as ShowPasswordIcon } from "../../assets/icons/ico-eye.s
 import Input from "../../components/Input/Input";
 import Button from "../../components/Button/Button";
 
-const LoginPage = () => {
+const LoginPage = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -24,8 +24,8 @@ const LoginPage = () => {
     );
 
     const data = response.data;
-    console.log(data);
     localStorage.setItem("accessToken", data.token);
+    props.history.push("/");
   };
 
   return (

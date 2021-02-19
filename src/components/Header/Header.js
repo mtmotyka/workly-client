@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import "./header.scss";
@@ -9,6 +9,26 @@ import { ReactComponent as IcoChat } from "../../assets/icons/ico-chat.svg";
 import { ReactComponent as IcoMore } from "../../assets/icons/ico-more-dots.svg";
 
 const Header = () => {
+  const [isTasksList, setIsTasksList] = useState(false);
+  const [isKanban, setIsKanban] = useState(false);
+  const [isActivity, setIsActivity] = useState(false);
+  const [isCalendar, setIsCalendar] = useState(false);
+  const [isFiles, setIsFiles] = useState(false);
+
+  useEffect(() => {
+    if (window.location.pathname === "/tasks-list") {
+      setIsTasksList(true);
+    } else if (window.location.pathname === "/kanban") {
+      setIsKanban(true);
+    } else if (window.location.pathname === "/activity") {
+      setIsActivity(true);
+    } else if (window.location.pathname === "/calendar") {
+      setIsCalendar(true);
+    } else if (window.location.pathname === "/files") {
+      setIsFiles(true);
+    }
+  }, []);
+
   return (
     <header className="header fixed z-10 left-0 top-0 pb-14 pl-7 pr-7 pt-7 bg-white shadow-md">
       <div className="flex items-center justify-between">
@@ -21,7 +41,7 @@ const Header = () => {
         <div className="flex items-center justify-end">
           {Array(3)
             .fill(null)
-            .map((index) => (
+            .map((element, index) => (
               <img
                 key={index}
                 src={ExampleTeamAvatar}
@@ -50,42 +70,62 @@ const Header = () => {
         </div>
         <nav className="absolute bottom-0 left-7">
           <ul className="flex items-center justify-start list-none">
-            <li className="mr-6 pb-2 border-b-2 border-solid border-transparent hover:border-yellow-400 transition-all">
+            <li className="mr-6 pb-2">
               <Link
-                to="/"
-                className="hover:text-black text-gray-700 no-underline text-base font-bold opacity-70"
+                to="/tasks-list"
+                className={`${
+                  isTasksList === true
+                    ? "text-black border-yellow-400"
+                    : "text-gray-700 border-transparent"
+                } hover:text-black no-underline border-solid border-b-4 hover:border-yellow-400 text-base font-bold opacity-70 transition-all pb-2`}
               >
                 Tasks
               </Link>
             </li>
-            <li className="mr-6 pb-2 border-b-2 border-solid border-transparent hover:border-yellow-400 transition-all">
+            <li className="mr-6 pb-2">
               <Link
-                to="/"
-                className="hover:text-black text-gray-700 no-underline text-base font-bold opacity-70"
+                to="/tasks-list"
+                className={`${
+                  isKanban === true
+                    ? "text-black border-yellow-400"
+                    : "text-gray-700 border-transparent"
+                } hover:text-black no-underline border-solid border-b-4 hover:border-yellow-400 text-base font-bold opacity-70 transition-all pb-2`}
               >
                 Kanban
               </Link>
             </li>
-            <li className="mr-6 pb-2 border-b-2 border-solid border-transparent hover:border-yellow-400 transition-all">
+            <li className="mr-6 pb-2">
               <Link
-                to="/"
-                className="hover:text-black text-gray-700 no-underline text-base font-bold opacity-70"
+                to="/tasks-list"
+                className={`${
+                  isActivity === true
+                    ? "text-black border-yellow-400"
+                    : "text-gray-700 border-transparent"
+                } hover:text-black no-underline border-solid border-b-4 hover:border-yellow-400 text-base font-bold opacity-70 transition-all pb-2`}
               >
                 Activity
               </Link>
             </li>
-            <li className="mr-6 pb-2 border-b-2 border-solid border-transparent hover:border-yellow-400 transition-all">
+            <li className="mr-6 pb-2">
               <Link
-                to="/"
-                className="hover:text-black text-gray-700 no-underline text-base font-bold opacity-70"
+                to="/tasks-list"
+                className={`${
+                  isCalendar === true
+                    ? "text-black border-yellow-400"
+                    : "text-gray-700 border-transparent"
+                } hover:text-black no-underline border-solid border-b-4 hover:border-yellow-400 text-base font-bold opacity-70 transition-all pb-2`}
               >
                 Calendar
               </Link>
             </li>
-            <li className="mr-6 pb-2 border-b-2 border-solid border-transparent hover:border-yellow-400 transition-all">
+            <li className="mr-6 pb-2">
               <Link
-                to="/"
-                className="hover:text-black text-gray-700 no-underline text-base font-bold opacity-70"
+                to="/tasks-list"
+                className={`${
+                  isFiles === true
+                    ? "text-black border-yellow-400"
+                    : "text-gray-700 border-transparent"
+                } hover:text-black no-underline border-solid border-b-4 hover:border-yellow-400 text-base font-bold opacity-70 transition-all pb-2`}
               >
                 Files
               </Link>

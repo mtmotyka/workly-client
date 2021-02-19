@@ -7,11 +7,12 @@ import Button from "../Button/Button";
 import SampleAvatar from "../../assets/images/sample-avatar.png";
 import { ReactComponent as IcoCalendar } from "../../assets/icons/ico-calendar.svg";
 
-const AddTaskPopup = () => {
+const AddTaskPopup = (props) => {
   const [taskName, setTaskName] = useState("");
   const [taskDescription, setTaskDescription] = useState("");
   const [closePopup, setClosePopup] = useState(false);
   const [dueDate, setDueDate] = useState(new Date());
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
 
   let token = localStorage.getItem("accessToken");
 
@@ -24,7 +25,7 @@ const AddTaskPopup = () => {
       {
         completed: false,
         description: taskDescription,
-        dueDate: "2022-02-18T22:06:40.384Z",
+        dueDate: dueDate.toJSON(),
         name: taskName,
       },
       { headers: { Authorization: token } }
@@ -36,8 +37,8 @@ const AddTaskPopup = () => {
   return (
     <>
       <div
-        className={`${
-          closePopup === true ? "hidden" : ""
+        className={`${closePopup === true ? "hidden" : ""} ${
+          isPopupVisible === false ? "hidden" : "block"
         } absolute z-50 left-2/4 top-2/4 pb-7 pt-4 px-4 w-6/12 bg-white rounded-md transform -translate-x-2/4 -translate-y-2/4 shadow-md`}
       >
         <div className="flex items-center justify-between mb-8 pb-4 border-b border-gray-200">
@@ -74,11 +75,13 @@ const AddTaskPopup = () => {
         </div>
         <div className="flex items-center justify-start mb-3">
           <div className="w-32 text-gray-400 text-xs font-light">Due date</div>
-          <div className="flex items-center justify-start -ml-2 px-2 py-1 h-12 text-gray-600 text-sm hover:bg-gray-100 rounded-md cursor-pointer">
+          <div className="flex items-center justify-start -ml-2 px-2 py-1 h-12 text-gray-600 text-sm hover:bg-gray-100 rounded-md">
             <IcoCalendar className="mr-2" />
             <DatePicker
               selected={dueDate}
               onChange={(dueDate) => setDueDate(dueDate)}
+              dateFormat="dd/MM/yyyy"
+              className="cursor-pointer"
             />
           </div>
         </div>
@@ -99,19 +102,14 @@ const AddTaskPopup = () => {
           />
         </div>
         <div className="flex justify-center">
-          <Button
-            size="sm"
-            rounded="md"
-            color="green"
-            onClick={console.log(dueDate)}
-          >
+          <Button size="sm" rounded="md" color="green" onClick={createTask}>
             Add task
           </Button>
         </div>
       </div>
       <div
-        className={`${
-          closePopup === true ? "hidden" : "block"
+        className={`${closePopup === true ? "hidden" : "block"} ${
+          isPopupVisible === false ? "hidden" : "block"
         } fixed z-40 left-0 top-0 w-full h-screen bg-gray-700 opacity-70`}
       />
     </>

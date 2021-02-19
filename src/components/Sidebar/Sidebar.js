@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import "./sidebar.scss";
 import { ReactComponent as IcoSearch } from "../../assets/icons/ico-search.svg";
@@ -18,9 +19,12 @@ const Sidebar = () => {
       <div className="sidebar-width-main bg-black">
         <div className="sidebar-width-main fixed z-1 left-0 top-0 bg-black">
           <div className="sidebar-width-main flex items-center justify-between m-0 pb-0 pl-7 pr-5 pt-7">
-            <p className="text-white hover:text-yellow-400 text-base font-bold cursor-pointer uppercase">
+            <Link
+              to="/"
+              className="text-white hover:text-yellow-400 text-base font-bold cursor-pointer uppercase"
+            >
               WORKLY
-            </p>
+            </Link>
             <IcoSearch className="cursor-pointer" />
           </div>
           <div className="relative flex items-center justify-between m-0 mt-8 pb-4 pl-7 pr-5 pt-4 bg-gray-900">
@@ -127,7 +131,7 @@ const Sidebar = () => {
               <div className="align-center flex justify-end">
                 {Array(4)
                   .fill(null)
-                  .map((index) => (
+                  .map((element, index) => (
                     <img
                       key={index}
                       src={ExampleTeamAvatarOne}
@@ -142,7 +146,7 @@ const Sidebar = () => {
               <div className="align-center flex justify-end">
                 {Array(2)
                   .fill(null)
-                  .map((index) => (
+                  .map((element, index) => (
                     <img
                       key={index}
                       src={ExampleTeamAvatarTwo}
@@ -157,7 +161,7 @@ const Sidebar = () => {
               <div className="align-center flex justify-end">
                 {Array(3)
                   .fill(null)
-                  .map((index) => (
+                  .map((element, index) => (
                     <img
                       key={index}
                       src={ExampleTeamAvatarThree}
