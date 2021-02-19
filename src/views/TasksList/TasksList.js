@@ -16,8 +16,8 @@ const TasksList = () => {
       "http://workly.mikovsky-cloud.com/api/tasks",
       {
         completed: false,
-        description: "",
-        dueDate: "2021-02-18T22:06:40.384Z",
+        description: "asd",
+        dueDate: "2022-02-18T22:06:40.384Z",
         name: taskName,
       },
       { headers: { Authorization: token } }
@@ -29,7 +29,7 @@ const TasksList = () => {
     <Layout>
       <div className="grid gap-4 grid-cols-5 items-start max-h-screen">
         <div className="col-span-2">
-          <WhiteContainer title="My tasks">
+          <WhiteContainer title="My tasks" button={true}>
             <form onSubmit={createTask}>
               <input
                 type="text"
@@ -40,6 +40,7 @@ const TasksList = () => {
               />
               <button type="submit">Wyslij</button>
             </form>
+            <SingleTaskTile title="" />
           </WhiteContainer>
         </div>
         <div className="col-span-3">

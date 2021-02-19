@@ -10,7 +10,7 @@ import { ReactComponent as IcoMore } from "../../assets/icons/ico-more-dots.svg"
 
 const Header = () => {
   return (
-    <header className="header fixed z-50 left-0 top-0 pb-14 pl-7 pr-7 pt-7 bg-white shadow-md">
+    <header className="header fixed z-10 left-0 top-0 pb-14 pl-7 pr-7 pt-7 bg-white shadow-md">
       <div className="flex items-center justify-between">
         <div className="flex items-center justify-start">
           <h2 className="text-3xl font-bold">Home</h2>
