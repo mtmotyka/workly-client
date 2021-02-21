@@ -10,12 +10,22 @@ You can see our progress here: https://worklypl.netlify.app/
 
 ## Used technologies
 
+## Currently working functionalities
+- Register (at /register)
+- Login (at /login)
+- Add task (at / or /tasks-list)
+- View tasks (at /tasks-list)
+
 **Front-end:**
 - React.js
-- Tailwind CSS (first approach with this framework... Let's try) **Currently refactoring app for Tailwind because I started without this.**
+- Tailwind CSS (first approach with this framework... Let's try)
 
 **Back-end:**
-- Golang
+- Spring Boot
+- Postgres
+- Docker
+- JWT
+- AWS
 
 
 ## Getting Started with Create React App
