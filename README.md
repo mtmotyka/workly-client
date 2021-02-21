@@ -12,7 +12,7 @@ You can see our progress here: https://worklypl.netlify.app/
 - Register (at /register)
 - Login (at /login)
 - Add task (at / or /tasks-list)
-- View tasks (at /tasks-list)
+- View tasks list (at / or /tasks-list)
 
 ## Used technologies
 **Front-end:**
