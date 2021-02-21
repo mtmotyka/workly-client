@@ -10,9 +10,7 @@ import { ReactComponent as IcoCalendar } from "../../assets/icons/ico-calendar.s
 const AddTaskPopup = (props) => {
   const [taskName, setTaskName] = useState("");
   const [taskDescription, setTaskDescription] = useState("");
-  const [closePopup, setClosePopup] = useState(false);
   const [dueDate, setDueDate] = useState(new Date());
-  const [isPopupVisible, setIsPopupVisible] = useState(false);
 
   let token = localStorage.getItem("accessToken");
 
@@ -31,25 +29,17 @@ const AddTaskPopup = (props) => {
       { headers: { Authorization: token } }
     );
     console.log(response);
-    setClosePopup(true);
   };
 
   return (
     <>
-      <div
-        className={`${closePopup === true ? "hidden" : ""} ${
-          isPopupVisible === false ? "hidden" : "block"
-        } absolute z-50 left-2/4 top-2/4 pb-7 pt-4 px-4 w-6/12 bg-white rounded-md transform -translate-x-2/4 -translate-y-2/4 shadow-md`}
-      >
+      <div className="absolute z-50 left-2/4 top-2/4 pb-7 pt-4 px-4 w-6/12 bg-white rounded-md shadow-md transform -translate-x-2/4 -translate-y-2/4">
         <div className="flex items-center justify-between mb-8 pb-4 border-b border-gray-200">
           <Button size="xs" color="greenTransparent" rounded="md">
             Mark complete
           </Button>
           <div>
-            <button
-              className="text-xl font-light"
-              onClick={(e) => setClosePopup(true)}
-            >
+            <button className="text-xl font-light" onClick={props.handleClose}>
               &#10005;
             </button>
           </div>
@@ -64,7 +54,7 @@ const AddTaskPopup = (props) => {
         />
         <div className="flex items-center justify-start mb-1">
           <div className="w-32 text-gray-400 text-xs font-light">Assignee</div>
-          <div className="flex items-center justify-start -ml-2 px-2 py-1 h-12 text-gray-600 text-sm hover:bg-gray-100 rounded-md cursor-pointer">
+          <div className="flex items-center justify-start -ml-2 px-2 py-1 h-12 text-gray-500 text-sm hover:bg-gray-100 rounded-md cursor-pointer">
             <img
               src={SampleAvatar}
               alt=""
@@ -75,7 +65,7 @@ const AddTaskPopup = (props) => {
         </div>
         <div className="flex items-center justify-start mb-3">
           <div className="w-32 text-gray-400 text-xs font-light">Due date</div>
-          <div className="flex items-center justify-start -ml-2 px-2 py-1 h-12 text-gray-600 text-sm hover:bg-gray-100 rounded-md">
+          <div className="flex items-center justify-start -ml-2 px-2 py-1 h-12 text-gray-500 text-sm hover:bg-gray-100 rounded-md">
             <IcoCalendar className="mr-2" />
             <DatePicker
               selected={dueDate}
@@ -108,9 +98,8 @@ const AddTaskPopup = (props) => {
         </div>
       </div>
       <div
-        className={`${closePopup === true ? "hidden" : "block"} ${
-          isPopupVisible === false ? "hidden" : "block"
-        } fixed z-40 left-0 top-0 w-full h-screen bg-gray-700 opacity-70`}
+        onClick={props.handleClose}
+        className="fixed z-40 left-0 top-0 w-full h-screen bg-gray-700 opacity-70"
       />
     </>
   );

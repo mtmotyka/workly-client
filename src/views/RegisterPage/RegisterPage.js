@@ -62,7 +62,6 @@ const RegisterPage = () => {
         }
       );
       if (response.status === 200) {
-        console.log("true");
         setSuccesMessage("Your account has been created successfully");
         setErrorMessage("");
         setIsSubmit(false);

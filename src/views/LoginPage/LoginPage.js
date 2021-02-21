@@ -6,6 +6,7 @@ import { ReactComponent as WorklySygnet } from "../../assets/images/workly-sygne
 import { ReactComponent as ShowPasswordIcon } from "../../assets/icons/ico-eye.svg";
 import Input from "../../components/Input/Input";
 import Button from "../../components/Button/Button";
+import { setToken } from "../../components/AuthService/AuthService";
 
 const LoginPage = (props) => {
   const [email, setEmail] = useState("");
@@ -24,8 +25,10 @@ const LoginPage = (props) => {
     );
 
     const data = response.data;
-    localStorage.setItem("accessToken", data.token);
-    props.history.push("/");
+    setToken(data.token);
+    if (response.status === 200) {
+      props.history.push("/");
+    }
   };
 
   return (

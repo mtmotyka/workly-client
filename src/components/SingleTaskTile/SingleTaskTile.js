@@ -7,11 +7,13 @@ import ExampleSmallAvatar from "../../assets/images/example-small-avatar.png";
 
 const SingleTaskTile = (props) => {
   return (
-    <div className="relative mb-4 pl-14 pr-4 py-4 bg-gray-100 hover:bg-gray-200 rounded-md cursor-pointer">
-      <div className="complete-btn absolute left-4 top-4 cursor-pointer">
-        <TaskComplete />
+    <div className="relative -mb-4 pb-8 pl-12 pt-5 px-4 hover:bg-gray-50 bg-white border-t border-solid border-gray-200 cursor-pointer">
+      <div className="complete-btn absolute left-4 top-6 cursor-pointer">
+        <TaskComplete className="border border-solid border-gray-100 rounded-md" />
       </div>
-      <p className="text-lg font-bold cursor-pointer">{props.title}</p>
+      <p className="text-md bg- text-gray-500 font-medium cursor-pointer">
+        {props.title}
+      </p>
       <div className="flex items-center justify-between mt-4">
         <div className="flex items-center justify-start">
           <img
@@ -19,7 +21,7 @@ const SingleTaskTile = (props) => {
             alt=""
             className="img-fluid task-info__member"
           />
-          <p className="ml-2 px-4 py-1 text-yellow-500 text-xs font-bold bg-yellow-100 rounded-full cursor-pointer uppercase">
+          <p className="ml-2 px-3 py-1 text-yellow-500 text-xxs font-bold bg-yellow-100 hover:bg-yellow-200 rounded-full cursor-pointer uppercase">
             Developement
           </p>
         </div>

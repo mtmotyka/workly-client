@@ -30,7 +30,7 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="header fixed z-10 left-0 top-0 pb-14 pl-7 pr-7 pt-7 bg-white shadow-md">
+    <header className="header fixed z-10 left-0 top-0 pb-14 pl-7 pr-7 pt-7 bg-white border-b border-gray-200">
       <div className="flex items-center justify-between">
         <div className="flex items-center justify-start">
           <h2 className="text-3xl font-bold">Home</h2>
@@ -75,9 +75,9 @@ const Header = () => {
                 to="/tasks-list"
                 className={`${
                   isTasksList === true
-                    ? "text-black border-yellow-400"
-                    : "text-gray-700 border-transparent"
-                } hover:text-black no-underline border-solid border-b-4 hover:border-yellow-400 text-base font-bold opacity-70 transition-all pb-2`}
+                    ? "text-black border-blue-400"
+                    : "text-gray-500 border-transparent"
+                } hover:text-black no-underline border-solid border-b-4 hover:border-blue-400 text-md font-medium opacity-70 transition-all pb-2`}
               >
                 Tasks
               </Link>
@@ -87,9 +87,9 @@ const Header = () => {
                 to="/tasks-list"
                 className={`${
                   isKanban === true
-                    ? "text-black border-yellow-400"
-                    : "text-gray-700 border-transparent"
-                } hover:text-black no-underline border-solid border-b-4 hover:border-yellow-400 text-base font-bold opacity-70 transition-all pb-2`}
+                    ? "text-black border-blue-400"
+                    : "text-gray-500 border-transparent"
+                } hover:text-black no-underline border-solid border-b-4 hover:border-blue-400 text-md font-medium opacity-70 transition-all pb-2`}
               >
                 Kanban
               </Link>
@@ -99,9 +99,9 @@ const Header = () => {
                 to="/tasks-list"
                 className={`${
                   isActivity === true
-                    ? "text-black border-yellow-400"
-                    : "text-gray-700 border-transparent"
-                } hover:text-black no-underline border-solid border-b-4 hover:border-yellow-400 text-base font-bold opacity-70 transition-all pb-2`}
+                    ? "text-black border-blue-400"
+                    : "text-gray-500 border-transparent"
+                } hover:text-black no-underline border-solid border-b-4 hover:border-blue-400 text-md font-medium opacity-70 transition-all pb-2`}
               >
                 Activity
               </Link>
@@ -111,9 +111,9 @@ const Header = () => {
                 to="/tasks-list"
                 className={`${
                   isCalendar === true
-                    ? "text-black border-yellow-400"
-                    : "text-gray-700 border-transparent"
-                } hover:text-black no-underline border-solid border-b-4 hover:border-yellow-400 text-base font-bold opacity-70 transition-all pb-2`}
+                    ? "text-black border-blue-400"
+                    : "text-gray-500 border-transparent"
+                } hover:text-black no-underline border-solid border-b-4 hover:border-blue-400 text-md font-medium opacity-70 transition-all pb-2`}
               >
                 Calendar
               </Link>
@@ -123,9 +123,9 @@ const Header = () => {
                 to="/tasks-list"
                 className={`${
                   isFiles === true
-                    ? "text-black border-yellow-400"
-                    : "text-gray-700 border-transparent"
-                } hover:text-black no-underline border-solid border-b-4 hover:border-yellow-400 text-base font-bold opacity-70 transition-all pb-2`}
+                    ? "text-black border-blue-400"
+                    : "text-gray-500 border-transparent"
+                } hover:text-black no-underline border-solid border-b-4 hover:border-blue-400 text-md font-medium opacity-70 transition-all pb-2`}
               >
                 Files
               </Link>

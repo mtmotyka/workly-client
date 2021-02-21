@@ -12,7 +12,7 @@ import UploadedPhoto from "../../assets/images/example-uploaded-photo.png";
 const ActivityFeed = () => {
   return (
     <WhiteContainer title="Activity">
-      <div className="activity-feed">
+      <div className="activity-feed px-4">
         <div className="single-day">
           <p className="mb-6 text-sm font-bold opacity-50 uppercase">Today</p>
           <div className="timeline-container">
@@ -21,9 +21,12 @@ const ActivityFeed = () => {
                 <div>
                   <TaskCompleteRounded />
                 </div>
-                <p className="ml-4 mt-1">
-                  <strong>Darika Samak</strong> mark as done{" "}
-                  <strong>Listing on Product Hunt</strong>
+                <p className="ml-4 mt-1 text-gray-500">
+                  <strong className="font-semibold">Darika Samak</strong> mark
+                  as done{" "}
+                  <strong className="font-semibold">
+                    Listing on Product Hunt
+                  </strong>
                 </p>
               </div>
               <div className="ml-14 text-sm font-bold opacity-70">8:40 PM</div>
@@ -33,9 +36,10 @@ const ActivityFeed = () => {
                 <div>
                   <MessageRounded />
                 </div>
-                <p className="ml-4 mt-1">
-                  <strong>Emilee Simchenko </strong> commented on{" "}
-                  <strong>
+                <p className="ml-4 mt-1 text-gray-500">
+                  <strong className="font-semibold">Emilee Simchenko </strong>{" "}
+                  commented on{" "}
+                  <strong className="font-semibold">
                     Account for teams and personal in bottom style
                   </strong>
                 </p>
@@ -47,9 +51,10 @@ const ActivityFeed = () => {
                 <div>
                   <UploadRounded />
                 </div>
-                <p className="ml-4 mt-1">
-                  <strong>Darika Samak</strong> uploaded 4 files on{" "}
-                  <strong>
+                <p className="ml-4 mt-1 text-gray-500">
+                  <strong className="font-semibold">Darika Samak</strong>{" "}
+                  uploaded 4 files on{" "}
+                  <strong className="font-semibold">
                     An option to search in current projects or in all projects
                   </strong>
                 </p>
@@ -58,14 +63,9 @@ const ActivityFeed = () => {
               <div className="flex flex-wrap items-start justify-start -mr-2 mb-0 ml-11 mt-0">
                 {Array(4)
                   .fill(null)
-                  .map((index) => (
-                    <div className="p-3">
-                      <img
-                        src={UploadedPhoto}
-                        alt=""
-                        key={index}
-                        className="img-fluid"
-                      />
+                  .map((element, index) => (
+                    <div className="p-3" key={index}>
+                      <img src={UploadedPhoto} alt="" className="img-fluid" />
                     </div>
                   ))}
               </div>
@@ -82,9 +82,12 @@ const ActivityFeed = () => {
                 <div>
                   <TaskCompleteRounded />
                 </div>
-                <p className="ml-4 mt-1">
-                  <strong>Darika Samak</strong> mark as done{" "}
-                  <strong>Listing on Product Hunt</strong>
+                <p className="ml-4 mt-1 text-gray-500">
+                  <strong className="font-semibold">Darika Samak</strong> mark
+                  as done{" "}
+                  <strong className="font-semibold">
+                    Listing on Product Hunt
+                  </strong>
                 </p>
               </div>
               <div className="ml-14 text-sm font-bold opacity-70">8:40 PM</div>
@@ -94,9 +97,10 @@ const ActivityFeed = () => {
                 <div>
                   <MessageRounded />
                 </div>
-                <p className="ml-4 mt-1">
-                  <strong>Emilee Simchenko </strong> commented on{" "}
-                  <strong>
+                <p className="ml-4 mt-1 text-gray-500">
+                  <strong className="font-semibold">Emilee Simchenko </strong>{" "}
+                  commented on{" "}
+                  <strong className="font-semibold">
                     Account for teams and personal in bottom style
                   </strong>
                 </p>
@@ -108,9 +112,9 @@ const ActivityFeed = () => {
                 <div>
                   <EditRounded />
                 </div>
-                <p className="ml-4 mt-1">
-                  <strong>Darika Samak</strong> edited{" "}
-                  <strong>
+                <p className="ml-4 mt-1 text-gray-500">
+                  <strong className="font-semibold">Darika Samak</strong> edited{" "}
+                  <strong className="font-semibold">
                     Listing on Product Hunt so that we can reach as many
                     potential users
                   </strong>
