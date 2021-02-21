@@ -6,7 +6,7 @@ import { ReactComponent as WorklySygnet } from "../../assets/images/workly-sygne
 import { ReactComponent as ShowPasswordIcon } from "../../assets/icons/ico-eye.svg";
 import Input from "../../components/Input/Input";
 import Button from "../../components/Button/Button";
-import { setToken } from "../../components/AuthService/AuthService";
+import { setToken } from "../../utils/AuthServices/AuthServices";
 
 const LoginPage = (props) => {
   const [email, setEmail] = useState("");

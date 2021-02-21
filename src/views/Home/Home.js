@@ -5,7 +5,7 @@ import TasksChart from "../../assets/images/completed-tasks-chart.png";
 
 import "./home.scss";
 import "../../assets/styles/modules/_helpers.scss";
-import TodayTasksList from "../../components/TasksList/TodayTasksList";
+import TasksList from "../../components/TasksList/TasksList";
 import ActivityFeed from "../../components/ActivityFeed/ActivityFeed";
 
 const HomePage = () => {
@@ -61,7 +61,7 @@ const HomePage = () => {
               </WhiteContainer>
             </div>
             <div className="col-span-2">
-              <TodayTasksList />
+              <TasksList />
             </div>
           </div>
         </div>

@@ -9,7 +9,7 @@ const TasksList = () => {
   const [tasksList, setTasksList] = useState("");
   const [showPopup, setShowPopup] = useState(false);
 
-  let token = localStorage.getItem("accessToken");
+  const token = localStorage.getItem("accessToken");
 
   const getTasks = async () => {
     const response = await axios.get(

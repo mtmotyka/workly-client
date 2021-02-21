@@ -9,9 +9,7 @@ const setToken = (token) => {
 const isTokenExpired = (token) => {
   try {
     const decoded = decode(token);
-    if (decoded.exp < Date.now() / 1000) {
-      return true;
-    } else return false;
+    return decoded.exp < Date.now() / 1000;
   } catch (err) {
     return false;
   }

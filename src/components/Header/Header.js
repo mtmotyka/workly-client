@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+import { NavLink } from "react-router-dom";
 
 import "./header.scss";
 
@@ -9,26 +9,6 @@ import { ReactComponent as IcoChat } from "../../assets/icons/ico-chat.svg";
 import { ReactComponent as IcoMore } from "../../assets/icons/ico-more-dots.svg";
 
 const Header = () => {
-  const [isTasksList, setIsTasksList] = useState(false);
-  const [isKanban, setIsKanban] = useState(false);
-  const [isActivity, setIsActivity] = useState(false);
-  const [isCalendar, setIsCalendar] = useState(false);
-  const [isFiles, setIsFiles] = useState(false);
-
-  useEffect(() => {
-    if (window.location.pathname === "/tasks-list") {
-      setIsTasksList(true);
-    } else if (window.location.pathname === "/kanban") {
-      setIsKanban(true);
-    } else if (window.location.pathname === "/activity") {
-      setIsActivity(true);
-    } else if (window.location.pathname === "/calendar") {
-      setIsCalendar(true);
-    } else if (window.location.pathname === "/files") {
-      setIsFiles(true);
-    }
-  }, []);
-
   return (
     <header className="header fixed z-10 left-0 top-0 pb-14 pl-7 pr-7 pt-7 bg-white border-b border-gray-200">
       <div className="flex items-center justify-between">
@@ -71,64 +51,49 @@ const Header = () => {
         <nav className="absolute bottom-0 left-7">
           <ul className="flex items-center justify-start list-none">
             <li className="mr-6 pb-2">
-              <Link
+              <NavLink
+                activeClassName="border-blue-400 text-black"
                 to="/tasks-list"
-                className={`${
-                  isTasksList === true
-                    ? "text-black border-blue-400"
-                    : "text-gray-500 border-transparent"
-                } hover:text-black no-underline border-solid border-b-4 hover:border-blue-400 text-md font-medium opacity-70 transition-all pb-2`}
+                className="text-md pb-2 hover:text-black no-underline font-medium border-b-4 border-solid hover:border-blue-400 opacity-70 transition-all"
               >
                 Tasks
-              </Link>
+              </NavLink>
             </li>
             <li className="mr-6 pb-2">
-              <Link
-                to="/tasks-list"
-                className={`${
-                  isKanban === true
-                    ? "text-black border-blue-400"
-                    : "text-gray-500 border-transparent"
-                } hover:text-black no-underline border-solid border-b-4 hover:border-blue-400 text-md font-medium opacity-70 transition-all pb-2`}
+              <NavLink
+                activeClassName="border-blue-400 text-black"
+                to="/kanban"
+                className="text-md pb-2 hover:text-black no-underline font-medium border-b-4 border-solid hover:border-blue-400 opacity-70 transition-all"
               >
                 Kanban
-              </Link>
+              </NavLink>
             </li>
             <li className="mr-6 pb-2">
-              <Link
-                to="/tasks-list"
-                className={`${
-                  isActivity === true
-                    ? "text-black border-blue-400"
-                    : "text-gray-500 border-transparent"
-                } hover:text-black no-underline border-solid border-b-4 hover:border-blue-400 text-md font-medium opacity-70 transition-all pb-2`}
+              <NavLink
+                activeClassName="border-blue-400 text-black"
+                to="/activity"
+                className="text-md pb-2 hover:text-black no-underline font-medium border-b-4 border-solid hover:border-blue-400 opacity-70 transition-all"
               >
                 Activity
-              </Link>
+              </NavLink>
             </li>
             <li className="mr-6 pb-2">
-              <Link
-                to="/tasks-list"
-                className={`${
-                  isCalendar === true
-                    ? "text-black border-blue-400"
-                    : "text-gray-500 border-transparent"
-                } hover:text-black no-underline border-solid border-b-4 hover:border-blue-400 text-md font-medium opacity-70 transition-all pb-2`}
+              <NavLink
+                activeClassName="border-blue-400 text-black"
+                to="/calendar"
+                className="text-md pb-2 hover:text-black no-underline font-medium border-b-4 border-solid hover:border-blue-400 opacity-70 transition-all"
               >
                 Calendar
-              </Link>
+              </NavLink>
             </li>
             <li className="mr-6 pb-2">
-              <Link
-                to="/tasks-list"
-                className={`${
-                  isFiles === true
-                    ? "text-black border-blue-400"
-                    : "text-gray-500 border-transparent"
-                } hover:text-black no-underline border-solid border-b-4 hover:border-blue-400 text-md font-medium opacity-70 transition-all pb-2`}
+              <NavLink
+                activeClassName="border-blue-400 text-black"
+                to="/files"
+                className="text-md pb-2 hover:text-black no-underline font-medium border-b-4 border-solid hover:border-blue-400 opacity-70 transition-all"
               >
                 Files
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </nav>
