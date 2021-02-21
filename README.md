@@ -8,14 +8,13 @@ This is repo with front-end code. Backend repo is here: https://github.com/mikov
 ### Live preview
 You can see our progress here: https://worklypl.netlify.app/
 
-## Used technologies
-
-## Currently working functionalities
+**Currently working functionalities**
 - Register (at /register)
 - Login (at /login)
 - Add task (at / or /tasks-list)
-- View tasks (at /tasks-list)
+- View tasks list (at / or /tasks-list. Visible only when you are logged in and you added any task)
 
+## Used technologies
 **Front-end:**
 - React.js
 - Tailwind CSS (first approach with this framework... Let's try)
