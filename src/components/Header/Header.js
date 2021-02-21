@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import "./header.scss";
 
@@ -10,7 +10,7 @@ import { ReactComponent as IcoMore } from "../../assets/icons/ico-more-dots.svg"
 
 const Header = () => {
   return (
-    <header className="header fixed z-50 left-0 top-0 pb-14 pl-7 pr-7 pt-7 bg-white shadow-md">
+    <header className="header fixed z-10 left-0 top-0 pb-14 pl-7 pr-7 pt-7 bg-white border-b border-gray-200">
       <div className="flex items-center justify-between">
         <div className="flex items-center justify-start">
           <h2 className="text-3xl font-bold">Home</h2>
@@ -21,7 +21,7 @@ const Header = () => {
         <div className="flex items-center justify-end">
           {Array(3)
             .fill(null)
-            .map((index) => (
+            .map((element, index) => (
               <img
                 key={index}
                 src={ExampleTeamAvatar}
@@ -50,45 +50,50 @@ const Header = () => {
         </div>
         <nav className="absolute bottom-0 left-7">
           <ul className="flex items-center justify-start list-none">
-            <li className="mr-6 pb-2 border-b-2 border-solid border-transparent hover:border-yellow-400 transition-all">
-              <Link
-                to="/"
-                className="hover:text-black text-gray-700 no-underline text-base font-bold opacity-70"
+            <li className="mr-6 pb-2">
+              <NavLink
+                activeClassName="border-blue-400 text-black"
+                to="/tasks-list"
+                className="text-md pb-2 hover:text-black no-underline font-medium border-b-4 border-solid hover:border-blue-400 opacity-70 transition-all"
               >
                 Tasks
-              </Link>
+              </NavLink>
             </li>
-            <li className="mr-6 pb-2 border-b-2 border-solid border-transparent hover:border-yellow-400 transition-all">
-              <Link
-                to="/"
-                className="hover:text-black text-gray-700 no-underline text-base font-bold opacity-70"
+            <li className="mr-6 pb-2">
+              <NavLink
+                activeClassName="border-blue-400 text-black"
+                to="/kanban"
+                className="text-md pb-2 hover:text-black no-underline font-medium border-b-4 border-solid hover:border-blue-400 opacity-70 transition-all"
               >
                 Kanban
-              </Link>
+              </NavLink>
             </li>
-            <li className="mr-6 pb-2 border-b-2 border-solid border-transparent hover:border-yellow-400 transition-all">
-              <Link
-                to="/"
-                className="hover:text-black text-gray-700 no-underline text-base font-bold opacity-70"
+            <li className="mr-6 pb-2">
+              <NavLink
+                activeClassName="border-blue-400 text-black"
+                to="/activity"
+                className="text-md pb-2 hover:text-black no-underline font-medium border-b-4 border-solid hover:border-blue-400 opacity-70 transition-all"
               >
                 Activity
-              </Link>
+              </NavLink>
             </li>
-            <li className="mr-6 pb-2 border-b-2 border-solid border-transparent hover:border-yellow-400 transition-all">
-              <Link
-                to="/"
-                className="hover:text-black text-gray-700 no-underline text-base font-bold opacity-70"
+            <li className="mr-6 pb-2">
+              <NavLink
+                activeClassName="border-blue-400 text-black"
+                to="/calendar"
+                className="text-md pb-2 hover:text-black no-underline font-medium border-b-4 border-solid hover:border-blue-400 opacity-70 transition-all"
               >
                 Calendar
-              </Link>
+              </NavLink>
             </li>
-            <li className="mr-6 pb-2 border-b-2 border-solid border-transparent hover:border-yellow-400 transition-all">
-              <Link
-                to="/"
-                className="hover:text-black text-gray-700 no-underline text-base font-bold opacity-70"
+            <li className="mr-6 pb-2">
+              <NavLink
+                activeClassName="border-blue-400 text-black"
+                to="/files"
+                className="text-md pb-2 hover:text-black no-underline font-medium border-b-4 border-solid hover:border-blue-400 opacity-70 transition-all"
               >
                 Files
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </nav>

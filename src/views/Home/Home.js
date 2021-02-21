@@ -5,7 +5,7 @@ import TasksChart from "../../assets/images/completed-tasks-chart.png";
 
 import "./home.scss";
 import "../../assets/styles/modules/_helpers.scss";
-import TodayTasksList from "../../components/TasksList/TodayTasksList";
+import TasksList from "../../components/TasksList/TasksList";
 import ActivityFeed from "../../components/ActivityFeed/ActivityFeed";
 
 const HomePage = () => {
@@ -16,7 +16,7 @@ const HomePage = () => {
           <div className="grid gap-x-4 gap-y-0 grid-cols-2">
             <div className="col-span-2">
               <WhiteContainer title="Completed Tasks">
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between px-4">
                   <p className="mr-9 text-7xl font-bold">372</p>
                   <img
                     src={TasksChart}
@@ -61,7 +61,7 @@ const HomePage = () => {
               </WhiteContainer>
             </div>
             <div className="col-span-2">
-              <TodayTasksList />
+              <TasksList />
             </div>
           </div>
         </div>

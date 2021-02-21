@@ -6,7 +6,8 @@ const Button = (props) => {
   return (
     <button
       type={type}
-      className={`${ButtonType[color]} ${ButtonSize[size]} ${ButtonRounded[rounded]} ${className}`}
+      className={`${ButtonType[color]} ${ButtonSize[size]} ${ButtonRounded[rounded]} ${className} transition-all`}
+      onClick={props.onClick}
     >
       {children}
     </button>
