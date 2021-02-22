@@ -1,7 +1,7 @@
 export const ButtonType = {
   green: "bg-green-200 hover:bg-green-300 text-black text-center",
   greenTransparent:
-    "bg-transparent hover:bg-green-300 border border-green-300 text-black text-center",
+    "bg-transparent hover:bg-green-300 hover:bg-opacity-20 hover:text-green-700 border border-green-300 text-black text-center",
   yellow: "bg-yellow-100 hover:bg-yellow-200 text-yellow-600 text-center",
   gray: "bg-gray-200 hover:bg-gray-300 text-gray-600 text-center",
 };

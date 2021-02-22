@@ -53,7 +53,7 @@ const RegisterPage = () => {
 
     if (isFormValid) {
       const response = await axios.post(
-        "http://workly.mikovsky-cloud.com/api/auth/register",
+        "https://mikovsky-cloud.com/workly/api/auth/register",
         {
           email: email,
           firstName: firstName,

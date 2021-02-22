@@ -13,7 +13,7 @@ const TasksList = () => {
 
   const getTasks = async () => {
     const response = await axios.get(
-      "http://workly.mikovsky-cloud.com/api/tasks",
+      "https://mikovsky-cloud.com/workly/api/tasks",
       { headers: { Authorization: token } }
     );
     setTasksList(response.data);
@@ -33,7 +33,7 @@ const TasksList = () => {
 
   const renderPopup = () => {
     if (showPopup) {
-      return <AddTaskPopup handleClose={closePopup} />;
+      return <AddTaskPopup handleClose={closePopup} refreshTasks={getTasks} />;
     }
   };
   return (
@@ -45,6 +45,7 @@ const TasksList = () => {
               key={task.id}
               title={task.name}
               dueDate={task.dueDate}
+              description={task.description}
             />
           );
         })}

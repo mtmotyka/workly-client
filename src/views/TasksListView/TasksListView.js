@@ -1,5 +1,6 @@
 import React from "react";
 import Layout from "../../components/Layout/Layout";
+import TaskDetails from "../../components/TaskDetails/TaskDetails";
 import TasksList from "../../components/TasksList/TasksList";
 import WhiteContainer from "../../components/WhiteContainer/WhiteContainer";
 
@@ -11,7 +12,9 @@ const TasksListView = () => {
           <TasksList />
         </div>
         <div className="col-span-3">
-          <WhiteContainer />
+          <WhiteContainer title="Task details">
+            <TaskDetails />
+          </WhiteContainer>
         </div>
       </div>
     </Layout>

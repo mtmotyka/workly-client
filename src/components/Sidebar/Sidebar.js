@@ -65,12 +65,12 @@ const Sidebar = () => {
                 </a>
               </li>
               <li className="flex items-center justify-start mb-4">
-                <a
-                  href="/"
+                <Link
+                  to="/tasks-list"
                   className="text-gray-500 hover:underline text-sm font-medium"
                 >
                   My Tasks
-                </a>
+                </Link>
               </li>
               <li className="flex items-center justify-start">
                 <a
