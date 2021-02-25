@@ -17,7 +17,7 @@ const LoginPage = (props) => {
     e.preventDefault();
 
     const response = await axios.post(
-      "http://workly.mikovsky-cloud.com/api/auth/login",
+      "https://mikovsky-cloud.com/workly/api/auth/login",
       {
         email: email,
         password: password,
