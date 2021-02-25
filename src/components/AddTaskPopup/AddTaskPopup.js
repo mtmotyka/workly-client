@@ -58,7 +58,7 @@ const AddTaskPopup = (props) => {
           className="placeholder-gray-300 font-regular mb-7 px-2 py-2 w-full h-14 text-3xl bg-white border border-gray-100 hover:border-gray-300 focus:border-gray-300 rounded-md outline-none resize-none"
         />
         <AssigneeTask />
-        {/* <DueDate sendDate={sendDate} /> */}
+        <DueDate sendDate={sendDate} />
         <ProjectLabel />
         <div className="flex items-start justify-start mb-3">
           <div className="w-32 text-gray-400 text-xs font-light">
