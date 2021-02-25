@@ -9,9 +9,7 @@ import { showTaskDetails } from "../../utils/TasksServices/TasksServices";
 const SingleTaskTile = (props) => {
   return (
     <div
-      onClick={(e) =>
-        showTaskDetails(props.title, props.dueDate, props.description)
-      }
+      onClick={props.onClick}
       className="relative -mb-4 pb-8 pl-12 pt-5 px-4 hover:bg-gray-50 bg-white border-t border-solid border-gray-200 cursor-pointer"
     >
       <div className="complete-btn absolute left-4 top-6 cursor-pointer">

@@ -13,7 +13,7 @@ export const getTasks = () => async (dispatch) => {
 
 export const selectTask = (task) => {
   return {
-    type: "TASK_SELECTED",
+    type: "SELECT_TASK",
     payload: task,
   };
 };
