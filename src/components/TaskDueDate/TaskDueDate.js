@@ -5,6 +5,7 @@ import DatePicker from "react-datepicker";
 
 const DueDate = ({ sendDate }) => {
   const [dueDate, setDueDate] = useState(new Date());
+  console.log(dueDate);
 
   const setNewTaskDate = (dueDate) => {
     setDueDate(dueDate);

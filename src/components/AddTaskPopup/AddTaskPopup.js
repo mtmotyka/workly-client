@@ -10,7 +10,7 @@ import ProjectLabel from "../ProjectLabel/ProjectLabel";
 const AddTaskPopup = (props) => {
   const [taskName, setTaskName] = useState("");
   const [taskDescription, setTaskDescription] = useState("");
-  const [callbackDate, setCallbackDate] = useState(null);
+  const [callbackDate, setCallbackDate] = useState(new Date());
   const sendDate = (dueDate) => {
     setCallbackDate(dueDate);
   };
