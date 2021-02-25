@@ -11,12 +11,10 @@ const AddTaskPopup = (props) => {
   const [taskName, setTaskName] = useState("");
   const [taskDescription, setTaskDescription] = useState("");
   const [callbackDate, setCallbackDate] = useState(null);
-
   const sendDate = (dueDate) => {
     setCallbackDate(dueDate);
   };
-
-  let token = localStorage.getItem("accessToken");
+  const token = localStorage.getItem("accessToken");
 
   const createTask = async (e) => {
     e.preventDefault();

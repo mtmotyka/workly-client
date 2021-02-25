@@ -37,7 +37,7 @@ const TasksList = (props) => {
               title={task.name}
               dueDate={task.dueDate}
               description={task.description}
-              onClick={() => props.selectTask(task)}
+              handleClick={() => props.selectTask(task)}
             />
           );
         })}
