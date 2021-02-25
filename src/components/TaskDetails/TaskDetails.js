@@ -1,12 +1,15 @@
 import React from "react";
+import { connect } from "react-redux";
+
 import AssigneeTask from "../AssigneeTask/AssigneeTask";
 import Button from "../Button/Button";
 import ProjectLabel from "../ProjectLabel/ProjectLabel";
 import DueDate from "../TaskDueDate/TaskDueDate";
 
-import { showTaskDetails } from "../../utils/TasksServices/TasksServices";
-
-const TaskDetails = () => {
+const TaskDetails = ({ task }) => {
+  if (!task) {
+    return <div>select task</div>;
+  }
   return (
     <div>
       <div className="mb-7 pb-7 border-b border-solid border-gray-200">
@@ -20,7 +23,7 @@ const TaskDetails = () => {
         </Button>
       </div>
       <div className="px-4">
-        <h1>{showTaskDetails}</h1>
+        <h1>{task.title}</h1>
         <input
           type="text"
           id="taskName"
@@ -36,4 +39,8 @@ const TaskDetails = () => {
   );
 };
 
-export default TaskDetails;
+const mapStateToProps = (state) => {
+  return { task: state.selectedTask };
+};
+
+export default connect(mapStateToProps)(TaskDetails);
