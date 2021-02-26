@@ -6,7 +6,8 @@ We rely on free PSD from web, but I try to improve design on the fly while coddi
 This is repo with front-end code. Backend repo is here: https://github.com/mikovsky/workly-server
 
 ### Live preview
-You can see our progress here: https://worklypl.netlify.app/
+
+You can see our progress here: https://workly.mikovsky-cloud.com/ (hosted by netlify at https://worklypl.netlify.app/, but we need the same domain as server to bypass CORS)
 
 **Currently working functionalities**
 - Register (at /register)
@@ -17,6 +18,7 @@ You can see our progress here: https://worklypl.netlify.app/
 ## Used technologies
 **Front-end:**
 - React.js
+- Redux
 - Tailwind CSS (first approach with this framework... Let's try)
 
 **Back-end:**
