@@ -16,17 +16,11 @@ const isTokenExpired = (token) => {
 };
 
 const isLoggedIn = () => {
-  if (!token || isTokenExpired(token)) {
-    console.log("niezalogowany");
-    //todo: redirect to login page
-    //todo2: redirect with info "you must be logged in..."
-  }
+  return token && !isTokenExpired(token);
 };
 
 const logout = () => {
   localStorage.removeItem("accessToken");
-  console.log("wyloguj");
-  //todo: redirect to login page
 };
 
 export { isTokenExpired, isLoggedIn, logout, setToken };

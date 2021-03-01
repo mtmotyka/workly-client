@@ -49,7 +49,7 @@ const TasksList = (props) => {
 
 const mapStateToProps = (state) => {
   console.log(state);
-  return { tasksList: state.tasksList }; //tasksList bierzemy z index.js w reducers
+  return { tasksList: state.taskReducer.tasks };
 };
 
 export default connect(mapStateToProps, {

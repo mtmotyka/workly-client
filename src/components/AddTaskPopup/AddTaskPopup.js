@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import axios from "axios";
 import "react-datepicker/dist/react-datepicker.css";
+import { connect } from "react-redux";
 
 import Button from "../Button/Button";
 import AssigneeTask from "../AssigneeTask/AssigneeTask";
 import DueDate from "../TaskDueDate/TaskDueDate";
 import ProjectLabel from "../ProjectLabel/ProjectLabel";
+import { addTask } from "../../redux/actions";
 
 const AddTaskPopup = (props) => {
   const [taskName, setTaskName] = useState("");
@@ -13,25 +14,6 @@ const AddTaskPopup = (props) => {
   const [callbackDate, setCallbackDate] = useState(new Date());
   const sendDate = (dueDate) => {
     setCallbackDate(dueDate);
-  };
-  const token = localStorage.getItem("accessToken");
-
-  const createTask = async (e) => {
-    e.preventDefault();
-
-    const response = await axios.post(
-      "https://mikovsky-cloud.com/workly/api/tasks",
-      {
-        completed: false,
-        description: taskDescription,
-        dueDate: callbackDate.toJSON(),
-        name: taskName,
-      },
-      { headers: { Authorization: token } }
-    );
-    console.log(response);
-    props.refreshTasks();
-    props.handleClose();
   };
 
   return (
@@ -69,7 +51,19 @@ const AddTaskPopup = (props) => {
           />
         </div>
         <div className="flex justify-center">
-          <Button size="sm" rounded="md" color="green" onClick={createTask}>
+          <Button
+            size="sm"
+            rounded="md"
+            color="green"
+            onClick={(e) =>
+              props.addTask({
+                completed: false,
+                description: taskDescription,
+                dueDate: callbackDate.toJSON(),
+                name: taskName,
+              })
+            }
+          >
             Add task
           </Button>
         </div>
@@ -82,4 +76,8 @@ const AddTaskPopup = (props) => {
   );
 };
 
-export default AddTaskPopup;
+const mapStateToProps = (state) => {
+  return { addTask: state.addTask };
+};
+
+export default connect(mapStateToProps, { addTask })(AddTaskPopup);

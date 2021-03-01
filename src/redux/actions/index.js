@@ -1,8 +1,17 @@
 import axios from "axios";
+
 import { BACKEND_URL } from "../../config";
 
-/* ---=== TASKS ACTIONS ===--- */
 const token = localStorage.getItem("accessToken");
+
+/* ---=== TASKS ACTIONS ===--- */
+
+export const addTask = (formProps) => async (dispatch) => {
+  const response = await axios.post(BACKEND_URL + "/api/tasks", formProps, {
+    headers: { Authorization: token },
+  });
+  dispatch({ type: "ADD_TASK", payload: formProps });
+};
 
 export const getTasks = () => async (dispatch) => {
   const response = await axios.get(BACKEND_URL + "/api/tasks", {
