@@ -48,7 +48,6 @@ const TasksList = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return { tasksList: state.taskReducer.tasks };
 };
 
