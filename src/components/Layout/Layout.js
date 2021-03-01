@@ -1,17 +1,10 @@
 import React from "react";
 import Sidebar from "../Sidebar/Sidebar";
 import Header from "../Header/Header";
-import {
-  isTokenExpired,
-  isLoggedIn,
-} from "../../utils/AuthServices/AuthServices";
 
 import "./layout.scss";
 
 const Layout = ({ children }) => {
-  isTokenExpired();
-  isLoggedIn();
-
   return (
     <main className="flex h-screen max-h-screen font-sans bg-gray-50 overflow-hidden">
       <Header />

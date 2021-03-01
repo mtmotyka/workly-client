@@ -1,11 +1,10 @@
 import React, { useState } from "react";
+import DatePicker from "react-datepicker";
 
 import { ReactComponent as IcoCalendar } from "../../assets/icons/ico-calendar.svg";
-import DatePicker from "react-datepicker";
 
 const DueDate = ({ sendDate }) => {
   const [dueDate, setDueDate] = useState(new Date());
-  console.log(dueDate);
 
   const setNewTaskDate = (dueDate) => {
     setDueDate(dueDate);
