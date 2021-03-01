@@ -39,8 +39,7 @@ const TaskDetails = ({ task }) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state);
-  return { task: state.selectTask };
+  return { task: state.taskReducer.selectedTask };
 };
 
 export default connect(mapStateToProps)(TaskDetails);

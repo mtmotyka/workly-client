@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Route, Redirect } from "react-router-dom";
+
+import { isLoggedIn } from "../../utils/AuthServices/AuthServices";
 
 const SecuredRoute = ({ component: Component, auth, ...rest }) => (
   <Route
     {...rest}
     render={(props) =>
-      auth === true ? <Component {...props} /> : <Redirect to="/login" />
+      isLoggedIn() === true ? (
+        <Component {...props} />
+      ) : (
+        <Redirect to="/login" />
+      )
     }
   />
 );

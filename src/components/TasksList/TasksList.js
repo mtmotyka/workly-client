@@ -30,7 +30,7 @@ const TasksList = (props) => {
   return (
     <>
       <WhiteContainer title="My tasks" button={true} onButtonClick={openPopup}>
-        {props.tasksList.map((task) => {
+        {[props.tasksList].map((task) => {
           return (
             <SingleTaskTile
               key={task.id}
@@ -48,7 +48,8 @@ const TasksList = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  return { tasksList: state.tasksList }; //tasksList bierzemy z index.js w reducers
+  console.log(state);
+  return { tasksList: state.taskReducer.tasks };
 };
 
 export default connect(mapStateToProps, {

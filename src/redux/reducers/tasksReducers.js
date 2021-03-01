@@ -1,26 +1,17 @@
-export const addTaskReducer = (state = null, action) => {
-  switch (action.type) {
-    case "ADD_TASK":
-      return action.payload;
-    default:
-      return state;
-  }
+const initialState = {
+  tasks: [],
+  selectedTask: null,
 };
 
-export const getTasksReducer = (state = [], action) => {
+export const taskReducer = (state = initialState, action) => {
   switch (action.type) {
     case "GET_TASKS":
-      return action.payload;
+      return { ...state, tasks: action.payload };
+    case "ADD_TASK":
+      return { ...state, tasks: state.tasks.push(action.payload) };
+    case "SELECT_TASK":
+      return { ...state, selectedTask: action.payload };
     default:
       return state;
-  }
-};
-
-export const showTaskDetailsReducer = (selectedTask = null, action) => {
-  switch (action.type) {
-    case "SELECT_TASK":
-      return action.payload;
-    default:
-      return selectedTask;
   }
 };
