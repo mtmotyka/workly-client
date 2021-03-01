@@ -14,7 +14,7 @@ const App = () => {
         <Switch>
           <Route path="/login" exact component={LoginPage} />
           <Route path="/register" exact component={RegisterPage} />
-          <SecuredRoute path="/" exact component={HomePage} />
+          <Route path="/" exact component={HomePage} />
           <SecuredRoute path="/tasks-list" exact component={TasksListView} />
           <Route component={ErrorPage} />
         </Switch>
