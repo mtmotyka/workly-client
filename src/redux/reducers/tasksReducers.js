@@ -8,7 +8,7 @@ export const taskReducer = (state = initialState, action) => {
     case "GET_TASKS":
       return { ...state, tasks: action.payload };
     case "ADD_TASK":
-      return { ...state, tasks: state.tasks.push(action.payload) };
+      return { ...state, tasks: [...state.tasks, action.payload] };
     case "SELECT_TASK":
       return { ...state, selectedTask: action.payload };
     default:

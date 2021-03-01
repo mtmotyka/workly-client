@@ -30,7 +30,7 @@ const TasksList = (props) => {
   return (
     <>
       <WhiteContainer title="My tasks" button={true} onButtonClick={openPopup}>
-        {[props.tasksList].map((task) => {
+        {props.tasksList.map((task) => {
           return (
             <SingleTaskTile
               key={task.id}
