@@ -22,10 +22,14 @@ You can see our progress here: https://workly.mikovsky-cloud.com/ (hosted by net
 - Tailwind CSS (first approach with this framework... Let's try)
 
 **Back-end:**
+- Java
+- Groovy
 - Spring Boot
+- Spock
 - Postgres
+- Flyway
 - Docker
-- JWT
+- JWT Auth
 - AWS
 
 
