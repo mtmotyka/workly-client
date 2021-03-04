@@ -30,17 +30,19 @@ const TasksList = (props) => {
   return (
     <>
       <WhiteContainer title="My tasks" button={true} onButtonClick={openPopup}>
-        {props.tasksList.map((task) => {
-          return (
-            <SingleTaskTile
-              key={task.id}
-              title={task.name}
-              dueDate={task.dueDate}
-              description={task.description}
-              handleClick={() => props.selectTask(task)}
-            />
-          );
-        })}
+        {props.tasksList
+          .filter((task) => task.completed !== true)
+          .map((task) => {
+            return (
+              <SingleTaskTile
+                key={task.name}
+                title={task.name}
+                dueDate={task.dueDate}
+                description={task.description}
+                handleClick={() => props.selectTask(task)}
+              />
+            );
+          })}
       </WhiteContainer>
       {renderPopup()}
     </>

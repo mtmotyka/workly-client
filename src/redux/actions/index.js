@@ -5,7 +5,6 @@ import { BACKEND_URL } from "../../config";
 const token = localStorage.getItem("accessToken");
 
 /* ---=== TASKS ACTIONS ===--- */
-
 export const addTask = (formProps) => async (dispatch) => {
   const response = await axios.post(BACKEND_URL + "/api/tasks", formProps, {
     headers: { Authorization: token },
@@ -26,3 +25,12 @@ export const selectTask = (task) => {
     payload: task,
   };
 };
+
+export const editTask = (task, id) => async (dispatch) => {
+  const response = await axios.put(BACKEND_URL + "/api/tasks/" + id, task, {
+    headers: { Authorization: token },
+  });
+  dispatch({ type: "EDIT_TASK", payload: task });
+};
+
+/* ---=== AUTH ACTIONS ===--- */
