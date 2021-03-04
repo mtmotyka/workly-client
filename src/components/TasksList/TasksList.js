@@ -35,7 +35,7 @@ const TasksList = (props) => {
           .map((task) => {
             return (
               <SingleTaskTile
-                key={task.name}
+                key={task.id}
                 title={task.name}
                 dueDate={task.dueDate}
                 description={task.description}

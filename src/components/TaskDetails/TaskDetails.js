@@ -52,12 +52,12 @@ const TaskDetails = ({ task, editTask }) => {
               className="ml-4"
               icon="complete"
               onClick={(e) =>
-                editTask({
-                  completed: true,
-                  description: task.description,
-                  dueDate: task.dueDate,
-                  name: task.name,
-                })
+                editTask(
+                  {
+                    completed: true,
+                  },
+                  task.id
+                )
               }
             >
               Mark complete

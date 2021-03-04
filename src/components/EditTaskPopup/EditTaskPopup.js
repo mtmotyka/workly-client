@@ -34,9 +34,6 @@ const EditTaskPopup = (props) => {
     props.editTask(
       {
         completed: true,
-        description: taskDescription,
-        dueDate: callbackDate.toJSON(),
-        name: taskName,
       },
       props.id
     );
