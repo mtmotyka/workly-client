@@ -6,21 +6,51 @@ import Button from "../Button/Button";
 import AssigneeTask from "../AssigneeTask/AssigneeTask";
 import DueDate from "../TaskDueDate/TaskDueDate";
 import ProjectLabel from "../ProjectLabel/ProjectLabel";
-import { addTask } from "../../redux/actions";
+import { editTask, getTasks } from "../../redux/actions";
 
-const AddTaskPopup = (props) => {
-  const [taskName, setTaskName] = useState("");
-  const [taskDescription, setTaskDescription] = useState("");
+const EditTaskPopup = (props) => {
+  const [taskName, setTaskName] = useState(props.name);
+  const [taskDescription, setTaskDescription] = useState(props.description);
+  const [taskCompleted, setTaskCompleted] = useState(false);
   const [callbackDate, setCallbackDate] = useState(new Date());
   const sendDate = (dueDate) => {
     setCallbackDate(dueDate);
+  };
+
+  const updateTask = () => {
+    console.log("na pizde");
+    props.editTask(
+      {
+        completed: taskCompleted,
+        description: taskDescription,
+        dueDate: callbackDate.toJSON(),
+        name: taskName,
+      },
+      props.id
+    );
+  };
+
+  const completeTask = () => {
+    props.editTask(
+      {
+        completed: true,
+      },
+      props.id
+    );
+    props.handleClose();
   };
 
   return (
     <>
       <div className="absolute z-50 left-2/4 top-2/4 pb-7 pt-4 px-4 w-6/12 bg-white shadow-md transform -translate-x-2/4 -translate-y-2/4">
         <div className="flex items-center justify-between mb-8 pb-4 border-b border-gray-200">
-          <Button size="xs" color="greenTransparent" rounded="md">
+          <Button
+            size="xs"
+            color="greenTransparent"
+            rounded="md"
+            icon="complete"
+            onClick={completeTask}
+          >
             Mark complete
           </Button>
           <div>
@@ -51,20 +81,8 @@ const AddTaskPopup = (props) => {
           />
         </div>
         <div className="flex justify-center">
-          <Button
-            size="sm"
-            rounded="md"
-            color="green"
-            onClick={(e) =>
-              props.addTask({
-                completed: false,
-                description: taskDescription,
-                dueDate: callbackDate.toJSON(),
-                name: taskName,
-              })
-            }
-          >
-            Add task
+          <Button size="sm" rounded="md" color="green" onClick={updateTask}>
+            Save
           </Button>
         </div>
       </div>
@@ -77,7 +95,7 @@ const AddTaskPopup = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  return { addTask: state.addTask };
+  return { editTask: state.editTask, tasksList: state.taskReducer.tasks };
 };
 
-export default connect(mapStateToProps, { addTask })(AddTaskPopup);
+export default connect(mapStateToProps, { editTask, getTasks })(EditTaskPopup);
