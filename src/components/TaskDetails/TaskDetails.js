@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import { toast } from "react-toastify";
 
 import AssigneeTask from "../AssigneeTask/AssigneeTask";
 import Button from "../Button/Button";
@@ -33,6 +34,17 @@ const TaskDetails = ({ task, editTask }) => {
     }
   };
 
+  const completeTask = () => {
+    editTask(
+      {
+        completed: true,
+      },
+      task.id
+    );
+    setShowPopup(false);
+    toast.success("🦄 Task completed!");
+  };
+
   if (!task) {
     return (
       <div className="w-full text-center text-xl opacity-40">
@@ -51,14 +63,7 @@ const TaskDetails = ({ task, editTask }) => {
               rounded="md"
               className="ml-4"
               icon="complete"
-              onClick={(e) =>
-                editTask(
-                  {
-                    completed: true,
-                  },
-                  task.id
-                )
-              }
+              onClick={completeTask}
             >
               Mark complete
             </Button>
@@ -100,7 +105,10 @@ const TaskDetails = ({ task, editTask }) => {
 };
 
 const mapStateToProps = (state) => {
-  return { task: state.taskReducer.selectedTask, editTask: state.editTask };
+  return {
+    task: state.taskReducer.selectedTask,
+    editTask: state.editTask,
+  };
 };
 
 export default connect(mapStateToProps, { editTask })(TaskDetails);

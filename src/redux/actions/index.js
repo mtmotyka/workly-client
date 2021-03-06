@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 
 import { BACKEND_URL } from "../../config";
 
@@ -10,6 +11,11 @@ export const addTask = (formProps) => async (dispatch) => {
     headers: { Authorization: token },
   });
   dispatch({ type: "ADD_TASK", payload: formProps });
+  if (response.status === 200) {
+    toast.info("✔️ Task added successfully");
+  } else {
+    toast.error("😓 Something went wrong. Try again");
+  }
 };
 
 export const getTasks = () => async (dispatch) => {
@@ -31,6 +37,9 @@ export const editTask = (task, id) => async (dispatch) => {
     headers: { Authorization: token },
   });
   dispatch({ type: "EDIT_TASK", payload: task });
+  if (task.completed === false) {
+    toast("✅ Task updated");
+  }
 };
 
 /* ---=== AUTH ACTIONS ===--- */
