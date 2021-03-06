@@ -25,7 +25,7 @@ const Input = (props) => {
         id={id}
         placeholder={placeholder}
         value={value}
-        className={`${className} w-full px-4 py-2 outline-none text-md border border-solid border-gray-200  ${
+        className={`${className} w-full px-4 py-2 outline-none text-md border border-solid focus:border-purple-400 border-gray-200  ${
           disabled ? "text-gray-400" : "text-gray-600"
         }`}
         onChange={onChange}

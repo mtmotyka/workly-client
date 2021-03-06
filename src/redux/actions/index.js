@@ -5,7 +5,7 @@ import decode from "jwt-decode";
 import { BACKEND_URL } from "../../config";
 
 const token = localStorage.getItem("accessToken");
-const decodedToken = decode(token);
+const decodedToken = token !== null ? decode(token) : null;
 
 /* ---=== TASKS ACTIONS ===--- */
 
@@ -55,7 +55,6 @@ export const getUserInfo = () => async (dispatch) => {
     }
   );
   dispatch({ type: "GET_USER", payload: response.data });
-  console.log(response.data);
 };
 
 export const updateUserDetails = (userDetails) => async (dispatch) => {
@@ -67,5 +66,21 @@ export const updateUserDetails = (userDetails) => async (dispatch) => {
     toast.success("✔️ Your profile has been updated");
   } else {
     toast.error("😓 Something went wrong. Try again");
+  }
+};
+
+export const updateUserPassword = (password) => async (dispatch) => {
+  try {
+    const response = await axios.put(
+      BACKEND_URL + "/api/users/password",
+      password,
+      {
+        headers: { Authorization: token },
+      }
+    );
+    dispatch({ type: "EDIT_PASSWORD", payload: password });
+    toast.success("✔️ Your password has been updated");
+  } catch (err) {
+    toast.error("The old password is incorrect");
   }
 };

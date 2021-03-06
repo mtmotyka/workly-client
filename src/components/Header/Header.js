@@ -52,45 +52,45 @@ const Header = () => {
           <ul className="flex items-center justify-start list-none">
             <li className="mr-6 pb-2">
               <NavLink
-                activeClassName="border-blue-400 text-black"
+                activeClassName="border-purple-400 text-black"
                 to="/tasks-list"
-                className="text-md pb-2 hover:text-black no-underline font-medium border-b-4 border-solid hover:border-blue-400 opacity-70 transition-all"
+                className="text-md pb-2 hover:text-black no-underline font-medium border-b-4 border-solid hover:border-purple-400 opacity-70 transition-all"
               >
                 Tasks
               </NavLink>
             </li>
             <li className="mr-6 pb-2">
               <NavLink
-                activeClassName="border-blue-400 text-black"
+                activeClassName="border-purple-400 text-black"
                 to="/kanban"
-                className="text-md pb-2 hover:text-black no-underline font-medium border-b-4 border-solid hover:border-blue-400 opacity-70 transition-all"
+                className="text-md pb-2 hover:text-black no-underline font-medium border-b-4 border-solid hover:border-purple-400 opacity-70 transition-all"
               >
                 Kanban
               </NavLink>
             </li>
             <li className="mr-6 pb-2">
               <NavLink
-                activeClassName="border-blue-400 text-black"
+                activeClassName="border-purple-400 text-black"
                 to="/activity"
-                className="text-md pb-2 hover:text-black no-underline font-medium border-b-4 border-solid hover:border-blue-400 opacity-70 transition-all"
+                className="text-md pb-2 hover:text-black no-underline font-medium border-b-4 border-solid hover:border-purple-400 opacity-70 transition-all"
               >
                 Activity
               </NavLink>
             </li>
             <li className="mr-6 pb-2">
               <NavLink
-                activeClassName="border-blue-400 text-black"
+                activeClassName="border-purple-400 text-black"
                 to="/calendar"
-                className="text-md pb-2 hover:text-black no-underline font-medium border-b-4 border-solid hover:border-blue-400 opacity-70 transition-all"
+                className="text-md pb-2 hover:text-black no-underline font-medium border-b-4 border-solid hover:border-purple-400 opacity-70 transition-all"
               >
                 Calendar
               </NavLink>
             </li>
             <li className="mr-6 pb-2">
               <NavLink
-                activeClassName="border-blue-400 text-black"
+                activeClassName="border-purple-400 text-black"
                 to="/files"
-                className="text-md pb-2 hover:text-black no-underline font-medium border-b-4 border-solid hover:border-blue-400 opacity-70 transition-all"
+                className="text-md pb-2 hover:text-black no-underline font-medium border-b-4 border-solid hover:border-purple-400 opacity-70 transition-all"
               >
                 Files
               </NavLink>

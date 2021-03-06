@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 
 import { ReactComponent as WorklySygnet } from "../../assets/images/workly-sygnet-yellow.svg";
 import { ReactComponent as ShowPasswordIcon } from "../../assets/icons/ico-eye.svg";
@@ -16,24 +18,29 @@ const LoginPage = (props) => {
   const loginSubmit = async (e) => {
     e.preventDefault();
 
-    const response = await axios.post(
-      "https://mikovsky-cloud.com/workly/api/auth/login",
-      {
-        email: email,
-        password: password,
-      }
-    );
+    try {
+      const response = await axios.post(
+        "https://mikovsky-cloud.com/workly/api/auth/login",
+        {
+          email: email,
+          password: password,
+        }
+      );
 
-    const data = response.data;
-    setToken(data.token);
-    if (response.status === 200) {
-      isLoggedIn();
-      props.history.push("/");
+      const data = response.data;
+      setToken(data.token);
+      if (response.status === 200) {
+        isLoggedIn();
+        props.history.push("/");
+      }
+    } catch (err) {
+      toast.error("The email or password provided is incorrect");
     }
   };
 
   return (
     <main className="grid grid-cols-12 items-center py-10 min-h-screen bg-gray-100">
+      <ToastContainer />
       <div className="col-span-4 col-start-5">
         <div className="px-5 py-10 dark:bg-gray-700 bg-white rounded shadow-2xl">
           <WorklySygnet className="block mb-10 mx-auto" />
