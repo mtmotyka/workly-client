@@ -16,6 +16,16 @@ const AddTaskPopup = (props) => {
     setCallbackDate(dueDate);
   };
 
+  const addTaskHandle = () => {
+    props.addTask({
+      completed: false,
+      description: taskDescription,
+      dueDate: callbackDate.toJSON(),
+      name: taskName,
+    });
+    props.handleClose();
+  };
+
   return (
     <>
       <div className="absolute z-50 left-2/4 top-2/4 pb-7 pt-4 px-4 w-6/12 bg-white shadow-md transform -translate-x-2/4 -translate-y-2/4">
@@ -51,19 +61,7 @@ const AddTaskPopup = (props) => {
           />
         </div>
         <div className="flex justify-center">
-          <Button
-            size="sm"
-            rounded="md"
-            color="green"
-            onClick={(e) =>
-              props.addTask({
-                completed: false,
-                description: taskDescription,
-                dueDate: callbackDate.toJSON(),
-                name: taskName,
-              })
-            }
-          >
+          <Button size="sm" rounded="md" color="green" onClick={addTaskHandle}>
             Add task
           </Button>
         </div>

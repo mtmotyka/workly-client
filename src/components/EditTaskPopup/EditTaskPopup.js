@@ -18,10 +18,9 @@ const EditTaskPopup = (props) => {
   };
 
   const updateTask = () => {
-    console.log("na pizde");
     props.editTask(
       {
-        completed: taskCompleted,
+        completed: false,
         description: taskDescription,
         dueDate: callbackDate.toJSON(),
         name: taskName,
