@@ -1,5 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import Tippy from "@tippyjs/react";
+import "tippy.js/dist/tippy.css";
+import "tippy.js/animations/shift-away-subtle.css";
+import "tippy.js/themes/light-border.css";
+import { AiOutlineUser } from "react-icons/ai";
+import { BsPencil } from "react-icons/bs";
+import { IoSettingsOutline, IoLogOutOutline } from "react-icons/io5";
+import { FcHome, FcParallelTasks, FcInfo } from "react-icons/fc";
 
 import "./sidebar.scss";
 import { ReactComponent as IcoSearch } from "../../assets/icons/ico-search.svg";
@@ -12,8 +21,68 @@ import ExampleAvatar from "../../assets/images/example-avatar.png";
 import ExampleTeamAvatarOne from "../../assets/images/example-team-avatar-1.png";
 import ExampleTeamAvatarTwo from "../../assets/images/example-team-avatar-2.png";
 import ExampleTeamAvatarThree from "../../assets/images/example-team-avatar-3.png";
+import { getUserInfo } from "../../redux/actions";
 
-const Sidebar = () => {
+const profileTooltip = () => {
+  return (
+    <ul>
+      <li>
+        <Link
+          to="/"
+          className="flex items-center justify-start pl-3 pr-14 py-3 hover:bg-gray-100 border-b border-gray-200"
+        >
+          <AiOutlineUser
+            size="1.2em"
+            className="mr-2"
+            style={{ color: "gray" }}
+          />{" "}
+          Show profile
+        </Link>
+      </li>
+      <li>
+        <Link
+          to="/user-settings"
+          className="flex items-center justify-start pl-3 pr-14 py-3 hover:bg-gray-100 border-b border-gray-200"
+        >
+          <BsPencil size="1.2em" className="mr-2" style={{ color: "gray" }} />{" "}
+          Edit profile
+        </Link>
+      </li>
+      <li>
+        <Link
+          to="/"
+          className="flex items-center justify-start pl-3 pr-14 py-3 hover:bg-gray-100 border-b border-gray-200"
+        >
+          <IoSettingsOutline
+            size="1.2em"
+            className="mr-2"
+            style={{ color: "gray" }}
+          />{" "}
+          Settings
+        </Link>
+      </li>
+      <li>
+        <Link
+          to="/"
+          className="flex items-center justify-start pl-3 pr-14 py-3 hover:bg-gray-100"
+        >
+          <IoLogOutOutline
+            size="1.2em"
+            className="mr-2"
+            style={{ color: "gray" }}
+          />{" "}
+          Log out
+        </Link>
+      </li>
+    </ul>
+  );
+};
+
+const Sidebar = (props) => {
+  useEffect(() => {
+    props.getUserInfo();
+  }, []);
+
   return (
     <div className="sidebar-width-main flex flex-0 flex-col h-screen max-h-screen bg-white border-r border-solid border-gray-200 overflow-y-auto">
       <div className="sidebar-width-main bg-white">
@@ -31,11 +100,28 @@ const Sidebar = () => {
             <img src={ExampleAvatar} alt="Avatar" />
             <div>
               <p className="text-gray-600 text-sm font-bold">
-                Emilee Simchenko
+                {props.user.firstName} {props.user.lastName}
               </p>
-              <p className="text-gray-400 text-xs font-bold">Product Owner</p>
+              <p className="text-gray-400 text-xs font-bold">
+                {props.user.jobTitle !== null ? (
+                  props.user.jobTitle
+                ) : (
+                  <Link to="/" className="hover:underline">
+                    Add your position
+                  </Link>
+                )}
+              </p>
             </div>
-            <ThreeDots />
+            <Tippy
+              content={profileTooltip()}
+              trigger="click"
+              placement="bottom"
+              interactive={true}
+              animation="shift-away-subtle"
+              theme="light-border"
+            >
+              <ThreeDots className="cursor-pointer" />
+            </Tippy>
           </div>
           <div className="flex items-center justify-start my-8 pl-7 pr-4">
             <div className="mr-7">
@@ -59,24 +145,27 @@ const Sidebar = () => {
               <li className="flex items-center justify-start mb-4">
                 <a
                   href="/"
-                  className="text-gray-500 hover:underline text-sm font-medium"
+                  className="flex items-center justify-start text-gray-500 hover:underline text-sm font-medium"
                 >
+                  <FcHome size="1.2em" className="mr-2" />
                   Home
                 </a>
               </li>
               <li className="flex items-center justify-start mb-4">
                 <Link
                   to="/tasks-list"
-                  className="text-gray-500 hover:underline text-sm font-medium"
+                  className="flex items-center justify-start text-gray-500 hover:underline text-sm font-medium"
                 >
+                  <FcParallelTasks size="1.2em" className="mr-2" />
                   My Tasks
                 </Link>
               </li>
               <li className="flex items-center justify-start">
                 <a
                   href="/"
-                  className="text-gray-500 hover:underline text-sm font-medium"
+                  className="flex items-center justify-start text-gray-500 hover:underline text-sm font-medium"
                 >
+                  <FcInfo size="1.2em" className="mr-2" />
                   Notifications
                 </a>
                 <span className="ml-3 p-1 text-center text-black text-xs font-bold bg-blue-400 rounded-xl">
@@ -196,4 +285,10 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+const mapStateToProps = (state) => {
+  return { user: state.userReducer.user };
+};
+
+export default connect(mapStateToProps, {
+  getUserInfo,
+})(Sidebar);

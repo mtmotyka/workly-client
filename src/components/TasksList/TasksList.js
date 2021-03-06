@@ -29,7 +29,14 @@ const TasksList = (props) => {
 
   return (
     <>
-      <WhiteContainer title="My tasks" button={true} onButtonClick={openPopup}>
+      <WhiteContainer
+        title="My tasks"
+        button={true}
+        onButtonClick={openPopup}
+        buttonColor="green"
+        buttonSize="xs"
+        buttonText="+ Add task"
+      >
         {props.tasksList
           .filter((task) => task.completed !== true)
           .map((task) => {
