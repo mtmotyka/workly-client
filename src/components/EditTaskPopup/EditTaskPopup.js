@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import { connect } from "react-redux";
+import { toast } from "react-toastify";
 
 import Button from "../Button/Button";
 import AssigneeTask from "../AssigneeTask/AssigneeTask";
@@ -11,8 +12,8 @@ import { editTask, getTasks } from "../../redux/actions";
 const EditTaskPopup = (props) => {
   const [taskName, setTaskName] = useState(props.name);
   const [taskDescription, setTaskDescription] = useState(props.description);
-  const [taskCompleted, setTaskCompleted] = useState(false);
   const [callbackDate, setCallbackDate] = useState(new Date());
+
   const sendDate = (dueDate) => {
     setCallbackDate(dueDate);
   };
@@ -27,6 +28,7 @@ const EditTaskPopup = (props) => {
       },
       props.id
     );
+    props.handleClose();
   };
 
   const completeTask = () => {
@@ -37,6 +39,7 @@ const EditTaskPopup = (props) => {
       props.id
     );
     props.handleClose();
+    toast.success("🦄 Task completed!");
   };
 
   return (
