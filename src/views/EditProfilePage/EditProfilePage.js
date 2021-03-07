@@ -80,7 +80,7 @@ const EditProfilePage = (props) => {
                         firstName === null ? props.user.firstName : firstName
                       }
                       onChange={(e) => setFirstName(e.target.value)}
-                      disabled={isEditingDetails ? false : true}
+                      disabled={!isEditingDetails}
                     />
                   </div>
                   <div className="col-span-1">
@@ -89,7 +89,7 @@ const EditProfilePage = (props) => {
                       label="Last name"
                       value={lastName === null ? props.user.lastName : lastName}
                       onChange={(e) => setLastName(e.target.value)}
-                      disabled={isEditingDetails ? false : true}
+                      disabled={!isEditingDetails}
                     />
                   </div>
                   <div className="col-span-1">
@@ -98,7 +98,7 @@ const EditProfilePage = (props) => {
                       label="Position"
                       value={position === null ? props.user.jobTitle : position}
                       onChange={(e) => setPosition(e.target.value)}
-                      disabled={isEditingDetails ? false : true}
+                      disabled={!isEditingDetails}
                     />
                   </div>
                   <div className="col-span-1">
@@ -107,7 +107,7 @@ const EditProfilePage = (props) => {
                       label="E-mail"
                       value={email === null ? props.user.email : email}
                       onChange={(e) => setEmail(e.target.value)}
-                      disabled={isEditingDetails ? false : true}
+                      disabled={!isEditingDetails}
                     />
                   </div>
                 </div>
@@ -157,21 +157,21 @@ const EditProfilePage = (props) => {
                     label="Current password"
                     value={oldPassword}
                     onChange={(e) => setOldPassword(e.target.value)}
-                    disabled={isEditingPassword ? false : true}
+                    disabled={!isEditingPassword}
                   />
                   <Input
                     type="password"
                     label="New password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    disabled={isEditingPassword ? false : true}
+                    disabled={!isEditingPassword}
                   />
                   <Input
                     type="password"
                     label="Confirm new password"
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
-                    disabled={isEditingPassword ? false : true}
+                    disabled={!isEditingPassword}
                   />
                 </div>
                 <div
@@ -207,7 +207,6 @@ const EditProfilePage = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     user: state.userReducer.user,
     updateUserDetails: state.updateUserDetails,
