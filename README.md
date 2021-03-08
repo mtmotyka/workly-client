@@ -14,6 +14,7 @@ You can see our progress here: https://workly.mikovsky-cloud.com/ (hosted by net
 - Login (at /login)
 - Add task (at / or /tasks-list)
 - View tasks list (at / or /tasks-list. Visible only when you are logged in and you added any task)
+- Editing profile (at /user-settings. You must be logged in)
 
 ## Used technologies
 **Front-end:**
