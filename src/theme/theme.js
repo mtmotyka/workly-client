@@ -1,6 +1,6 @@
-import { ReactComponent as CompleteIcon } from "../assets/icons/ico-complete.svg";
-import { ReactComponent as EditIcon } from "../assets/icons/ico-edit.svg";
-import { ReactComponent as DeleteIcon } from "../assets/icons/ico-delete.svg";
+import { AiOutlineDelete } from "react-icons/ai";
+import { BsPencil } from "react-icons/bs";
+import { FcCheckmark } from "react-icons/fc";
 
 export const ButtonType = {
   transparent:
@@ -16,8 +16,8 @@ export const ButtonType = {
 
 export const ButtonSize = {
   xxs: "py-1 px-4 text-xs",
-  xs: "py-2 px-4 text-xs",
-  sm: "py-3 px-10 text-base",
+  xs: "py-2 px-5 text-xs",
+  sm: "py-2 px-7 text-sm",
 };
 
 export const ButtonRounded = {
@@ -29,7 +29,7 @@ export const ButtonRounded = {
 };
 
 export const IconType = {
-  complete: <CompleteIcon className="mr-2 w-3 h-3" />,
-  edit: <EditIcon className="mr-2 w-3 h-3" />,
-  delete: <DeleteIcon className="mr-2 w-3 h-3" />,
+  complete: <FcCheckmark className="mr-2" size="1.2em" />,
+  edit: <BsPencil className="mr-2" size="1.3em" />,
+  delete: <AiOutlineDelete className="mr-2" size="1.3em" />,
 };

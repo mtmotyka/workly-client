@@ -12,20 +12,20 @@ const WhiteContainer = (props) => {
             <p
               className={`ml-4 font-regular text-gray-400 text-xl inline-block ${
                 props.centered && "text-center"
-              }`}
+              } ${props.className}`}
             >
               {props.title}
             </p>
             {props.button && (
               <Button
                 type="button"
-                size="xs"
-                color="green"
-                rounded="md"
+                size={props.buttonSize}
+                color={props.buttonColor}
                 onClick={props.onButtonClick}
                 className="mr-4"
+                icon={props.buttonIcon}
               >
-                + Add task
+                {props.buttonText}
               </Button>
             )}
           </div>
