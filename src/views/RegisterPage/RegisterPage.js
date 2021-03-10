@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { toast } from "react-toastify";
 
+import { BACKEND_URL } from "../../config";
 import { ReactComponent as WorklySygnet } from "../../assets/images/workly-sygnet-yellow.svg";
 import { ReactComponent as ShowPasswordIcon } from "../../assets/icons/ico-eye.svg";
 import Input from "../../components/Input/Input";
@@ -46,15 +47,12 @@ const RegisterPage = () => {
     }
 
     if (isFormValid) {
-      const response = await axios.post(
-        "https://mikovsky-cloud.com/workly/api/auth/register",
-        {
-          email: email,
-          firstName: firstName,
-          lastName: lastName,
-          password: password,
-        }
-      );
+      const response = await axios.post(BACKEND_URL + "/api/auth/register", {
+        email: email,
+        firstName: firstName,
+        lastName: lastName,
+        password: password,
+      });
       if (response.status === 200) {
         toast.success("Your account has been created successfully");
         setIsSubmit(false);
@@ -71,7 +69,7 @@ const RegisterPage = () => {
         <div className="px-5 py-10 dark:bg-gray-700 bg-white rounded shadow-2xl">
           <WorklySygnet className="block mb-10 mx-auto" />
           <div className="relative flex justify-center mb-10 mt-4">
-            <Link to="/register" className="mr-10 text-yellow-400 text-xl">
+            <Link to="/register" className="mr-10 text-purple-400 text-xl">
               Register
             </Link>
             <span className="absolute left-1/2 top-2/4 w-px h-6 bg-gray-400 transform -translate-y-2/4" />

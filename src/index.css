@@ -20,4 +20,7 @@
   .sidebar-width-main {
     width: 270px;
   }
+  .add-project-button {
+    min-width: 165px;
+  }
 }

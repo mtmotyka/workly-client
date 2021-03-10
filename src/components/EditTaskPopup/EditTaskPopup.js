@@ -83,7 +83,7 @@ const EditTaskPopup = (props) => {
           />
         </div>
         <div className="flex justify-center">
-          <Button size="sm" rounded="md" color="green" onClick={updateTask}>
+          <Button size="md" shadow="2xl" color="green" onClick={updateTask}>
             Save
           </Button>
         </div>

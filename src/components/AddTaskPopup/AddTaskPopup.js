@@ -61,7 +61,7 @@ const AddTaskPopup = (props) => {
           />
         </div>
         <div className="flex justify-center">
-          <Button size="sm" rounded="md" color="green" onClick={addTaskHandle}>
+          <Button size="md" shadow="2xl" color="green" onClick={addTaskHandle}>
             Add task
           </Button>
         </div>
