@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { IoMdAddCircleOutline } from "react-icons/io";
 
 import "./header.scss";
 
@@ -19,6 +20,9 @@ const Header = () => {
           </button>
         </div>
         <div className="flex items-center justify-end">
+          <button type="button" className="mr-2">
+            <IoMdAddCircleOutline size="1.5em" style={{ fill: "gray" }} />
+          </button>
           {Array(3)
             .fill(null)
             .map((element, index) => (

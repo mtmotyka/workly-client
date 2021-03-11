@@ -15,7 +15,7 @@ export const addTask = (formProps) => async (dispatch) => {
   });
   dispatch({ type: "ADD_TASK", payload: formProps });
   if (response.status === 200) {
-    toast.info("✔️ Task added successfully");
+    toast.success("✔️ Task added successfully");
   } else {
     toast.error("😓 Something went wrong. Try again");
   }
@@ -83,4 +83,25 @@ export const updateUserPassword = (password) => async (dispatch) => {
   } catch (err) {
     toast.error("The old password is incorrect");
   }
+};
+
+/* ---=== PROJECTS ACTIONS ===--- */
+
+export const addProject = (formProps) => async (dispatch) => {
+  const response = await axios.post(BACKEND_URL + "/api/projects", formProps, {
+    headers: { Authorization: token },
+  });
+  dispatch({ type: "ADD_PROJECT", payload: formProps });
+  if (response.status === 200) {
+    toast.success("✔️ Project added successfully");
+  } else {
+    toast.error("😓 Something went wrong. Try again");
+  }
+};
+
+export const getProjects = () => async (dispatch) => {
+  const response = await axios.get(BACKEND_URL + "/api/projects", {
+    headers: { Authorization: token },
+  });
+  dispatch({ type: "GET_PROJECTS", payload: response.data });
 };

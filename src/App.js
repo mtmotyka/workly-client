@@ -22,6 +22,11 @@ const App = () => {
             exact
             component={EditProfilePage}
           />
+          <SecuredRoute
+            path="/project-settings"
+            exact
+            component={EditProfilePage}
+          />
           <Route component={ErrorPage} />
         </Switch>
       </BrowserRouter>

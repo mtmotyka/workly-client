@@ -8,21 +8,19 @@ import "tippy.js/themes/light-border.css";
 import { AiOutlineUser } from "react-icons/ai";
 import { BsPencil } from "react-icons/bs";
 import { IoSettingsOutline, IoLogOutOutline } from "react-icons/io5";
+import { AiOutlineDelete } from "react-icons/ai";
 import { FcHome, FcParallelTasks, FcInfo } from "react-icons/fc";
 
 import "./sidebar.scss";
 import { ReactComponent as IcoSearch } from "../../assets/icons/ico-search.svg";
 import { ReactComponent as ThreeDots } from "../../assets/icons/ico-three-dots.svg";
-import { ReactComponent as IcoDashboard } from "../../assets/icons/ico-dashboard.svg";
-import { ReactComponent as IcoCrm } from "../../assets/icons/ico-crm.svg";
-import { ReactComponent as IcoWebsiteRedesign } from "../../assets/icons/ico-website-redesign.svg";
-import { ReactComponent as IcoCommunication } from "../../assets/icons/ico-comunication-tool.svg";
 import ExampleAvatar from "../../assets/images/example-avatar.png";
 import ExampleTeamAvatarOne from "../../assets/images/example-team-avatar-1.png";
 import ExampleTeamAvatarTwo from "../../assets/images/example-team-avatar-2.png";
 import ExampleTeamAvatarThree from "../../assets/images/example-team-avatar-3.png";
 import { getUserInfo } from "../../redux/actions";
 import AddProjectPopup from "../AddProjectPopup/AddProjectPopup";
+import { getProjects } from "../../redux/actions";
 
 const profileTooltip = () => {
   return (
@@ -79,10 +77,40 @@ const profileTooltip = () => {
   );
 };
 
+const projectTooltip = () => {
+  return (
+    <ul>
+      <li>
+        <Link
+          to="/user-settings"
+          className="flex items-center justify-start pl-3 pr-14 py-3 hover:bg-gray-100 border-b border-gray-200"
+        >
+          <BsPencil size="1.2em" className="mr-2" style={{ color: "gray" }} />{" "}
+          Edit project
+        </Link>
+      </li>
+      <li>
+        <Link
+          to="/user-settings"
+          className="flex items-center justify-start pl-3 pr-14 py-3 text-red-400 bg-red-100 hover:bg-red-200 border-b border-gray-200"
+        >
+          <AiOutlineDelete
+            size="1.2em"
+            className="mr-2"
+            style={{ color: "red" }}
+          />{" "}
+          Delete project
+        </Link>
+      </li>
+    </ul>
+  );
+};
+
 const Sidebar = (props) => {
   const [showPopup, setShowPopup] = useState(false);
   useEffect(() => {
     props.getUserInfo();
+    props.getProjects();
   }, []);
 
   const openPopup = () => {
@@ -98,6 +126,8 @@ const Sidebar = (props) => {
       return <AddProjectPopup handleClose={closePopup} />;
     }
   };
+
+  console.log(props);
 
   return (
     <>
@@ -157,7 +187,7 @@ const Sidebar = (props) => {
                 </p>
               </div>
             </div>
-            <div className="my-8 pl-7 pr-4">
+            <div className="my-8 pb-5 pl-7 pr-4 border-b border-solid border-gray-100">
               <div className="mb-2 text-gray-500 text-xs font-bold opacity-50 uppercase">
                 menu
               </div>
@@ -196,46 +226,40 @@ const Sidebar = (props) => {
             </div>
           </div>
           <div className="pt-px450">
-            <div className="mb-8">
-              <div className="mb-2 pl-7 pr-4 text-gray-500 text-xs font-bold opacity-50 uppercase">
-                projects
-              </div>
-              <div className="flex items-center justify-start pl-6 pr-5 py-3 hover:bg-gray-100 bg-white border-l-4 border-solid hover:border-purple-400 border-transparent cursor-pointer transition-all">
-                <IcoDashboard />
-                <p className="ml-2 text-gray-500 text-sm font-medium">
-                  Dashboard UI KIT
-                </p>
-                <ThreeDots className="ml-auto" />
-              </div>
-              <div className="transition-allt flex items-center justify-start pl-6 pr-5 py-3 hover:bg-gray-100 bg-white border-l-4 border-solid hover:border-purple-400 border-transparent cursor-pointer">
-                <IcoCrm />
-                <p className="ml-2 text-gray-500 text-sm font-medium">
-                  CRM System
-                </p>
-                <ThreeDots className="ml-auto" />
-              </div>
-              <div className="flex items-center justify-start pl-6 pr-5 py-3 hover:bg-gray-100 bg-white border-l-4 border-solid hover:border-purple-400 border-transparent cursor-pointer transition-all">
-                <IcoWebsiteRedesign />
-                <p className="ml-2 text-gray-500 text-sm font-medium">
-                  Website Redesign
-                </p>
-                <ThreeDots className="ml-auto" />
-              </div>
-              <div className="flex items-center justify-start pl-6 pr-5 py-3 hover:bg-gray-100 bg-white border-l-4 border-solid hover:border-purple-400 border-transparent cursor-pointer transition-all">
-                <IcoCommunication />
-                <p className="ml-2 text-gray-500 text-sm font-medium">
-                  Communication Tool
-                </p>
-                <ThreeDots className="ml-auto" />
-              </div>
-              <button
-                type="button"
-                className="inline-block mt-3 pl-7 text-purple-400 hover:underline text-sm font-bold"
-                onClick={openPopup}
-              >
-                + Add a Project
-              </button>
+            <div className="mb-2 pl-7 pr-4 text-gray-500 text-xs font-bold opacity-50 uppercase">
+              projects
             </div>
+            <div className="mb-4 pb-5 h-52 border-b border-solid border-gray-100 overflow-auto">
+              {props.projectsList.map((project) => {
+                return (
+                  <div className="flex items-center justify-start pl-6 pr-5 py-2 hover:bg-gray-100 bg-white border-l-4 border-solid hover:border-purple-400 border-transparent cursor-pointer transition-all">
+                    <div className="w-2 h-2 bg-green-300 rounded-sm" />
+                    <p className="ml-2 text-gray-500 text-sm font-medium">
+                      {project.name}
+                    </p>
+                    <Tippy
+                      content={projectTooltip()}
+                      trigger="click"
+                      placement="bottom"
+                      interactive={true}
+                      animation="shift-away-subtle"
+                      theme="light-border"
+                    >
+                      <div className="-mr-3 ml-auto px-2 py-3 hover:bg-gray-200 rounded-md cursor-pointer">
+                        <ThreeDots />
+                      </div>
+                    </Tippy>
+                  </div>
+                );
+              })}
+            </div>
+            <button
+              type="button"
+              className="inline-block mb-8 pl-7 text-purple-400 hover:underline text-sm font-bold"
+              onClick={openPopup}
+            >
+              + Add a Project
+            </button>
             <div className="my-8">
               <p className="mb-2 pl-7 pr-4 text-gray-500 text-xs font-bold opacity-50 uppercase">
                 teams
@@ -309,9 +333,13 @@ const Sidebar = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  return { user: state.userReducer.user };
+  return {
+    user: state.userReducer.user,
+    projectsList: state.projectsReducer.projects,
+  };
 };
 
 export default connect(mapStateToProps, {
   getUserInfo,
+  getProjects,
 })(Sidebar);

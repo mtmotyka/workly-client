@@ -5,15 +5,11 @@ import "tippy.js/dist/tippy.css";
 import "tippy.js/animations/shift-away-subtle.css";
 import "tippy.js/themes/light-border.css";
 import { MdKeyboardArrowDown } from "react-icons/md";
-import axios from "axios";
-import { ToastContainer } from "react-toastify";
-import { toast } from "react-toastify";
+import { connect } from "react-redux";
 
-import { BACKEND_URL } from "../../config";
 import Button from "../Button/Button";
 import Input from "../Input/Input";
-
-const token = localStorage.getItem("accessToken");
+import { addProject } from "../../redux/actions";
 
 const AddProjectPopup = (props) => {
   const [projectName, setProjectName] = useState(null);
@@ -39,26 +35,11 @@ const AddProjectPopup = (props) => {
     );
   };
 
-  const addProjectSubmit = async (e) => {
-    console.log("idzie");
-    e.preventDefault();
-
-    const response = await axios.post(
-      BACKEND_URL + "/api/projects",
-      {
-        name: projectName,
-      },
-      {
-        headers: { Authorization: token },
-      }
-    );
-    if (response.status === 200) {
-      toast.success("Project added succesfully");
-    } else {
-      toast.error("An unexpected error has occurred. Try again later.");
-    }
-
-    console.log(response);
+  const addProjectHandle = () => {
+    props.addProject({
+      name: projectName,
+    });
+    props.handleClose();
   };
 
   return (
@@ -73,51 +54,50 @@ const AddProjectPopup = (props) => {
         <div className="mb-7 text-center text-gray-400 text-2xl">
           Create new project
         </div>
-        <form onSubmit={addProjectSubmit}>
-          <div className="flex items-center justify-start w-full">
-            <Input
-              type="text"
-              name="projectName"
-              id="projectName"
-              label="Project name"
-              value={projectName}
-              placeholder="Some awesome project"
-              required={true}
-              onChange={(e) => setProjectName(e.target.value)}
-            />
-            <Tippy
-              content={colorPicker()}
-              trigger="click"
-              placement="bottom"
-              interactive={true}
-              animation="shift-away-subtle"
-              theme="light-border"
-            >
-              <div className="flex items-center justify-between -mt-2 ml-7 cursor-pointer">
-                <div
-                  className="w-8 h-8 rounded-full"
-                  style={{ backgroundColor: projectColor }}
-                />
-                <MdKeyboardArrowDown
-                  size="1.5em"
-                  style={{ fill: "gray", opacity: "0.4" }}
-                />
-              </div>
-            </Tippy>
-          </div>
-          <div className="flex justify-center">
-            <Button
-              type="submit"
-              size="md"
-              shadow="2xl"
-              color="green"
-              icon="add"
-              className="mb-3 ml-6 text-center"
-            >
-              Create project
-            </Button>
-          </div>
-        </form>
+        <div className="flex items-center justify-start w-full">
+          <Input
+            type="text"
+            name="projectName"
+            id="projectName"
+            label="Project name"
+            value={projectName}
+            placeholder="Some awesome project"
+            required={true}
+            onChange={(e) => setProjectName(e.target.value)}
+          />
+          <Tippy
+            content={colorPicker()}
+            trigger="click"
+            placement="bottom"
+            interactive={true}
+            animation="shift-away-subtle"
+            theme="light-border"
+          >
+            <div className="flex items-center justify-between -mt-2 ml-7 cursor-pointer">
+              <div
+                className="w-8 h-8 rounded-full"
+                style={{ backgroundColor: projectColor }}
+              />
+              <MdKeyboardArrowDown
+                size="1.5em"
+                style={{ fill: "gray", opacity: "0.4" }}
+              />
+            </div>
+          </Tippy>
+        </div>
+        <div className="flex justify-center">
+          <Button
+            type="submit"
+            size="md"
+            shadow="2xl"
+            color="green"
+            icon="add"
+            className="mb-3 ml-6 text-center"
+            onClick={addProjectHandle}
+          >
+            Create project
+          </Button>
+        </div>
       </div>
       <div
         onClick={props.handleClose}
@@ -127,4 +107,8 @@ const AddProjectPopup = (props) => {
   );
 };
 
-export default AddProjectPopup;
+const mapStateToProps = (state) => {
+  return { addProject: state.addProject };
+};
+
+export default connect(mapStateToProps, { addProject })(AddProjectPopup);
