@@ -21,6 +21,7 @@ import ExampleTeamAvatarThree from "../../assets/images/example-team-avatar-3.pn
 import { getUserInfo } from "../../redux/actions";
 import AddProjectPopup from "../AddProjectPopup/AddProjectPopup";
 import { getProjects } from "../../redux/actions";
+import DarkModeToggle from "../DarkModeToggle/DarkModeToggle";
 
 const profileTooltip = () => {
   return (
@@ -144,7 +145,8 @@ const Sidebar = (props) => {
               </Link>
               <IcoSearch className="cursor-pointer" />
             </div>
-            <div className="relative flex items-center justify-between m-0 mt-8 pb-4 pl-7 pr-5 pt-4 bg-gray-100">
+            <DarkModeToggle />
+            <div className="relative flex items-center justify-between m-0 mt-8 pb-4 pl-7 pr-5 pt-4 bg-primary">
               <img src={ExampleAvatar} alt="Avatar" />
               <div>
                 <p className="text-gray-600 text-sm font-bold">
