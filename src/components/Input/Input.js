@@ -16,7 +16,7 @@ const Input = (props) => {
   } = props;
   return (
     <div className="input-gropup relative flex flex-col items-start justify-start mb-8 w-full">
-      <label htmlFor={id} className="mb-1 text-sm opacity-40">
+      <label htmlFor={name} className="mb-2 text-sm opacity-40">
         {label}
       </label>
       <input
@@ -25,7 +25,7 @@ const Input = (props) => {
         id={id}
         placeholder={placeholder}
         value={value}
-        className={`${className} w-full px-4 py-2 outline-none text-md border border-solid focus:border-purple-400 border-gray-200  ${
+        className={`${className} w-full px-4 py-2 outline-none text-md border border-solid placeholder-gray-300 focus:border-purple-400 border-gray-200  ${
           disabled ? "text-gray-400" : "text-gray-600"
         }`}
         onChange={onChange}

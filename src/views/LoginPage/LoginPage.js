@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { toast } from "react-toastify";
 
+import { BACKEND_URL } from "../../config";
 import { ReactComponent as WorklySygnet } from "../../assets/images/workly-sygnet-yellow.svg";
 import { ReactComponent as ShowPasswordIcon } from "../../assets/icons/ico-eye.svg";
 import Input from "../../components/Input/Input";
@@ -19,13 +20,10 @@ const LoginPage = (props) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post(
-        "https://mikovsky-cloud.com/workly/api/auth/login",
-        {
-          email: email,
-          password: password,
-        }
-      );
+      const response = await axios.post(BACKEND_URL + "/api/auth/login", {
+        email: email,
+        password: password,
+      });
 
       const data = response.data;
       setToken(data.token);
@@ -49,7 +47,7 @@ const LoginPage = (props) => {
               Register
             </Link>
             <span className="absolute left-1/2 top-2/4 w-px h-6 bg-gray-400 transform -translate-y-2/4" />
-            <Link to="/login" className="ml-10 text-yellow-400 text-xl">
+            <Link to="/login" className="ml-10 text-purple-400 text-xl">
               Login
             </Link>
           </div>
