@@ -7,10 +7,10 @@ const WhiteContainer = (props) => {
   return (
     <>
       <div className="py-3">
-        <div className="pb-5 pt-5 bg-white border border-solid border-gray-200">
+        <div className="pb-5 pt-5 bg-primary border border-solid border-primary">
           <div className="flex items-center justify-between mb-8 w-full">
             <p
-              className={`ml-4 font-regular text-gray-400 text-xl inline-block ${
+              className={`ml-4 font-regular text-primary text-xl inline-block ${
                 props.centered && "text-center"
               } ${props.className}`}
             >

@@ -44,9 +44,9 @@ const AddProjectPopup = (props) => {
 
   return (
     <>
-      <div className="absolute z-50 left-2/4 top-2/4 px-4 py-8 w-6/12 bg-white shadow-md transform -translate-x-2/4 -translate-y-2/4">
+      <div className="absolute z-50 left-2/4 top-2/4 px-4 py-8 w-6/12 bg-primary shadow-md transform -translate-x-2/4 -translate-y-2/4">
         <button
-          className="absolute right-3 top-3 text-xl font-light opacity-20"
+          className="absolute right-3 top-3 text-secondary text-xl font-light"
           onClick={props.handleClose}
         >
           &#10005;

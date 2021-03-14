@@ -47,7 +47,7 @@ const TaskDetails = ({ task, editTask }) => {
 
   if (!task) {
     return (
-      <div className="w-full text-center text-xl opacity-40">
+      <div className="w-full text-center text-primary text-xl opacity-40">
         Select task from the list on the left
       </div>
     );
@@ -55,7 +55,7 @@ const TaskDetails = ({ task, editTask }) => {
   return (
     <>
       <div>
-        <div className="flex items-center justify-between mb-7 pb-3 border-b border-solid border-gray-200">
+        <div className="flex items-center justify-between mb-7 pb-3 border-b border-solid border-secondary">
           <div>
             <Button
               size="xxs"
@@ -90,7 +90,7 @@ const TaskDetails = ({ task, editTask }) => {
           </div>
         </div>
         <div className="px-4">
-          <p className="mb-7 w-full h-12 text-2xl font-medium bg-white rounded-md outline-none resize-none">
+          <p className="mb-7 w-full h-12 text-primary text-2xl font-medium bg-primary rounded-md outline-none resize-none">
             {task.name}
           </p>
           <AssigneeTask />

@@ -17,46 +17,12 @@ const HomePage = () => {
             <div className="col-span-2">
               <WhiteContainer title="Completed Tasks">
                 <div className="flex items-center justify-between px-4">
-                  <p className="mr-9 text-7xl font-bold">372</p>
+                  <p className="mr-9 text-primary text-7xl font-bold">372</p>
                   <img
                     src={TasksChart}
                     alt=""
                     className="img-fluid completed-tasks-wrapper__chart"
                   />
-                </div>
-              </WhiteContainer>
-            </div>
-            <div className="col-span-1">
-              <WhiteContainer title="Working Rate" centered={true}>
-                <div className="progress-circle">
-                  <svg>
-                    <circle cx="60" cy="60" r="60"></circle>
-                    <circle
-                      cx="60"
-                      cy="60"
-                      r="60"
-                      className="circle-62"
-                    ></circle>
-                  </svg>
-                  <p className="progress-circle__percentage color-green">62%</p>
-                </div>
-              </WhiteContainer>
-            </div>
-            <div className="col-span-1">
-              <WhiteContainer title="Working Rate" centered={true}>
-                <div className="progress-circle">
-                  <svg>
-                    <circle cx="60" cy="60" r="60"></circle>
-                    <circle
-                      cx="60"
-                      cy="60"
-                      r="60"
-                      className="circle-47"
-                    ></circle>
-                  </svg>
-                  <p className="progress-circle__percentage color-purple">
-                    47%
-                  </p>
                 </div>
               </WhiteContainer>
             </div>

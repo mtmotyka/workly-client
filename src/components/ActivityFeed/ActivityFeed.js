@@ -14,14 +14,16 @@ const ActivityFeed = () => {
     <WhiteContainer title="Activity">
       <div className="activity-feed px-4">
         <div className="single-day">
-          <p className="mb-6 text-sm font-bold opacity-50 uppercase">Today</p>
+          <p className="mb-6 text-secondary text-sm font-bold opacity-50 uppercase">
+            Today
+          </p>
           <div className="timeline-container">
             <div className="timeline-container__single-activity relative pb-6">
               <div className="relative z-1 flex items-start justify-start">
                 <div>
                   <TaskCompleteRounded />
                 </div>
-                <p className="ml-4 mt-1 text-gray-500">
+                <p className="ml-4 mt-1 text-primary opacity-60">
                   <strong className="font-semibold">Darika Samak</strong> mark
                   as done{" "}
                   <strong className="font-semibold">
@@ -29,14 +31,16 @@ const ActivityFeed = () => {
                   </strong>
                 </p>
               </div>
-              <div className="ml-14 text-sm font-bold opacity-70">8:40 PM</div>
+              <div className="ml-14 text-secondary text-sm font-bold opacity-70">
+                8:40 PM
+              </div>
             </div>
             <div className="timeline-container__single-activity relative pb-6">
               <div className="relative z-1 flex items-start justify-start">
                 <div>
                   <MessageRounded />
                 </div>
-                <p className="ml-4 mt-1 text-gray-500">
+                <p className="ml-4 mt-1 text-primary opacity-60">
                   <strong className="font-semibold">Emilee Simchenko </strong>{" "}
                   commented on{" "}
                   <strong className="font-semibold">
@@ -44,14 +48,16 @@ const ActivityFeed = () => {
                   </strong>
                 </p>
               </div>
-              <div className="ml-14 text-sm font-bold opacity-70">7:43 PM</div>
+              <div className="ml-14 text-secondary text-sm font-bold opacity-70">
+                7:43 PM
+              </div>
             </div>
             <div className="timeline-container__single-activity relative pb-6">
               <div className="relative z-1 flex items-start justify-start">
                 <div>
                   <UploadRounded />
                 </div>
-                <p className="ml-4 mt-1 text-gray-500">
+                <p className="ml-4 mt-1 text-primary opacity-60">
                   <strong className="font-semibold">Darika Samak</strong>{" "}
                   uploaded 4 files on{" "}
                   <strong className="font-semibold">
@@ -59,7 +65,9 @@ const ActivityFeed = () => {
                   </strong>
                 </p>
               </div>
-              <div className="ml-14 text-sm font-bold opacity-70">6:02 PM</div>
+              <div className="ml-14 text-secondary text-sm font-bold opacity-70">
+                6:02 PM
+              </div>
               <div className="flex flex-wrap items-start justify-start -mr-2 mb-0 ml-11 mt-0">
                 {Array(4)
                   .fill(null)
@@ -73,7 +81,7 @@ const ActivityFeed = () => {
           </div>
         </div>
         <div className="single-day">
-          <p className="mb-6 text-sm font-bold opacity-50 uppercase">
+          <p className="mb-6 text-secondary text-sm font-bold opacity-50 uppercase">
             Yesterday
           </p>
           <div className="timeline-container">
@@ -82,7 +90,7 @@ const ActivityFeed = () => {
                 <div>
                   <TaskCompleteRounded />
                 </div>
-                <p className="ml-4 mt-1 text-gray-500">
+                <p className="ml-4 mt-1 text-primary opacity-60">
                   <strong className="font-semibold">Darika Samak</strong> mark
                   as done{" "}
                   <strong className="font-semibold">
@@ -90,14 +98,16 @@ const ActivityFeed = () => {
                   </strong>
                 </p>
               </div>
-              <div className="ml-14 text-sm font-bold opacity-70">8:40 PM</div>
+              <div className="ml-14 text-secondary text-sm font-bold opacity-70">
+                8:40 PM
+              </div>
             </div>
             <div className="timeline-container__single-activity relative pb-6">
               <div className="relative z-1 flex items-start justify-start">
                 <div>
                   <MessageRounded />
                 </div>
-                <p className="ml-4 mt-1 text-gray-500">
+                <p className="ml-4 mt-1 text-primary opacity-60">
                   <strong className="font-semibold">Emilee Simchenko </strong>{" "}
                   commented on{" "}
                   <strong className="font-semibold">
@@ -105,14 +115,16 @@ const ActivityFeed = () => {
                   </strong>
                 </p>
               </div>
-              <div className="ml-14 text-sm font-bold opacity-70">7:43 PM</div>
+              <div className="ml-14 text-secondary text-sm font-bold opacity-70">
+                7:43 PM
+              </div>
             </div>
             <div className="timeline-container__single-activity relative pb-6">
               <div className="relative z-1 flex items-start justify-start">
                 <div>
                   <EditRounded />
                 </div>
-                <p className="ml-4 mt-1 text-gray-500">
+                <p className="opacity ml-4 mt-1 text-primary opacity-60">
                   <strong className="font-semibold">Darika Samak</strong> edited{" "}
                   <strong className="font-semibold">
                     Listing on Product Hunt so that we can reach as many
@@ -120,7 +132,9 @@ const ActivityFeed = () => {
                   </strong>
                 </p>
               </div>
-              <div className="ml-14 text-sm font-bold opacity-70">6:02 PM</div>
+              <div className="ml-14 text-secondary text-sm font-bold opacity-70">
+                6:02 PM
+              </div>
             </div>
           </div>
         </div>
