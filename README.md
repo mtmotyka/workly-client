@@ -12,9 +12,13 @@ You can see our progress here: https://workly.mikovsky-cloud.com/ (hosted by net
 **Currently working functionalities**
 - Register (at /register)
 - Login (at /login)
+
+**Functionalities after looged in**
 - Add task (at / or /tasks-list)
-- View tasks list (at / or /tasks-list. Visible only when you are logged in and you added any task)
-- Editing profile (at /user-settings. You must be logged in)
+- View tasks list (at / or /tasks-list)
+- View tasks details and edit (at /tasks-list after clicking any task)
+- Editing profile (at /user-settings or from sidebar)
+- Adding project from sidebar
 
 ## Used technologies
 **Front-end:**
