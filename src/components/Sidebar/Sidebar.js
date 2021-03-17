@@ -111,7 +111,7 @@ const Sidebar = (props) => {
   useEffect(() => {
     props.getUserInfo();
     props.getProjects();
-  }, [props]);
+  }, []);
 
   const openPopup = () => {
     setShowPopup(true);
