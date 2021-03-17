@@ -11,7 +11,7 @@ import "./layout.scss";
 const Layout = ({ children }) => {
   return (
     <ThemeProvider>
-      <main className="flex h-screen max-h-screen font-sans bg-gray-50 overflow-hidden">
+      <main className="flex h-screen max-h-screen font-sans bg-secondary overflow-hidden">
         <Header />
         <Sidebar />
         <ToastContainer />

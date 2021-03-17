@@ -5,6 +5,8 @@ import { BsPencil } from "react-icons/bs";
 import { FcCheckmark } from "react-icons/fc";
 import { IoMdAddCircleOutline } from "react-icons/io";
 
+/* ---=== DARK MODE ===--- */
+
 const getInitialTheme = (_) => {
   if (typeof window !== "undefined" && window.localStorage) {
     const storedPrefs = window.localStorage.getItem("color-theme");
@@ -53,14 +55,17 @@ export const ThemeProvider = ({ initialTheme, children }) => {
   );
 };
 
+/* ---=== BUTTONS ===--- */
+
 export const ButtonType = {
   transparent:
     "bg-transparent text-gray-400 font-light text-center hover:bg-gray-300 hover:text-gray-500 hover:bg-opacity-20 border border-solid border-gray-300",
-  green: "bg-green-500 hover:bg-green-600 font-light text-white text-center",
+  green: "bg-green-main hover:bg-green-600 font-light text-white text-center",
+  grereden: "bg-red-main hover:bg-red-600 font-light text-white text-center",
   greenTransparent:
-    "bg-transparent hover:bg-green-300 hover:bg-opacity-20 hover:text-green-700 border border-green-300 font-light text-center",
+    "bg-transparent hover:bg-green-300 hover:bg-opacity-20 hover:text-green-main border border-green-main text-green-main font-light text-center",
   redTransparent:
-    "bg-transparent hover:bg-red-300 hover:bg-opacity-20 hover:text-red-700 border border-red-300 text-red-500 text-center",
+    "bg-transparent hover:bg-red-700 hover:bg-opacity-20 hover:text-red-700 border border-red-main text-red-main text-center",
   yellow: "bg-yellow-100 hover:bg-yellow-200 text-yellow-600 text-center",
   gray: "bg-gray-200 hover:bg-gray-300 text-gray-600 text-center",
 };

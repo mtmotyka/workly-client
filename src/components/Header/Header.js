@@ -7,17 +7,13 @@ import "./header.scss";
 import Button from "../Button/Button";
 import ExampleTeamAvatar from "../../assets/images/example-big-avatar.png";
 import { ReactComponent as IcoChat } from "../../assets/icons/ico-chat.svg";
-import { ReactComponent as IcoMore } from "../../assets/icons/ico-more-dots.svg";
 
 const Header = () => {
   return (
-    <header className="header fixed z-10 left-0 top-0 pb-14 pl-7 pr-7 pt-7 bg-white border-b border-gray-200">
+    <header className="header fixed z-10 left-0 top-0 pb-14 pl-7 pr-7 pt-7 bg-primary border-b border-primary">
       <div className="flex items-center justify-between">
         <div className="flex items-center justify-start">
-          <h2 className="text-3xl font-bold">Home</h2>
-          <button className="ml-2 mt-1 bg-none border-none outline-none appearance-none cursor-pointer">
-            <IcoMore />
-          </button>
+          <h2 className="text-primary text-3xl font-bold">Home</h2>
         </div>
         <div className="flex items-center justify-end">
           <button type="button" className="mr-2">
@@ -56,45 +52,45 @@ const Header = () => {
           <ul className="flex items-center justify-start list-none">
             <li className="mr-6 pb-2">
               <NavLink
-                activeClassName="border-purple-400 text-black"
+                activeClassName="border-purple-main text-primary"
                 to="/tasks-list"
-                className="text-md pb-2 hover:text-black no-underline font-medium border-b-4 border-solid hover:border-purple-400 opacity-70 transition-all"
+                className="text-md font-regular pb-2 text-secondary no-underline border-b-4 border-solid border-accent hover:border-purple-main transition-all"
               >
                 Tasks
               </NavLink>
             </li>
             <li className="mr-6 pb-2">
               <NavLink
-                activeClassName="border-purple-400 text-black"
+                activeClassName="border-purple-main text-primary"
                 to="/kanban"
-                className="text-md pb-2 hover:text-black no-underline font-medium border-b-4 border-solid hover:border-purple-400 opacity-70 transition-all"
+                className="text-md font-regular pb-2 text-secondary no-underline border-b-4 border-solid border-accent hover:border-purple-main transition-all"
               >
                 Kanban
               </NavLink>
             </li>
             <li className="mr-6 pb-2">
               <NavLink
-                activeClassName="border-purple-400 text-black"
+                activeClassName="border-purple-main text-primary"
                 to="/activity"
-                className="text-md pb-2 hover:text-black no-underline font-medium border-b-4 border-solid hover:border-purple-400 opacity-70 transition-all"
+                className="text-md font-regular pb-2 text-secondary no-underline border-b-4 border-solid border-accent hover:border-purple-main transition-all"
               >
                 Activity
               </NavLink>
             </li>
             <li className="mr-6 pb-2">
               <NavLink
-                activeClassName="border-purple-400 text-black"
+                activeClassName="border-purple-main text-primary"
                 to="/calendar"
-                className="text-md pb-2 hover:text-black no-underline font-medium border-b-4 border-solid hover:border-purple-400 opacity-70 transition-all"
+                className="text-md font-regular pb-2 text-secondary no-underline border-b-4 border-solid border-accent hover:border-purple-main transition-all"
               >
                 Calendar
               </NavLink>
             </li>
             <li className="mr-6 pb-2">
               <NavLink
-                activeClassName="border-purple-400 text-black"
+                activeClassName="border-purple-main text-primary"
                 to="/files"
-                className="text-md pb-2 hover:text-black no-underline font-medium border-b-4 border-solid hover:border-purple-400 opacity-70 transition-all"
+                className="text-md font-regular pb-2 text-secondary no-underline border-b-4 border-solid border-accent hover:border-purple-main transition-all"
               >
                 Files
               </NavLink>
