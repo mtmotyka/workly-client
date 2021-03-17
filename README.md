@@ -7,7 +7,7 @@ This is repo with front-end code. Backend repo is here: https://github.com/mikov
 
 ### Live preview
 
-You can see our progress here: https://workly.mikovsky-cloud.com/ (hosted by netlify at https://worklypl.netlify.app/, but we need the same domain as server to bypass CORS)
+You can see our progress here: https://workly.mikovskycloud.com/ (hosted by netlify with custom domain)
 
 **Currently working functionalities**
 - Register (at /register)
