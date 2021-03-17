@@ -39,7 +39,7 @@ export const editTask = (task, id) => async (dispatch) => {
   const response = await axios.put(BACKEND_URL + "/api/tasks/" + id, task, {
     headers: { Authorization: token },
   });
-  dispatch({ type: "EDIT_TASK", payload: task });
+  dispatch({ type: "EDIT_TASK", payload: response.data });
   if (task.completed === false) {
     toast("✅ Task updated");
   }

@@ -17,19 +17,19 @@ const DarkModeToggle = (props) => {
         <input
           checked={isDark()}
           onChange={(e) => setTheme(e.target.checked ? "dark" : "light")}
-          class="toggle-checkbox"
+          className="toggle-checkbox"
           type="checkbox"
         ></input>
-        <div class="toggle-slot">
-          <div class="sun-icon-wrapper">
+        <div className="toggle-slot">
+          <div className="sun-icon-wrapper">
             <FiSun
               style={{ color: "ffbb52" }}
               size="6em"
               className="absolute -top-2"
             />
           </div>
-          <div class="toggle-button"></div>
-          <div class="moon-icon-wrapper">
+          <div className="toggle-button"></div>
+          <div className="moon-icon-wrapper">
             <FiMoon
               style={{ color: "#fff" }}
               size="6em"

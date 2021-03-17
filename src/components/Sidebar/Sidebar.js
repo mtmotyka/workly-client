@@ -12,7 +12,6 @@ import { AiOutlineDelete } from "react-icons/ai";
 import { FcHome, FcParallelTasks, FcInfo } from "react-icons/fc";
 
 import "./sidebar.scss";
-import { ReactComponent as IcoSearch } from "../../assets/icons/ico-search.svg";
 import { ReactComponent as ThreeDots } from "../../assets/icons/ico-three-dots.svg";
 import ExampleAvatar from "../../assets/images/example-avatar.png";
 import ExampleTeamAvatarOne from "../../assets/images/example-team-avatar-1.png";
@@ -112,7 +111,7 @@ const Sidebar = (props) => {
   useEffect(() => {
     props.getUserInfo();
     props.getProjects();
-  }, []);
+  }, [props]);
 
   const openPopup = () => {
     setShowPopup(true);
@@ -127,8 +126,6 @@ const Sidebar = (props) => {
       return <AddProjectPopup handleClose={closePopup} />;
     }
   };
-
-  console.log(props);
 
   return (
     <>
