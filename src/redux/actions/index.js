@@ -104,4 +104,5 @@ export const getProjects = () => async (dispatch) => {
     headers: { Authorization: token },
   });
   dispatch({ type: "GET_PROJECTS", payload: response.data });
+  console.log(response);
 };

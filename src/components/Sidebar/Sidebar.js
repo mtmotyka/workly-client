@@ -82,7 +82,7 @@ const projectTooltip = () => {
     <ul className="bg-primary">
       <li className="border-b border-l border-r border-secondary">
         <Link
-          to="/user-settings"
+          to="/"
           className="flex items-center justify-start pl-3 pr-14 py-3 text-primary hover:bg-accent border-b border-secondary"
         >
           <BsPencil size="1.2em" className="mr-2" style={{ color: "gray" }} />{" "}
@@ -91,7 +91,7 @@ const projectTooltip = () => {
       </li>
       <li className="border-b border-l border-r border-secondary">
         <Link
-          to="/user-settings"
+          to="/"
           className="flex items-center justify-start pl-3 pr-14 py-3 text-primary hover:bg-accent border-b border-secondary"
         >
           <AiOutlineDelete
@@ -152,7 +152,7 @@ const Sidebar = (props) => {
                   {props.user.jobTitle !== null ? (
                     props.user.jobTitle
                   ) : (
-                    <Link to="/" className="hover:underline">
+                    <Link to="/user-settings" className="hover:underline">
                       Add your position
                     </Link>
                   )}
@@ -230,7 +230,10 @@ const Sidebar = (props) => {
               {props.projectsList.map((project) => {
                 return (
                   <div className="flex items-center justify-start pl-6 pr-5 py-2 hover:bg-accent bg-primary border-l-4 border-solid hover:border-purple-400 border-transparent cursor-pointer transition-all">
-                    <div className="w-2 h-2 bg-green-300 rounded-sm" />
+                    <div
+                      className="w-2 h-2 rounded-sm"
+                      style={{ backgroundColor: project.color }}
+                    />
                     <p className="ml-2 text-primary text-sm font-medium">
                       {project.name}
                     </p>

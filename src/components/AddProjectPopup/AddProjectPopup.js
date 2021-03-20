@@ -37,6 +37,7 @@ const AddProjectPopup = (props) => {
 
   const addProjectHandle = () => {
     props.addProject({
+      color: projectColor,
       name: projectName,
     });
     props.handleClose();
